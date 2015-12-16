@@ -1,15 +1,38 @@
 <h1>Unix to normal time converter</h1>
 <p class="lead">This tool converts a Unix time stamp to a readable time string.</p>
-<p>
-	<div class="max-width-400px input-group">
+
+<div class="clearfix">
+	<div class="col-xs-8 col-sm-6 input-group pull-left">
 		<div class="input-group-addon">Unix timestamp</div>
-		<input type="number" id="user-input-unix-time" class="form-control max-width-400px" />
+		<input type="number" id="user-input-unix-time" class="form-control" autofocus="autofocus" />
 	</div>
-	<h2 id="normal-time-output"></h2>
-</p>
-<p>
+	
+	<div class="col-xs-3 col-sm-3">
+		<button type="button" class="btn btn-primary" id="add-to-history" disabled="disabled">
+			Add to history
+		</button>
+	</div>
+</div>
+
+<h2 id="normal-time-output">&nbsp;</h2>
+
+<div>
+	<table class="table table-nonfluid hide" id="history-table">
+		<thead>
+			<tr>
+				<th>Unix</th>
+				<th>Normal</th>
+			</tr>
+		</thead>
+		<tbody id="history">
+		</tbody>
+	</table>
+</div>
+
+<div>
 	<a href="https://github.com/Simsso/Online-Tools/blob/master/page/logic/unix-to-normal-time.js" target="_blank">JavaScript source code</a>
-</p>
+</div>
+
 <div class="text-info">
 	<h3>Unix time</h3>
 	<p>

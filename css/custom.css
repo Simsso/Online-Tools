@@ -1,5 +1,28 @@
+html {
+	position: relative;
+	min-height: 100%;
+}
 body {
 	padding-top: 50px;
+
+	/* footer + 20px margin */
+	margin-bottom: 70px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #f5f5f5;
+}
+
+.footer > .container {
+	line-height: 50px;
+}
+
+.footer p { 
+	margin: 0;
 }
 
 .container {

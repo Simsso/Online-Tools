@@ -1,11 +1,11 @@
-<h1>Binary to decimal conversion</h1>
-<p class="lead">This tool converts a binary number into decimal.</p>
+<h1>Decimal to binary conversion</h1>
+<p class="lead">This tool converts a decimal number into binary.</p>
 
 <div class="clearfix">
 	<div class="col-xs-8 col-sm-6 input-group pull-left">
 		<div class="input-group-addon">Number</div>
 		<input type="number" id="user-input-number" class="form-control" autofocus="autofocus" />
-		<div class="input-group-addon">Binary</div>
+		<div class="input-group-addon">Decimal</div>
 	</div>
 	
 	<div class="col-xs-3 col-sm-3">
@@ -15,14 +15,14 @@
 	</div>
 </div>
 
-<h2 id="decimal-output">&nbsp;</h2>
+<h2 id="binary-output">&nbsp;</h2>
 
 <div>
 	<table class="table table-nonfluid hide" id="history-table">
 		<thead>
 			<tr>
-				<th>Binary</th>
 				<th>Decimal</th>
+				<th>Binary</th>
 			</tr>
 		</thead>
 		<tbody id="history">
@@ -30,5 +30,5 @@
 	</table>
 </div>
 <div>
-	<a href="https://github.com/Simsso/Online-Tools/blob/master/page/logic/binary-to-decimal-conversion.js" target="_blank">JavaScript source code</a>
+	<a href="https://github.com/Simsso/Online-Tools/blob/master/page/logic/decimal-to-binary-conversion.js" target="_blank">JavaScript source code</a>
 </div>

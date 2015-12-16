@@ -51,6 +51,11 @@
 
     </div>
 
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">&copy; Timo Denk</p>
+      </div>
+    </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="/js/jquery-1.11.3.min.js"><\/script>')</script>

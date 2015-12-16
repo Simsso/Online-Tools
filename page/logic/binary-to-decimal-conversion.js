@@ -1,3 +1,3 @@
-function binaryToDecimal(binary) {
-	return parseInt(binary, 2);
+function binaryToDecimal(bin) {
+	return parseInt(bin, 2);
 }
