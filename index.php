@@ -1,5 +1,31 @@
 <?php
 
+  function get_meta_data($page_name) {
+    $meta_data;
+    $meta_data_path = 'page/meta-data/' . $page_name . '.txt';
+
+    if (file_exists($meta_data_path)) {
+      $meta_data_file = fopen($meta_data_path, 'r');
+      if ($meta_data_file) {
+        $lineNumber = 0;
+        while (($line = fgets($meta_data_file)) !== false) {
+          // title in line 1
+          if ($lineNumber == 0) {
+            $meta_data->title = $line;
+          } elseif ($lineNumber == 1) { // description in line 2
+            $meta_data->description = $line;
+          }
+
+          $lineNumber++;
+        }
+
+        fclose($meta_data_file);
+      } 
+    }
+
+    return $meta_data;
+  }
+
   // set $p to the code of the requested page
   $p = 'home';
   if (isset($_GET['p'])) { $p = $_GET['p']; }
@@ -18,25 +44,9 @@
     file_exists('page/content/' . $p . '.php')) {
 
     // read meta data
-    $meta_data_path = 'page/meta-data/' . $p . '.txt';
-    if (file_exists($meta_data_path)) {
-      $meta_data_file = fopen($meta_data_path, 'r');
-      if ($meta_data_file) {
-        $lineNumber = 0;
-        while (($line = fgets($meta_data_file)) !== false) {
-          // title in line 1
-          if ($lineNumber == 0) {
-            $page_title = $line;
-          } elseif ($lineNumber == 1) { // description in line 2
-            $page_description = $line;
-          }
-
-          $lineNumber++;
-        }
-
-        fclose($meta_data_file);
-      } 
-    }
+    $meta_data = get_meta_data($p);
+    if (isset($meta_data->title)) $page_title = $meta_data->title;
+    if (isset($meta_data->description)) $page_description = $meta_data->description;
 
     $tool_page_requested = true;
 

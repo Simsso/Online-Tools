@@ -9,7 +9,7 @@
 
 		// check if the value is a number
 		if (result && hexInput) { 
-			hex = '#' + hexInput;
+			hex = (((hexInput.substr(0, 1) === '#') ? '' : '#') + hexInput).toUpperCase();
 			rgb = '(' + result.r + ',' + result.g + ',' + result.b + ')';
 			$('#rgb-output').html(rgb);
 			$('#add-to-history').removeAttr('disabled', 'disabled');

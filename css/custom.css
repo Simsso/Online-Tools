@@ -53,3 +53,12 @@ input.invalid, textarea.invalid, select.invalid {
 	border-left-width: 0;
     border-right-width: 0;
 }
+
+.btn-primary > img.icon {
+	height: 24px;
+    margin: -6px -2px -4px -8px;
+}
+
+.navbar-inverse .navbar-toggle {
+	border: none;
+}

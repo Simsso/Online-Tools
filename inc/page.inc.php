@@ -42,11 +42,20 @@
     <div class="container">
 
       <?php
+        // tool page requested
         if ($tool_page_requested) {
           echo isset($page_title) ? '<h1>' . $page_title . '</h1>' : '';
           echo isset($page_description) ? '<p class="lead">' . $page_description . '</p>' : '';
+          
           require('page/content/' . $p . '.php');
+
+          // link to logic source code (if existent)
+          if (file_exists('page/logic/' . $p . '.js')) {
+            echo '<div><a href="https://github.com/Simsso/Online-Tools/blob/master/page/logic/' . $p . '.js" target="_blank">JavaScript source code</a></div>';
+          }
+
         } else {
+          // normal page requested (home, about...)
           require('special-page/' . $p . '.php');
         }
       ?>

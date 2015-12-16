@@ -7,7 +7,8 @@
 	
 	<div class="col-xs-3 col-sm-3">
 		<button type="button" class="btn btn-primary" id="add-to-history" disabled="disabled">
-			Add to history
+			<img src="/img/ic_add_white.svg" class="icon" />
+			History
 		</button>
 	</div>
 </div>
@@ -33,7 +34,4 @@
 		<tbody id="history">
 		</tbody>
 	</table>
-</div>
-<div>
-	<a href="https://github.com/Simsso/Online-Tools/blob/master/page/logic/binary-to-decimal-conversion.js" target="_blank">JavaScript source code</a>
 </div>

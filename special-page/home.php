@@ -9,7 +9,13 @@
 			foreach ($files as $key => $value) {
 				$name = substr($value, 0, -4);
 				if (strlen($name) > 0) {
-					echo '<li><a href="/?p=' . $name . '">' . $name . '</a></li>';
+					$meta_data = get_meta_data($name);
+					echo '
+						<li>
+							<a href="/?p=' . $name . '" title="' . (isset($meta_data->description) ? $meta_data->description : '') . '">
+								' . (isset($meta_data->title) ? $meta_data->title : $name) . '
+							</a>
+						</li>';
 				}
 			}
 		?>
