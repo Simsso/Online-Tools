@@ -1,13 +1,10 @@
-<h1>RGB to HEX conversion</h1>
-<p class="lead">This tool converts a RGB-color into HEX notation.</p>
-
 <div class="clearfix">
 	<div class="col-xs-9 col-sm-6 input-group pull-left">
 		<div class="input-group-addon">R</div>
 		<input type="number" id="input-r" min="0" max="255" class="form-control" autofocus="autofocus" />
-		<div class="input-group-addon">G</div>
+		<div class="input-group-addon middle">G</div>
 		<input type="number" id="input-g" min="0" max="255" class="form-control" />
-		<div class="input-group-addon">B</div>
+		<div class="input-group-addon middle">B</div>
 		<input type="number" id="input-b" min="0" max="255" class="form-control" />
 	</div>
 	

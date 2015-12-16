@@ -9,10 +9,32 @@
 
   $tool_page_requested = false;
 
+  $DEFAULT_PAGE_TITLE = "tools.timodenk.com";
+  $DEFUALT_PAGE_DESCRIPTION = "This page is a collection of online tools.";
+
   if (in_array($p, $special_pages)) { // check if a special page is requested
 
   } elseif ( // check if the tool page is available 
     file_exists('page/content/' . $p . '.php')) {
+
+    $meta_data_file = fopen('page/meta-data/' . $p . '.txt', 'r');
+    if ($meta_data_file) {
+      $lineNumber = 0;
+      while (($line = fgets($meta_data_file)) !== false) {
+        // title in line 1
+        if ($lineNumber == 0) {
+          $page_title = $line;
+        } elseif ($lineNumber == 1) { // description in line 2
+          $page_description = $line;
+        }
+
+        $lineNumber++;
+      }
+
+      fclose($meta_data_file);
+    } else {
+      // error opening file
+    } 
 
     $tool_page_requested = true;
 

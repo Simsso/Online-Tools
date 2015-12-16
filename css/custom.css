@@ -48,3 +48,8 @@ input.invalid, textarea.invalid, select.invalid {
 .table-nonfluid {
    width: auto !important;
 }
+
+.input-group-addon.middle {
+	border-left-width: 0;
+    border-right-width: 0;
+}

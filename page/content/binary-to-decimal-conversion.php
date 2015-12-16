@@ -1,6 +1,3 @@
-<h1>Binary to decimal conversion</h1>
-<p class="lead">This tool converts a binary number into decimal.</p>
-
 <div class="clearfix">
 	<div class="col-xs-8 col-sm-6 input-group pull-left">
 		<div class="input-group-addon">Number</div>

@@ -1,6 +1,3 @@
-<h1>Unix to normal time converter</h1>
-<p class="lead">This tool converts a Unix time stamp to a readable time string.</p>
-
 <div class="clearfix">
 	<div class="col-xs-8 col-sm-6 input-group pull-left">
 		<div class="input-group-addon">Unix timestamp</div>

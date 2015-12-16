@@ -1,0 +1,2 @@
+RGB to HEX conversion
+This tool converts a RGB-color into HEX notation.

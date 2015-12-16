@@ -1,0 +1,2 @@
+Decimal to binary conversion
+This tool converts a decimal number into binary.

@@ -1,6 +1,3 @@
-<h1>HEX to RGB conversion</h1>
-<p class="lead">This tool converts a RGB-color from HEX notation to RGB.</p>
-
 <div class="clearfix">
 	<div class="col-xs-8 col-sm-6 input-group pull-left">
 		<div class="input-group-addon">#</div>

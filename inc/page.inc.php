@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <meta name="description" content="<?php echo isset($page_description) ? $page_description : $DEFAULT_PAGE_DESCRIPTION; ?>">
+    <meta name="author" content="Timo Denk">
+    <link rel="icon" href="/img/favicon.ico">
 
-    <title>tools.timodenk.com</title>
+    <title><?php echo isset($page_title) ? $page_title : $DEFAULT_PAGE_TITLE; ?></title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
@@ -27,11 +27,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/?p=home">tools.timodenk.com</a>
+          <a class="navbar-brand" href="/">tools.timodenk.com</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li<?php if ($p == 'home') echo ' class="active"'; ?>><a href="/?p=home">Home</a></li>
+            <li<?php if ($p == 'home') echo ' class="active"'; ?>><a href="/">Home</a></li>
             <li<?php if ($p == 'about') echo ' class="active"'; ?>><a href="/?p=about">About</a></li>
             <li<?php if ($p == 'contact') echo ' class="active"'; ?>><a href="/?p=contact">Contact</a></li>
           </ul>
@@ -43,6 +43,8 @@
 
       <?php
         if ($tool_page_requested) {
+          echo isset($page_title) ? '<h1>' . $page_title . '</h1>' : '';
+          echo isset($page_description) ? '<p class="lead">' . $page_description . '</p>' : '';
           require('page/content/' . $p . '.php');
         } else {
           require('special-page/' . $p . '.php');
