@@ -11,10 +11,8 @@
 
   if (in_array($p, $special_pages)) { // check if a special page is requested
 
-  } elseif ( // check if the whole tool page is available (3 files required)
-    file_exists('page/content/' . $p . '.php') && 
-    file_exists('page/logic/' . $p . '.js') && 
-    file_exists('page/adapter/' . $p . '.js')) {
+  } elseif ( // check if the tool page is available 
+    file_exists('page/content/' . $p . '.php')) {
 
     $tool_page_requested = true;
 

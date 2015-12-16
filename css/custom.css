@@ -2,10 +2,26 @@ body {
 	padding-top: 50px;
 }
 
+.container {
+	max-width: 900px;
+}
+
 .max-width-250px {
 	max-width: 250px;
 }
 
 .max-width-400px {
 	max-width: 400px;
+}
+
+.margin-left-5px {
+	margin-left: 5px;
+}
+
+input.invalid, textarea.invalid, select.invalid {
+	border-color: #F00;
+}
+
+.table-nonfluid {
+   width: auto !important;
 }

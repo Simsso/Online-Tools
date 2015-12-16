@@ -59,8 +59,8 @@
     <?php
       // require javascript of tool pages
       if ($tool_page_requested) {
-        echo '<script src="/page/adapter/' . $p . '.js"></script>';
-        echo '<script src="/page/logic/' . $p . '.js"></script>';
+        if (file_exists('page/logic/' . $p . '.js')) { echo '<script src="/page/logic/' . $p . '.js"></script>'; }
+        if (file_exists('page/adapter/' . $p . '.js')) { echo '<script src="/page/adapter/' . $p . '.js"></script>'; }
       }
     ?>
   </body>
