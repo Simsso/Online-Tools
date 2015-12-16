@@ -9,11 +9,11 @@
     <meta name="author" content="Timo Denk">
     <link rel="icon" href="/img/favicon.ico">
 
-    <title><?php echo isset($page_title) ? $page_title : $DEFAULT_PAGE_TITLE; ?></title>
+    <title><?php echo (isset($page_title) ? $page_title . ' - ' : '') . $DEFAULT_PAGE_TITLE; ?></title>
 
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="../css/custom.css" rel="stylesheet">
+    <link href="/css/custom.css" rel="stylesheet">
   </head>
 
   <body>
@@ -55,7 +55,7 @@
 
     <footer class="footer">
       <div class="container">
-        <p class="text-muted">&copy; Timo Denk</p>
+        <p class="text-muted">&copy; <a href="http://www.timodenk.com/" target="_blank">Timo Denk</a></p>
       </div>
     </footer>
 
@@ -66,9 +66,27 @@
     <?php
       // require javascript of tool pages
       if ($tool_page_requested) {
-        if (file_exists('page/logic/' . $p . '.js')) { echo '<script src="/page/logic/' . $p . '.js"></script>'; }
-        if (file_exists('page/adapter/' . $p . '.js')) { echo '<script src="/page/adapter/' . $p . '.js"></script>'; }
+        // logic script
+        if (file_exists('page/logic/' . $p . '.js')) { 
+          echo '<script src="/page/logic/' . $p . '.js"></script>'; 
+        }
+
+        // adapter script
+        if (file_exists('page/adapter/' . $p . '.js')) { 
+          echo '<script src="/page/adapter/' . $p . '.js"></script>'; 
+        }
       }
     ?>
+
+    <!-- analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-37082212-1', 'auto');
+      ga('send', 'pageview');
+    </script>
   </body>
 </html>
