@@ -21,7 +21,7 @@
 			$('#normal-time-output').html('&nbsp;');
 			$('#add-to-history').attr('disabled', 'disabled');
 		}
-	});
+	}).trigger('keyup');;
 
 
 

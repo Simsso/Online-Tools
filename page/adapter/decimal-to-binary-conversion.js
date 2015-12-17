@@ -18,7 +18,7 @@
 			$('#decimal-output').html('&nbsp;');
 			$('#add-to-history').attr('disabled', 'disabled');
 		}
-	});
+	}).trigger('keyup');;
 
 	// history
 	$('#add-to-history').on('click', function() {

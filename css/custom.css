@@ -41,6 +41,10 @@ body {
 	margin-left: 5px;
 }
 
+.padding-15px {
+	padding: 15px;
+}
+
 input.invalid, textarea.invalid, select.invalid {
 	border-color: #F00;
 }
@@ -61,4 +65,8 @@ input.invalid, textarea.invalid, select.invalid {
 
 .navbar-inverse .navbar-toggle {
 	border: none;
+}
+
+.white-space-pre-wrap {
+	white-space: pre-wrap;
 }
