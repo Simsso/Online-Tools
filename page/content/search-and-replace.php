@@ -11,4 +11,4 @@
 	</div>
 </div>
 
-<p id="output"></p>
+<p id="output" class="white-space-pre-wrap"></p>

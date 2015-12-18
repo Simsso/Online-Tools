@@ -1,0 +1,2 @@
+Gaussian elemination
+This tool uses the Gaussian elemniation for solving systems of linear equations represented by a matrix. 
