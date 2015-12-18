@@ -36,8 +36,7 @@
   $tool_page_requested = false;
 
   $DEFAULT_PAGE_TITLE = "tools.timodenk.com";
-  $DEFUALT_PAGE_DESCRIPTION = "This page is a collection of online tools.";
-
+  $DEFAULT_PAGE_DESCRIPTION = "This page is a collection of online tools.";
   if (in_array($p, $special_pages)) { // check if a special page is requested
 
   } elseif ( // check if the tool page is available 

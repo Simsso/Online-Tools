@@ -5,10 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="description" content="<?php echo isset($page_description) ? $page_description : $DEFAULT_PAGE_DESCRIPTION; ?>">
+    <meta name="description" content="<?php echo (isset($page_description) ? $page_description : $DEFAULT_PAGE_DESCRIPTION); ?>">
     <meta name="author" content="Timo Denk">
     <link rel="icon" href="/img/favicon.ico">
-
     <title><?php echo (isset($page_title) ? $page_title . ' - ' : '') . $DEFAULT_PAGE_TITLE; ?></title>
 
     <link href="/css/bootstrap.min.css" rel="stylesheet">
