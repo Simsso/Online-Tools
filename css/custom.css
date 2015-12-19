@@ -77,3 +77,37 @@ div.color-preview {
     border-radius: 3px;
     margin-right: 10px;
 }
+
+.tool-info {
+    padding: 16px 0;
+}
+
+.tool-info:hover .tool-name, .tool-info:hover .tool-description {
+  color: #000;
+}
+
+.tool-info a:hover, .tool-info a:active, .tool-info a:focus {
+  text-decoration: none;
+}
+
+.tool-info:not(:first-child) {
+    border-top: 1px solid #e0e0e0;
+}
+
+.tool-name {
+    font-size: 16px;
+    color: #212121;
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tool-description {
+    font-size: 14px;
+    color: #757575;
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
