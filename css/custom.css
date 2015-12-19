@@ -70,3 +70,10 @@ input.invalid, textarea.invalid, select.invalid {
 .white-space-pre-wrap {
 	white-space: pre-wrap;
 }
+
+div.color-preview {
+    height: 72px;
+    width: 72px;
+    border-radius: 3px;
+    margin-right: 10px;
+}

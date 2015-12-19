@@ -1,4 +1,4 @@
-<div class="clearfix">
+<div class="clearfix form-group">
 	<div class="col-xs-9 col-sm-6 input-group pull-left">
 		<div class="input-group-addon">R</div>
 		<input type="number" id="input-r" min="0" max="255" class="form-control" autofocus="autofocus" />
@@ -16,7 +16,10 @@
 	</div>
 </div>
 
-<h2 id="hex-output">&nbsp;</h2>
+<div class="clearfix form-group">
+	<div id="color-preview" class="color-preview pull-left"></div>
+	<h2 id="hex-output">&nbsp;</h2>
+</div>
 
 <p>
 	<a href="/?p=hex-to-rgb-conversion" target="_blank">
@@ -30,6 +33,7 @@
 	<table class="table table-nonfluid hide" id="history-table">
 		<thead>
 			<tr>
+				<th></th>
 				<th>RGB</th>
 				<th>HEX</th>
 			</tr>

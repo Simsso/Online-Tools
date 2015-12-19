@@ -6,7 +6,7 @@
 
 		var btn = $(this);
 		btn.attr('disabled', 'disabled');
-		var url = 'http://' + $('#input-url').val();
+		var url = (($('#input-url').val().substr(0,7) !== 'http://') ? 'http://' : '') + $('#input-url').val();
 		jQuery.ajax(
 			'/page/logic/website-page-source.php', 
 			{
