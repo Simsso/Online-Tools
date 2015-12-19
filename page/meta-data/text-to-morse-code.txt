@@ -1,0 +1,2 @@
+Text to Morse code translator
+This tool translates a text into morse code.
