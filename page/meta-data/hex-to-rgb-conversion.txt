@@ -1,2 +1,3 @@
 HEX to RGB conversion
 This tool converts a RGB-color from HEX notation to RGB.
+color,code,rgb,hex,conversion,value,convert,format

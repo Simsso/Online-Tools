@@ -1,1 +1,3 @@
 Search and replace
+
+search,replace,text,find

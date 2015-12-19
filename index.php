@@ -9,13 +9,17 @@
       if ($meta_data_file) {
         $lineNumber = 0;
         while (($line = fgets($meta_data_file)) !== false) {
-          // title in line 1
-          if ($lineNumber == 0) {
-            $meta_data->title = $line;
-          } elseif ($lineNumber == 1) { // description in line 2
-            $meta_data->description = $line;
+          if (strlen($line) > 0) {
+            // title in line 1
+            if ($lineNumber == 0 ) {
+              $meta_data->title = $line;
+            } elseif ($lineNumber == 1 ) { // description in line 2
+              $meta_data->description = $line;
+            } elseif ($lineNumber == 2) { // keywords
+              $meta_data->keywords = $line;
+            }
           }
-
+          
           $lineNumber++;
         }
 
@@ -31,12 +35,13 @@
   if (isset($_GET['p'])) { $p = $_GET['p']; }
 
   // special pages don't have the content, logic, adapter system which tool pages have
-  $special_pages = array('home', 'about', 'contact');
+  $special_pages = array('home', 'about');
 
   $tool_page_requested = false;
 
   $DEFAULT_PAGE_TITLE = "tools.timodenk.com";
   $DEFAULT_PAGE_DESCRIPTION = "This page is a collection of online tools.";
+  $DEFAULT_PAGE_KEYWORDS = "tool,online,tools,free";
   if (in_array($p, $special_pages)) { // check if a special page is requested
 
   } elseif ( // check if the tool page is available 
@@ -46,6 +51,7 @@
     $meta_data = get_meta_data($p);
     if (isset($meta_data->title)) $page_title = $meta_data->title;
     if (isset($meta_data->description)) $page_description = $meta_data->description;
+    if (isset($meta_data->keywords)) $page_keywords = $meta_data->keywords;
 
     $tool_page_requested = true;
 

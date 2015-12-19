@@ -1,2 +1,3 @@
 Unix to normal time converter
-This tool converts a Unix time stamp to a readable time string.
+This tool converts a Unix timestamp to a readable time string.
+unix,time,conversion,converter,normal,readable,text,date,timestamp

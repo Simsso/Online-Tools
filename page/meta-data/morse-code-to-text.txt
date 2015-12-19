@@ -1,2 +1,3 @@
 Morse code to text translator
-This tool translates a morse code into text.
+This tool translates a Morse code into text.
+morse,code,text,converter,translator,conversion,dot,dash,dit,dah

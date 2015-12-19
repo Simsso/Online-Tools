@@ -7,6 +7,7 @@
 
     <meta name="description" content="<?php echo (isset($page_description) ? $page_description : $DEFAULT_PAGE_DESCRIPTION); ?>">
     <meta name="author" content="Timo Denk">
+    <meta name="keywords" content="<?php echo (isset($page_keywords) ? $page_keywords . ',' : '') .  $DEFAULT_PAGE_KEYWORDS; ?>">
     <link rel="icon" href="/img/favicon.ico">
     <title><?php echo (isset($page_title) ? $page_title . ' - ' : '') . $DEFAULT_PAGE_TITLE; ?></title>
 
@@ -32,7 +33,6 @@
           <ul class="nav navbar-nav">
             <li<?php if ($p == 'home') echo ' class="active"'; ?>><a href="/">Home</a></li>
             <li<?php if ($p == 'about') echo ' class="active"'; ?>><a href="/?p=about">About</a></li>
-            <li<?php if ($p == 'contact') echo ' class="active"'; ?>><a href="/?p=contact">Contact</a></li>
           </ul>
         </div>
       </div>
