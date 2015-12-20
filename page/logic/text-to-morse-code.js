@@ -66,6 +66,9 @@ function textToMorseCode(text){
 	for (var i = 0; i < text.length; i++) {
 		if (i !== 0) output += ' '; // word separator
 
+		var lastChar = text.charAt(i - 1);
+		if (typeof lastChar !== 'undefined' && lastChar === ' ' && text.charAt(i) === ' ') output += ' '; 
+
 		var tmp = morseCode[text.charAt(i).toLowerCase()];
 		if (typeof tmp === 'undefined') {
 			tmp = text.charAt(i);

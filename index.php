@@ -10,6 +10,7 @@
         $lineNumber = 0;
         while (($line = fgets($meta_data_file)) !== false) {
           if (strlen($line) > 0) {
+            $line = str_replace("\n", "", $line);
             // title in line 1
             if ($lineNumber == 0 ) {
               $meta_data->title = $line;

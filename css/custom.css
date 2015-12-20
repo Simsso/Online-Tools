@@ -124,3 +124,7 @@ img.nav-logo {
     height: 30px;
     margin-top: -5px;
 }
+
+textarea {
+  resize: vertical;
+}

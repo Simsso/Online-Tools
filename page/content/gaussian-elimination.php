@@ -1,7 +1,7 @@
 <p class="bg-info padding-15px">Syntax for entering a matrix: Spaces separate columns and new lines define new rows.</p>
 
 <div class="form-group">
-	<textarea id="user-input" class="form-control"></textarea>
+	<textarea id="user-input" class="form-control" autofocus="autofocus"></textarea>
 </div>
 
 <div class="form-group">

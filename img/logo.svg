@@ -1,28 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="256px" height="43px" viewBox="0 0 256 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+<svg width="256px" height="48px" viewBox="0 0 256 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
     <!-- Generator: Sketch 3.4.4 (17249) - http://www.bohemiancoding.com/sketch -->
     <title>Slice 1</title>
     <desc>Created with Sketch.</desc>
-    <defs>
-        <path d="M4.92874525,0.311501656 C5.58330751,0.109029302 6.27892117,2.48689958e-14 7,2.48689958e-14 C10.8659932,2.48689958e-14 14,3.13400675 14,7 C14,10.8659932 10.8659932,14 7,14 C3.13400675,14 0,10.8659932 0,7 C0,6.00845263 0.20616013,5.06505654 0.577954385,4.21033773 L1.85496636,8.14057647 L7.14503364,8.14057647 L8.77975432,3.10942353 L4.92874525,0.311501656 Z" id="path-1"></path>
-        <path d="M18.9726245,14.9726245 L30.1654754,3.77977351 L26.9752127,0.589510756 L15.7823617,11.7823617 L18.9726245,14.9726245 Z M13.4726245,20.4726245 L6.00465228,27.9405967 L0.265612451,30.4893739 L2.81438952,24.7503339 L10.2823617,17.2823617 L13.4726245,20.4726245 Z" id="path-3"></path>
-    </defs>
+    <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <text id="Online-Tools" sketch:type="MSTextLayer" font-family="Helvetica" font-size="36" font-weight="normal" fill="#FFFFFF">
-            <tspan x="47" y="35">Online Tools</tspan>
-        </text>
-        <g id="Polygon-1" sketch:type="MSLayerGroup" transform="translate(6.000000, 5.000000)">
-            <mask id="mask-2" sketch:name="Mask" fill="white">
-                <use xlink:href="#path-1"></use>
-            </mask>
-            <use id="Mask" fill="#337AB7" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
-        </g>
-        <rect id="Rectangle-1" fill="#337AB7" sketch:type="MSShapeGroup" transform="translate(26.145968, 24.611427) rotate(-45.000000) translate(-26.145968, -24.611427) " x="23.8901113" y="8.89833459" width="4.51171286" height="31.4261839"></rect>
-        <g id="Rectangle-1" sketch:type="MSLayerGroup" transform="translate(10.000000, 7.000000)">
-            <mask id="mask-4" sketch:name="Mask" fill="white">
-                <use xlink:href="#path-3"></use>
-            </mask>
-            <use id="Mask" fill="#337AB7" sketch:type="MSShapeGroup" xlink:href="#path-3"></use>
+        <g id="logo" sketch:type="MSLayerGroup" transform="translate(0.000000, 1.000000)">
+            <text id="Online-Tools" fill="#000000" sketch:type="MSTextLayer" font-family="Helvetica" font-size="34" font-weight="normal">
+                <tspan x="56" y="36" fill="#FFFFFF">Online Tools</tspan>
+            </text>
+            <g id="icon" fill="#337AB7" sketch:type="MSShapeGroup">
+                <g id="Polygon-1">
+                    <g id="mask-2">
+                        <path d="M7.18188594,0.453093318 C8.13567666,0.158588076 9.14928513,3.55271368e-14 10.2,3.55271368e-14 C15.8333044,3.55271368e-14 20.4,4.55855527 20.4,10.1818182 C20.4,15.805081 15.8333044,20.3636364 10.2,20.3636364 C4.56669555,20.3636364 0,15.805081 0,10.1818182 C0,8.73956746 0.300404761,7.36735497 0.842162104,6.12412761 L2.70295098,11.8408385 L10.4113347,11.8408385 L12.7933563,4.52279786 L7.18188594,0.453093318 L7.18188594,0.453093318 Z" id="path-1"></path>
+                    </g>
+                    <g id="Mask">
+                        <path d="M7.18188594,0.453093318 C8.13567666,0.158588076 9.14928513,3.55271368e-14 10.2,3.55271368e-14 C15.8333044,3.55271368e-14 20.4,4.55855527 20.4,10.1818182 C20.4,15.805081 15.8333044,20.3636364 10.2,20.3636364 C4.56669555,20.3636364 0,15.805081 0,10.1818182 C0,8.73956746 0.300404761,7.36735497 0.842162104,6.12412761 L2.70295098,11.8408385 L10.4113347,11.8408385 L12.7933563,4.52279786 L7.18188594,0.453093318 L7.18188594,0.453093318 Z" id="path-1"></path>
+                    </g>
+                </g>
+                <path d="M10.8411461,14.68469 L15.4898147,10.0443078 L47.8699591,42.3667336 L43.2212905,47.0071158 L10.8411461,14.68469 L10.8411461,14.68469 Z" id="Rectangle-1"></path>
+                <g id="Rectangle-1" transform="translate(5.828571, 2.909091)">
+                    <g id="mask-4" transform="translate(0.000000, 0.000000)">
+                        <path d="M27.6458243,21.7783629 L43.955407,5.49785238 L39.3067385,0.857470191 L22.9971556,17.1379807 L27.6458243,21.7783629 L27.6458243,21.7783629 Z M19.6315386,29.7783629 L8.74963618,40.6408679 L0.387035286,44.3481802 L4.10096759,36.0004857 L14.9828699,25.1379807 L19.6315386,29.7783629 L19.6315386,29.7783629 Z" id="path-3"></path>
+                    </g>
+                    <g id="Mask" transform="translate(0.000000, 0.000000)">
+                        <path d="M27.6458243,21.7783629 L43.955407,5.49785238 L39.3067385,0.857470191 L22.9971556,17.1379807 L27.6458243,21.7783629 L27.6458243,21.7783629 Z M19.6315386,29.7783629 L8.74963618,40.6408679 L0.387035286,44.3481802 L4.10096759,36.0004857 L14.9828699,25.1379807 L19.6315386,29.7783629 L19.6315386,29.7783629 Z" id="path-3"></path>
+                    </g>
+                </g>
+            </g>
         </g>
     </g>
 </svg>

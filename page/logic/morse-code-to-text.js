@@ -64,6 +64,9 @@ var morseCode = {
 function morseCodeToText(morse) {
 	var output = '';
 
+	var newLineRegExp = new RegExp('\n', 'g');
+	morse = morse.replace(newLineRegExp, ' \n ');
+
 	var words = morse.split(' / ');
 	for (var i = 0; i < words.length; i++) {
 		if (i !== 0) output += ' '; // word separator
