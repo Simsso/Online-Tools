@@ -5,8 +5,8 @@ html {
 body {
 	padding-top: 50px;
 
-	/* footer + 20px margin */
-	margin-bottom: 70px;
+	/* footer + 15px margin */
+	margin-bottom: 65px;
 }
 
 .footer {
@@ -110,4 +110,17 @@ div.color-preview {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.cookie-footer, .tool-page-bottom-ad {
+  margin: 15px 0 0;
+}
+
+.cookie-footer table {
+  width: 100%;
+}
+
+img.nav-logo {
+    height: 30px;
+    margin-top: -5px;
 }

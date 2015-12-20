@@ -1,11 +1,11 @@
 <div class="form-group">
-	<textarea id="user-input" class="form-control"></textarea>
+	<textarea id="user-input" class="form-control" autofocus="autofocus"></textarea>
 </div>
 
 <div class="clearfix form-group">
 	<div class="input-group pull-left">
 		<div class="input-group-addon">Search</div>
-		<input type="text" id="user-input-search" class="form-control" autofocus="autofocus" />
+		<input type="text" id="user-input-search" class="form-control" />
 		<div class="input-group-addon middle">Replace</div>
 		<input type="text" id="user-input-replace" class="form-control" />
 	</div>

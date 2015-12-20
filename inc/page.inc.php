@@ -27,7 +27,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">tools.timodenk.com</a>
+          <a class="navbar-brand" href="/">
+            <img src="/img/logo.svg" class="nav-logo" alt="Online Tools" title="tools.timodenk.com" />
+          </a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -39,7 +41,7 @@
       </div>
     </nav>
 
-    <div class="container">
+    <div id="main" class="container">
 
       <?php
         // tool page requested
@@ -51,7 +53,12 @@
 
           // link to logic source code (if existent)
           if (file_exists('page/logic/' . $p . '.js')) {
-            echo '<div><a href="https://github.com/Simsso/Online-Tools/blob/master/page/logic/' . $p . '.js" target="_blank">JavaScript source code</a></div>';
+            echo '<div class="form-group"><a href="https://github.com/Simsso/Online-Tools/blob/master/page/logic/' . $p . '.js" target="_blank">JavaScript source code</a></div>';
+          }
+
+          // keywords
+          if (isset($page_keywords) && strlen($page_keywords) > 0) {
+            echo '<div class="form-group page-keywords"><code>' . str_replace(',', '</code>&nbsp;<code>', $page_keywords) . '</code></div>';
           }
 
         } else {
@@ -59,6 +66,20 @@
           require('special-page/' . $p . '.php');
         }
       ?>
+
+      <div id="cookie-info"></div>
+
+      <!--<div class="tool-page-bottom-ad">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-9727315436627573"
+          data-ad-slot="5117021249"
+          data-ad-format="auto"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>-->
 
     </div>
 
@@ -71,6 +92,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="/js/jquery-1.11.3.min.js"><\/script>')</script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/custom.js"></script>
 
     <?php
       // require javascript of tool pages
