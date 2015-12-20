@@ -8,7 +8,7 @@
     <meta name="description" content="<?php echo (isset($page_description) ? $page_description : $DEFAULT_PAGE_DESCRIPTION); ?>">
     <meta name="author" content="Timo Denk">
     <meta name="keywords" content="<?php echo (isset($page_keywords) ? $page_keywords . ',' : '') .  $DEFAULT_PAGE_KEYWORDS; ?>">
-    <link rel="icon" href="/img/favicon.ico">
+    <link rel="icon" href="/img/icon.ico">
     <title><?php echo (isset($page_title) ? $page_title . ' - ' : '') . $DEFAULT_PAGE_TITLE; ?></title>
 
     <link href="/css/bootstrap.min.css" rel="stylesheet">
