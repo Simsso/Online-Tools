@@ -17,7 +17,7 @@
             } elseif ($lineNumber == 1 ) { // description in line 2
               $meta_data->description = $line;
             } elseif ($lineNumber == 2) { // keywords
-              $meta_data->keywords = $line;
+              $meta_data->keywords = explode(';', $line);
             }
           }
           
@@ -42,7 +42,7 @@
 
   $DEFAULT_PAGE_TITLE = "tools.timodenk.com";
   $DEFAULT_PAGE_DESCRIPTION = "This page is a collection of online tools.";
-  $DEFAULT_PAGE_KEYWORDS = "tool,online,tools,free";
+  $DEFAULT_PAGE_KEYWORDS = array('tool', 'online', 'tools', 'free');
   if (in_array($p, $special_pages)) { // check if a special page is requested
 
   } elseif ( // check if the tool page is available 

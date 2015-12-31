@@ -1,3 +1,3 @@
 Request headers
 This tools lists all headers of your HTTP request.
-http,request,header,headers,list
+http;request;header;headers;list

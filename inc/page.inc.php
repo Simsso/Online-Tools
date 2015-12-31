@@ -7,7 +7,18 @@
 
     <meta name="description" content="<?php echo (isset($page_description) ? $page_description : $DEFAULT_PAGE_DESCRIPTION); ?>">
     <meta name="author" content="Timo Denk">
-    <meta name="keywords" content="<?php echo (isset($page_keywords) ? $page_keywords . ',' : '') .  $DEFAULT_PAGE_KEYWORDS; ?>">
+    <meta name="keywords" content="<?php 
+      $meta_keywords = array_merge($page_keywords, $DEFAULT_PAGE_KEYWORDS);
+      $first_iteration = true;
+      foreach ($meta_keywords as $key => $value) {
+        if (!$first_iteration) {
+          echo ',';
+        }
+        $first_iteration = false;
+        echo str_replace(',', '_', $value);
+
+       }
+     ?>">
     <link rel="icon" href="/img/icon.ico">
     <title><?php echo (isset($page_title) ? $page_title . ' - ' : '') . $DEFAULT_PAGE_TITLE; ?></title>
 
@@ -57,8 +68,15 @@
           }
 
           // keywords
-          if (isset($page_keywords) && strlen($page_keywords) > 0) {
-            echo '<div class="form-group page-keywords"><code>' . str_replace(',', '</code>&nbsp;<code>', $page_keywords) . '</code></div>';
+          if (isset($page_keywords) && count($page_keywords) > 0) {
+            echo '<div class="form-group page-keywords">';
+
+            for ($i = 0; $i < count($page_keywords); $i++) {
+              if ($i !== 0) echo ' ';
+              echo '<code>' . $page_keywords[$i] . '</code>';
+            }
+
+            echo '</div>';
           }
 
         } else {

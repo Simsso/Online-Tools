@@ -128,3 +128,7 @@ img.nav-logo {
 textarea {
   resize: vertical;
 }
+
+.break-word {
+  word-wrap: break-word;
+}
