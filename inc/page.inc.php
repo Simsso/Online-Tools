@@ -47,6 +47,7 @@
             <li<?php if ($p == 'home') echo ' class="active"'; ?>><a href="/">Home</a></li>
             <li<?php if ($p == 'about') echo ' class="active"'; ?>><a href="/?p=about">About</a></li>
             <li<?php if ($p == 'contact') echo ' class="active"'; ?>><a href="/?p=contact">Contact</a></li>
+            <li<?php if ($p == 'legal-info') echo ' class="active"'; ?>><a href="/?p=legal-info">Legal info</a></li>
           </ul>
         </div>
       </div>

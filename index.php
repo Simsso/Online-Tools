@@ -36,7 +36,7 @@
   if (isset($_GET['p'])) { $p = $_GET['p']; }
 
   // special pages don't have the content, logic, adapter system which tool pages have
-  $special_pages = array('home', 'about', 'contact');
+  $special_pages = array('home', 'about', 'contact', 'legal-info');
 
   $tool_page_requested = false;
 
