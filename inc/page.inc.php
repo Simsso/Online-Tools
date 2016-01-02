@@ -64,8 +64,16 @@
           require('page/content/' . $p . '.php');
 
           // link to logic source code (if existent)
-          if (file_exists('page/logic/' . $p . '.js')) {
-            echo '<div class="form-group"><a href="https://github.com/Simsso/Online-Tools/blob/master/page/logic/' . $p . '.js" target="_blank">JavaScript source code</a></div>';
+          $source_code_types = array('JavaScript' => 'js', 'PHP' => 'php');
+          foreach ($source_code_types as $key => $value) {
+            if (file_exists('page/logic/' . $p . '.' . $value)) {
+              echo '
+                <div class="form-group">
+                  <a href="https://github.com/Simsso/Online-Tools/blob/master/page/logic/' . $p . '.' . $value . '" target="_blank">
+                    ' . $key . ' source code
+                  </a>
+                </div>';
+            }
           }
 
           // keywords
