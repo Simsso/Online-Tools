@@ -1,0 +1,3 @@
+Word count
+This tools shows you how many words a given text contains.
+word;count;text;words;number
