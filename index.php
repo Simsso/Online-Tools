@@ -43,6 +43,11 @@
   $DEFAULT_PAGE_TITLE = "tools.timodenk.com";
   $DEFAULT_PAGE_DESCRIPTION = "This page is a collection of online tools.";
   $DEFAULT_PAGE_KEYWORDS = array('tool', 'online', 'tools', 'free');
+
+  $page_title = "";
+  $page_description = "";
+  $page_keywords = Array();
+  
   if (in_array($p, $special_pages)) { // check if a special page is requested
 
   } elseif ( // check if the tool page is available 
@@ -50,6 +55,8 @@
 
     // read meta data
     $meta_data = get_meta_data($p);
+
+    // fill page vars with values if available
     if (isset($meta_data->title)) $page_title = $meta_data->title;
     if (isset($meta_data->description)) $page_description = $meta_data->description;
     if (isset($meta_data->keywords)) $page_keywords = $meta_data->keywords;

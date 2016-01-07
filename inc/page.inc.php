@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="description" content="<?php echo (isset($page_description) ? $page_description : $DEFAULT_PAGE_DESCRIPTION); ?>">
+    <meta name="description" content="<?php echo ((strlen($page_description) > 0) ? $page_description : $DEFAULT_PAGE_DESCRIPTION); ?>">
     <meta name="author" content="Timo Denk">
     <meta name="keywords" content="<?php 
       $meta_keywords = array_merge($page_keywords, $DEFAULT_PAGE_KEYWORDS);
@@ -20,7 +20,7 @@
        }
      ?>">
     <link rel="icon" href="/img/icon.ico">
-    <title><?php echo (isset($page_title) ? $page_title . ' - ' : '') . $DEFAULT_PAGE_TITLE; ?></title>
+    <title><?php echo ((strlen($page_title) > 0) ? $page_title . ' - ' : '') . $DEFAULT_PAGE_TITLE; ?></title>
 
     <link href="/css/bootstrap.min.css" rel="stylesheet">
 
@@ -77,7 +77,7 @@
           }
 
           // keywords
-          if (isset($page_keywords) && count($page_keywords) > 0) {
+          if (count($page_keywords) > 0) {
             echo '<div class="form-group page-keywords">';
 
             for ($i = 0; $i < count($page_keywords); $i++) {
