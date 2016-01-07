@@ -1,6 +1,6 @@
 <h1>Legal info</h1>
 
-<h2>Terms and conditions for website usage</h2>
+<h3>Terms and conditions for website usage</h3>
 <p>Welcome to my website. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions of use, which together with my privacy policy govern Timo Denk's relationship with you in relation to this website. If you disagree with any part of these terms and conditions, please do not use my website.</p>
 <p>The term 'Timo Denk' or 'me' or 'I' refers to the owner of the website. The term 'you' refers to the user or viewer of our website.</p>
 <p>The use of this website is subject to the following terms of use:</p>
@@ -16,13 +16,13 @@
 <li>Your use of this website and any dispute arising out of such use of the website is subject to the laws of Germans.</li>
 </ul>
 
-<h2>Disclaimer</h2>
+<h3>Disclaimer</h3>
 <p>The information contained in this website is for general information purposes only. The information is provided by Timo Denk and while I endeavour to keep the information up to date and correct, I make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose. Any reliance you place on such information is therefore strictly at your own risk.</p>
 <p>In no event will I be liable for any loss or damage including without limitation, indirect or consequential loss or damage, or any loss or damage whatsoever arising from loss of data or profits arising out of, or in connection with, the use of this website.</p>
 <p>Through this website you are able to link to other websites which are not under the control of Timo Denk. I have no control over the nature, content and availability of those sites. The inclusion of any links does not necessarily imply a recommendation or endorse the views expressed within them.</p>
 <p>Every effort is made to keep the website up and running smoothly. However, Timo Denk takes no responsibility for, and will not be liable for, the website being temporarily unavailable due to technical issues beyond our control.</p>
 
-<h2>Copyright</h2>
+<h3>Copyright</h3>
 <p>This website and its content is copyright of Timo Denk. All rights reserved.</p>
 <p>Any redistribution or reproduction of part or all of the contents in any form is prohibited other than the following:</p>
 <ul>

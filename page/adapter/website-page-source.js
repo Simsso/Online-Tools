@@ -16,7 +16,7 @@
 				},
 				success: function(res) {
 					$('#error-message').addClass('hide');
-					$('#page-source-output').html(res);
+					$('#page-source-output').html(formatPlainSourceCode(res));
 				},
 				error: function(res) {
 					// error message
@@ -48,4 +48,19 @@
 			$('#request-page-source').trigger('click');
 		}
 	}).trigger('keyup');
+
+
+	// styling with HTML
+	function formatPlainSourceCode(code) {
+		var html = '';
+
+
+
+		var rows = code.split('\n');
+		for (var i = 0; i < rows.length; i++) {
+			html += '<tr><td>' + i.toString() + '</td><td>' + rows[i] + '</td></tr>';
+		}
+
+		return html;
+	}
 })();
