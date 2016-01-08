@@ -1,0 +1,3 @@
+Linear interpolation
+This tools performs and visualizes a linear interpolation for a given set of points.
+math;interpolation;linear;function;graph;points;x;y
