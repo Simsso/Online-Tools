@@ -3,6 +3,7 @@ function countWords(s) {
     s = s.replace(/(^\s*)|(\s*$)/gi,""); // exclude  start and end white-space
     s = s.replace(/[ ]{2,}/gi," "); // two or more space to one
     s = s.replace(/\n /,"\n"); // exclude newline with a start spacing
+    s = s.replace(/\n/," ");
     return s.split(' ').length; 
 }
 
