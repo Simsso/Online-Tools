@@ -70,7 +70,7 @@
 		// output
 		showPoints();
 		showEquations();
-		drawPoints();
+		//drawPoints();
 		divOutput.removeClass('hide');
 	}).trigger('change');
 
@@ -87,10 +87,12 @@
 	}
 
 	function showEquations() {
+		var equations = quadraticInterpolation(points);
+
 		var html = '$$f(x) = \\begin{cases}';
-		for (var i = 1; i < points.length; i++) {
-			var xn = points[i].x, xm = points[i-1].x, yn = points[i].y, ym = points[i-1].y;
-			html += ym + ' + (' + yn + ' - ' + ym + ') * (x - ' + xm + ') / (' + xn + ' - ' + xm + '), & \\text{if } x \\in [' + xm + ',' + xn + ']' + ((i !== points.length - 1) ? ', \\\\' : '.\\end{cases}$$');
+		for (var i = 0; i < equations.length; i++) {
+			var a = equations[i].a, b = equations[i].b, c = equations[i].c;
+			html += round(a) + 'x^2+' + round(b) + 'x+' + round(c) + ', & \\text{if } x \\in [' + points[i].x + ',' + points[i+1].x + ']' + ((i !== equations.length - 1) ? ', \\\\' : '.\\end{cases}$$');
 		}
 		divEquationOutput.html(html);
 
@@ -100,13 +102,7 @@
 
 	function drawPoints() {
 		var svgHtml = '';
-		for (var i = 1; i < points.length; i++) {
-			var x1 = map(points[i-1].x, minX, maxX, 5, 95),
-				x2 = map(points[i].x, minX, maxX, 5, 95),
-				y1 = map(points[i-1].y, minX, maxY, 95, 5),
-				y2 = map(points[i].y, minX, maxY, 95, 5);
-			svgHtml += '<line x1="' + x1 + '%" x2="' + x2 + '%" y1="' + y1 + '%" y2="' + y2 + '%" />';
-		}
+		// TODO: draw points
 		svgVisualization.html(svgHtml);
 	}
 
@@ -119,4 +115,8 @@
 	}
 
 	function map(x, inMin, inMax, outMin, outMax) { return (x-inMin) * (outMax-outMin) / (inMax-inMin) + outMin; } // maps a value
+
+	function round(x) {
+		return Math.round(x * 10000) / 10000;
+	}
 })();

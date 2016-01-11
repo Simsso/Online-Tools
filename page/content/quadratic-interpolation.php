@@ -32,14 +32,14 @@
 	<h3>Equation</h3>
 	<div class="margin-bottom-15px" id="equation-output"></div>
 
-	<h3>Graph</h3>
-	<svg id="visualization" class="margin-bottom-15px"></svg>
+	<!--<h3>Graph</h3>
+	<svg id="visualization" class="margin-bottom-15px"></svg>-->
 </div>
 
 <div class="text-info">
-	<h3>Linear interpolation</h3>
+	<h3>Quadratic interpolation</h3>
 	<p>
-		In mathematics, linear interpolation is a method of curve fitting using linear polynomials. <a href="https://en.wikipedia.org/wiki/Linear_interpolation" target="_blank">Read more</a>
+		In the mathematical field of numerical analysis, interpolation is a method of constructing new data points within the range of a discrete set of known data points. <a href="https://en.wikipedia.org/wiki/Interpolation" target="_blank">Read more</a>
 	</p>
 </div>
 

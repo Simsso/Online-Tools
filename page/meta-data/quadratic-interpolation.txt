@@ -1,0 +1,3 @@
+Quadratic interpolation
+This tools performs a quadratic interpolation for a given set of points.
+math;interpolation;quadratic;function;points;x;y
