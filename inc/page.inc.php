@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="description" content="<?php echo ((strlen($page_description) > 0) ? $page_description : $DEFAULT_PAGE_DESCRIPTION); ?>">
+    <meta name="description" content="<?php echo ((strlen($meta_data->description) > 0) ? $meta_data->description : $DEFAULT_PAGE_DESCRIPTION); ?>">
     <meta name="author" content="Timo Denk">
     <meta name="keywords" content="<?php 
-      $meta_keywords = array_merge($page_keywords, $DEFAULT_PAGE_KEYWORDS);
+      $meta_keywords = array_merge($meta_data->keywords, $DEFAULT_PAGE_KEYWORDS);
       $first_iteration = true;
       foreach ($meta_keywords as $key => $value) {
         if (!$first_iteration) {
@@ -20,7 +20,7 @@
        }
      ?>">
     <link rel="icon" href="/img/icon.ico">
-    <title><?php echo ((strlen($page_title) > 0) ? $page_title . ' - ' : '') . $DEFAULT_PAGE_TITLE; ?></title>
+    <title><?php echo ((strlen($meta_data->title) > 0) ? $meta_data->title . ' - ' : '') . $DEFAULT_PAGE_TITLE; ?></title>
 
     <link href="/css/bootstrap.min.css" rel="stylesheet">
 
@@ -58,31 +58,45 @@
       <?php
         // tool page requested
         if ($tool_page_requested) {
-          echo isset($page_title) ? '<h1>' . $page_title . '</h1>' : '';
-          echo isset($page_description) ? '<p class="lead">' . $page_description . '</p>' : '';
+          echo '<h1>' . (isset($meta_data->title) ? $meta_data->title : $p)  . '</h1>';
+          echo '<p class="lead">' . (isset($meta_data->description) ? $meta_data->description : '') . '</p>';
           
           require('page/content/' . $p . '.php');
 
+
+          // additional information
+          if (strlen($meta_data->additional_information) > 0) {
+            $read_more_link = '';
+            if (strlen($meta_data->read_more_link) > 0) {
+              $read_more_link = ' <a href="' . $meta_data->read_more_link . '" target="_blank">Read more</a>';
+            }
+            echo '<div class="margin-bottom-15px"><h4>Additional information</h4><p>' . $meta_data->additional_information . $read_more_link . '</p></div>';
+          }
+
           // link to logic source code (if existent)
           $source_code_types = array('JavaScript' => 'js', 'PHP' => 'php');
+          $header_written = false;
           foreach ($source_code_types as $key => $value) {
             if (file_exists('page/logic/' . $p . '.' . $value)) {
+              if (!$header_written) echo "<h4>Source code</h4>";
+              $header_written = true;
+              
               echo '
-                <div class="form-group">
+                <div class="margin-bottom-15px">
                   <a href="https://github.com/Simsso/Online-Tools/blob/master/page/logic/' . $p . '.' . $value . '" target="_blank">
-                    ' . $key . ' source code
+                    ' . $key . ' source code (' . $p . '.' . $value . ')
                   </a>
                 </div>';
             }
           }
 
           // keywords
-          if (count($page_keywords) > 0) {
-            echo '<div class="form-group page-keywords">';
+          if (count($meta_data->keywords) > 0) {
+            echo '<div class="margin-bottom-15px page-keywords"><h4>Keywords</h4>';
 
-            for ($i = 0; $i < count($page_keywords); $i++) {
+            for ($i = 0; $i < count($meta_data->keywords); $i++) {
               if ($i !== 0) echo ' ';
-              echo '<code>' . $page_keywords[$i] . '</code>';
+              echo '<code>' . $meta_data->keywords[$i] . '</code>';
             }
 
             echo '</div>';

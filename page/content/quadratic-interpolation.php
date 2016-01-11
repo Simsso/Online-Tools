@@ -36,12 +36,13 @@
 	<svg id="visualization" class="margin-bottom-15px"></svg>-->
 </div>
 
-<div class="text-info">
-	<h3>Quadratic interpolation</h3>
-	<p>
-		In the mathematical field of numerical analysis, interpolation is a method of constructing new data points within the range of a discrete set of known data points. <a href="https://en.wikipedia.org/wiki/Interpolation" target="_blank">Read more</a>
-	</p>
-</div>
+<p>
+	<a href="/?p=linear-interpolation" target="_blank">
+		<button type="button" class="btn btn-default">
+			Linear interpolation
+		</button>
+	</a>
+</p>
 
 <script type="text/x-mathjax-config;executed=true">
 	MathJax.Hub.Config({

@@ -26,10 +26,3 @@
 		?>
 	</ul>
 </div>
-
-<div class="text-info">
-	<h3>HTTP header fields</h3>
-	<p>
-		HTTP header fields are components of the header section of request and response messages in the Hypertext Transfer Protocol (HTTP). They define the operating parameters of an HTTP transaction. <a href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields" target="_blank">Read more</a>
-	</p>
-</div>

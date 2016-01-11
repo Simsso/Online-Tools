@@ -36,12 +36,13 @@
 	<svg id="visualization" class="margin-bottom-15px"></svg>
 </div>
 
-<div class="text-info">
-	<h3>Linear interpolation</h3>
-	<p>
-		In mathematics, linear interpolation is a method of curve fitting using linear polynomials. <a href="https://en.wikipedia.org/wiki/Linear_interpolation" target="_blank">Read more</a>
-	</p>
-</div>
+<p>
+	<a href="/?p=quadratic-interpolation" target="_blank">
+		<button type="button" class="btn btn-default">
+			Quadratic interpolation
+		</button>
+	</a>
+</p>
 
 <script type="text/x-mathjax-config;executed=true">
 	MathJax.Hub.Config({

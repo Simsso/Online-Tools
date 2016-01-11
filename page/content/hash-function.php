@@ -21,10 +21,3 @@
 <p class="bg-warning padding-15px hide" id="error-message">An error occured.</p>
 
 <h2 id="hash-output" class="break-word">&nbsp;</h2>
-
-<div class="text-info">
-	<h3>Hash function</h3>
-	<p>
-		A hash function is any function that can be used to map data of arbitrary size to data of fixed size. The values returned by a hash function are called hash values, hash codes, hash sums, or simply hashes. <a href="https://en.wikipedia.org/wiki/Hash_function" target="_blank">Read more</a>
-	</p>
-</div>

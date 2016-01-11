@@ -1,3 +1,5 @@
 Request headers
 This tools lists all headers of your HTTP request.
 http;request;header;headers;list
+HTTP header fields are components of the header section of request and response messages in the Hypertext Transfer Protocol (HTTP). They define the operating parameters of an HTTP transaction.
+https://en.wikipedia.org/wiki/List_of_HTTP_header_fields

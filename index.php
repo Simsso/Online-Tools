@@ -2,6 +2,11 @@
 
   function get_meta_data($page_name) {
     $meta_data;
+    $meta_data->title = '';
+    $meta_data->description = '';
+    $meta_data->keywords = Array();
+    $meta_data->additional_information = '';
+    $meta_data->read_more_link = '';
     $meta_data_path = 'page/meta-data/' . $page_name . '.txt';
 
     if (file_exists($meta_data_path)) {
@@ -9,16 +14,18 @@
       if ($meta_data_file) {
         $lineNumber = 0;
         while (($line = fgets($meta_data_file)) !== false) {
-          if (strlen($line) > 0) {
-            $line = str_replace("\n", "", $line);
-            // title in line 1
-            if ($lineNumber == 0 ) {
-              $meta_data->title = $line;
-            } elseif ($lineNumber == 1 ) { // description in line 2
-              $meta_data->description = $line;
-            } elseif ($lineNumber == 2) { // keywords
-              $meta_data->keywords = explode(';', $line);
-            }
+          $line = str_replace("\n", "", $line);
+          // title in line 1
+          if ($lineNumber == 0 ) {
+            $meta_data->title = $line;
+          } elseif ($lineNumber == 1 ) { // description in line 2
+            $meta_data->description = $line;
+          } elseif ($lineNumber == 2) { // keywords
+            $meta_data->keywords = explode(';', $line);
+          } elseif ($lineNumber == 3) { // additional information
+            $meta_data->additional_information = $line;
+          } elseif ($lineNumber == 4) { // read more link
+            $meta_data->read_more_link = $line;
           }
           
           $lineNumber++;
@@ -43,10 +50,6 @@
   $DEFAULT_PAGE_TITLE = "tools.timodenk.com";
   $DEFAULT_PAGE_DESCRIPTION = "This page is a collection of online tools.";
   $DEFAULT_PAGE_KEYWORDS = array('tool', 'online', 'tools', 'free');
-
-  $page_title = "";
-  $page_description = "";
-  $page_keywords = Array();
   
   if (in_array($p, $special_pages)) { // check if a special page is requested
 
@@ -55,11 +58,6 @@
 
     // read meta data
     $meta_data = get_meta_data($p);
-
-    // fill page vars with values if available
-    if (isset($meta_data->title)) $page_title = $meta_data->title;
-    if (isset($meta_data->description)) $page_description = $meta_data->description;
-    if (isset($meta_data->keywords)) $page_keywords = $meta_data->keywords;
 
     $tool_page_requested = true;
 
