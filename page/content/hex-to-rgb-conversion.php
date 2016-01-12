@@ -17,14 +17,6 @@
 	<h2 id="rgb-output">&nbsp;</h2>
 </div>
 
-<p>
-	<a href="/?p=rgb-to-hex-conversion" target="_blank">
-		<button type="button" class="btn btn-default">
-			RGB to HEX conversion
-		</button>
-	</a>
-</p>
-
 <div>
 	<table class="table table-nonfluid hide" id="history-table">
 		<thead>

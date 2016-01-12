@@ -63,6 +63,21 @@
           
           require('page/content/' . $p . '.php');
 
+          // horizontal line between actual content and additional stuff like keywords, tags, links, etc.
+          echo '<hr>';
+
+          // see also
+          if (count($meta_data->see_also) > 0) {
+            echo '<div class="margin-bottom-15px"><h4>See also</h4>';
+
+            for ($i = 0; $i < count($meta_data->see_also); $i++) {
+              $see_also_page_meta_data = get_meta_data($meta_data->see_also[$i]);
+              if ($i !== 0) echo ' &middot; ';
+              echo '<a href="/?p=' . $see_also_page_meta_data->name . '" target="_blank">' . $see_also_page_meta_data->title . '</a>';
+            }
+
+            echo '</div>';
+          }
 
           // additional information
           if (strlen($meta_data->additional_information) > 0) {

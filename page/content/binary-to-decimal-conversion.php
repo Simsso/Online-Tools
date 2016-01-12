@@ -15,14 +15,6 @@
 
 <h2 id="decimal-output">&nbsp;</h2>
 
-<p>
-	<a href="/?p=decimal-to-binary-conversion" target="_blank">
-		<button type="button" class="btn btn-default">
-			Decimal to binary conversion
-		</button>
-	</a>
-</p>
-
 <div>
 	<table class="table table-nonfluid hide" id="history-table">
 		<thead>

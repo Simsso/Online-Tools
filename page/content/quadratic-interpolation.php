@@ -36,19 +36,11 @@
 	<svg id="visualization" class="margin-bottom-15px"></svg>-->
 </div>
 
-<p>
-	<a href="/?p=linear-interpolation" target="_blank">
-		<button type="button" class="btn btn-default">
-			Linear interpolation
-		</button>
-	</a>
-</p>
-
-<script type="text/x-mathjax-config;executed=true">
-	MathJax.Hub.Config({
-	    jax: ["input/TeX","output/HTML-CSS"],
-	    displayAlign: "left"
-	});
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX","output/HTML-CSS"],
+    displayAlign: "left"
+  });
 </script>
 
 <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>

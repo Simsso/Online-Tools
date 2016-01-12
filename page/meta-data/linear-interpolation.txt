@@ -3,3 +3,4 @@ This tools performs and visualizes a linear interpolation for a given set of poi
 math;interpolation;linear;function;graph;points;x;y
 In mathematics, linear interpolation is a method of curve fitting using linear polynomials.
 https://en.wikipedia.org/wiki/Linear_interpolation
+quadratic-interpolation

@@ -2,33 +2,38 @@
 
   function get_meta_data($page_name) {
     $meta_data;
+    $meta_data->name = $page_name;
     $meta_data->title = '';
     $meta_data->description = '';
     $meta_data->keywords = Array();
     $meta_data->additional_information = '';
     $meta_data->read_more_link = '';
+    $meta_data->see_also = Array();
+
     $meta_data_path = 'page/meta-data/' . $page_name . '.txt';
 
     if (file_exists($meta_data_path)) {
       $meta_data_file = fopen($meta_data_path, 'r');
       if ($meta_data_file) {
-        $lineNumber = 0;
+        $line_number = 0;
         while (($line = fgets($meta_data_file)) !== false) {
           $line = str_replace("\n", "", $line);
           // title in line 1
-          if ($lineNumber == 0 ) {
+          if ($line_number == 0 ) {
             $meta_data->title = $line;
-          } elseif ($lineNumber == 1 ) { // description in line 2
+          } elseif ($line_number == 1 ) { // description in line 2
             $meta_data->description = $line;
-          } elseif ($lineNumber == 2) { // keywords
+          } elseif ($line_number == 2) { // keywords
             $meta_data->keywords = explode(';', $line);
-          } elseif ($lineNumber == 3) { // additional information
+          } elseif ($line_number == 3) { // additional information
             $meta_data->additional_information = $line;
-          } elseif ($lineNumber == 4) { // read more link
+          } elseif ($line_number == 4) { // read more link
             $meta_data->read_more_link = $line;
+          } elseif ($line_number == 5) { // see also
+            $meta_data->see_also = explode(';', $line);
           }
           
-          $lineNumber++;
+          $line_number++;
         }
 
         fclose($meta_data_file);
