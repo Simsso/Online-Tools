@@ -3,8 +3,7 @@ function processPoints(points) {
 	// TODO: check if two points with the same x value have a different y value
 
 	if (points.length < 2) {
-		showToLessPointsError();
-		return;
+		throw Error('NotEnoughPoints');
 	}
 
 	// sort array by x values

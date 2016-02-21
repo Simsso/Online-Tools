@@ -1,9 +1,13 @@
 (function() {
 	// const
-	var EXAMPLE_HTML = "-1.5 -1.2\n-.2 0\n1 0.5\n5 1\n10 1.2"
+	var EXAMPLE_HTML = "-1.5 -1.2\n-.2 0\n1 0.5\n5 1\n10 1.2",
+		ERROR_MSG = {
+			'ParseError': 'The input could not be parsed.',
+			'NotEnoughPoints': 'Not enough points given.'
+		};
 
 	// HTML elements
-	var btnShowExample = $('#show-example'), textareaUserInput = $('#user-input'), btnInterpolate = $('#interpolate'), svgVisualization = $('#visualization'), divEquationOutput = $('#equation-output'), divOutput = $('#output'), divPointOutput = $('#point-output');
+	var btnShowExample = $('#show-example'), textareaUserInput = $('#user-input'), btnInterpolate = $('#interpolate'), svgVisualization = $('#visualization'), divEquationOutput = $('#equation-output'), divOutput = $('#output'), divPointOutput = $('#point-output'), divErrorMsg = $('#error-msg');
 
 	// interpolation vars
 	var points, minX, maxX, minY, maxY;
@@ -14,6 +18,8 @@
 	});
 
 	textareaUserInput.on('change keyup', function() {
+		hideError();
+
 		if (textareaUserInput.val().length > 0) {
 			btnInterpolate.removeAttr('disabled');
 		}
@@ -23,9 +29,13 @@
 	});
 
 	btnInterpolate.on('click', function() {
-		var userInput = textareaUserInput.val();
+		hideError();
 
-		// interprete the user input
+		var userInput = textareaUserInput.val().trim();
+
+		// TODO: check for invalid chars
+
+		// parse the user input
 		var rows = userInput.split(/\s*\n+\s*/g);
 		var valid = true;
 		points = [];
@@ -48,17 +58,23 @@
 				points.push({
 					x: x,
 					y: y
-				})
+				});
 			}
 		}
 
 		// check for parse error
 		if (!valid) {
-			showParseError();
+			showError('ParseError');
 			return;
 		}
 
-		points = processPoints(points);
+		try {
+			points = processPoints(points);
+		}
+		catch(error) {
+			showError(error.message);
+			return;
+		}
 
 		var minMax = getMinMax(points);
 
@@ -110,12 +126,13 @@
 		svgVisualization.html(svgHtml);
 	}
 
-	function showParseError() {
-
+	function showError(code) {
+		divErrorMsg.html(ERROR_MSG[code]).removeClass('hide');
+		divOutput.addClass('hide');
 	}
 
-	function showToLessPointsError() {
-
+	function hideError() {
+		divErrorMsg.addClass('hide');
 	}
 
 	function map(x, inMin, inMax, outMin, outMax) { return (x-inMin) * (outMax-outMin) / (inMax-inMin) + outMin; } // maps a value

@@ -25,6 +25,8 @@
 	<button class="btn btn-default" id="show-example">Show example</button>
 </div>
 
+<p class="bg-warning padding-15px hide" id="error-msg"></p>
+
 <div id="output" class="hide">
 	<h3>Points</h3>
 	<div id="point-output"></div>
