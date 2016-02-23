@@ -1,6 +1,9 @@
 (function() {
 	var unix, normal;
 
+	// initial value is current time
+	$('#user-input-unix-time').val(parseInt(Date.now()/1000)).select();
+
 	// listen for user input
 	$('#user-input-unix-time').on('change keyup', function() {
 		var unixTimestamp = parseInt($(this).val());
@@ -21,7 +24,7 @@
 			$('#normal-time-output').html('&nbsp;');
 			$('#add-to-history').attr('disabled', 'disabled');
 		}
-	}).trigger('keyup');;
+	}).trigger('change');;
 
 
 
