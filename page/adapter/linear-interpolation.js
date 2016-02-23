@@ -118,7 +118,7 @@
 			//html += ym + ' + (' + yn + ' - ' + ym + ') * (x - ' + xm + ') / (' + xn + ' - ' + xm + '), & \\text{if } x \\in [' + xm + ',' + xn + ']' + ((i !== points.length - 1) ? ', \\\\' : '.\\end{cases}$$');
 
 			// approximate output
-			html += (ym/(xm-xn)-yn/(xm-xn)) + 'x + ' + (xm*yn/(xm-xn)-xn*ym/(xm-xn)) + ', & \\text{if } x \\in [' + xm + ',' + xn + ']' + ((i !== points.length - 1) ? ', \\\\' : '.\\end{cases}$$');
+			html += round(ym/(xm-xn)-yn/(xm-xn)) + 'x + ' + round(xm*yn/(xm-xn)-xn*ym/(xm-xn)) + ', & \\text{if } x \\in [' + xm + ',' + xn + ']' + ((i !== points.length - 1) ? ', \\\\' : '.\\end{cases}$$');
 		}
 		divEquationOutput.html(html);
 
@@ -146,6 +146,4 @@
 	function hideError() {
 		divErrorMsg.addClass('hide');
 	}
-
-	function map(x, inMin, inMax, outMin, outMax) { return (x-inMin) * (outMax-outMin) / (inMax-inMin) + outMin; } // maps a value
 })();

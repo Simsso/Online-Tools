@@ -113,10 +113,4 @@
 	function showToLessPointsError() {
 
 	}
-
-	function map(x, inMin, inMax, outMin, outMax) { return (x-inMin) * (outMax-outMin) / (inMax-inMin) + outMin; } // maps a value
-
-	function round(x) {
-		return Math.round(x * 10000) / 10000;
-	}
 })();
