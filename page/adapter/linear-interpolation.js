@@ -3,7 +3,9 @@
 	var EXAMPLE_HTML = "-1.5 -1.2\n-.2 0\n1 0.5\n5 1\n10 1.2",
 		ERROR_MSG = {
 			'ParseError': 'The input could not be parsed.',
-			'NotEnoughPoints': 'Not enough points given.'
+			'NotEnoughPoints': 'Not enough points given.',
+			'InvalidChars': 'The input contains invalid characters.',
+			'SameXDifferentY': 'Two points share the same x-value but have different y-values.'
 		};
 
 	// HTML elements
@@ -33,8 +35,6 @@
 
 		var userInput = textareaUserInput.val().trim();
 
-		// TODO: check for invalid chars
-
 		// parse the user input
 		var rows = userInput.split(/\s*\n+\s*/g);
 		var valid = true;
@@ -46,6 +46,13 @@
 				break;
 			}
 			else {
+				// check if user input contains invalid chars
+				// input can contain "-" "." \d
+				/*if (!/^\d+$/.test(val[0]) || /^\d+$/.test(val[1])) {
+					showError('InvalidChars');
+					return;
+				}*/
+
 				var x = parseFloat(val[0]), y = parseFloat(val[1]);
 
 				// check if parsing worked
