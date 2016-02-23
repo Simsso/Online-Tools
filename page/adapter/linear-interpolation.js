@@ -113,7 +113,12 @@
 		var html = '$$f(x) = \\begin{cases}';
 		for (var i = 1; i < points.length; i++) {
 			var xn = points[i].x, xm = points[i-1].x, yn = points[i].y, ym = points[i-1].y;
-			html += ym + ' + (' + yn + ' - ' + ym + ') * (x - ' + xm + ') / (' + xn + ' - ' + xm + '), & \\text{if } x \\in [' + xm + ',' + xn + ']' + ((i !== points.length - 1) ? ', \\\\' : '.\\end{cases}$$');
+			
+			// exact output
+			//html += ym + ' + (' + yn + ' - ' + ym + ') * (x - ' + xm + ') / (' + xn + ' - ' + xm + '), & \\text{if } x \\in [' + xm + ',' + xn + ']' + ((i !== points.length - 1) ? ', \\\\' : '.\\end{cases}$$');
+
+			// approximate output
+			html += (ym/(xm-xn)-yn/(xm-xn)) + 'x + ' + (xm*yn/(xm-xn)-xn*ym/(xm-xn)) + ', & \\text{if } x \\in [' + xm + ',' + xn + ']' + ((i !== points.length - 1) ? ', \\\\' : '.\\end{cases}$$');
 		}
 		divEquationOutput.html(html);
 
