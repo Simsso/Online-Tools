@@ -130,12 +130,16 @@
 
 	function visualize() {
 		// initialize graph board
-		graphBoard = JXG.JSXGraph.initBoard('visualization', { boundingbox:[ minX * 1.1 - 1, maxY * 1.1 + 1, maxX * 1.1 + 1, minY * 1.1 - 1], axis: true });
+		JXG.Options.axis.ticks.strokeColor = "transparent"; // hide grid
+		// max padding
+		var maxPaddingX = Math.max(Math.abs(minX), Math.abs(maxX)) * 0.25;
+		var maxPaddingY = Math.max(Math.abs(minY), Math.abs(maxY)) * 0.25;
+		graphBoard = JXG.JSXGraph.initBoard('visualization', { boundingbox:[ minX - maxPaddingX, maxY + maxPaddingY, maxX + maxPaddingX, minY - maxPaddingY], axis: true, showCopyright: false, grid: false, showNavigation: false });
 
 		// draw points
 		for (var i = 0; i < points.length; i++) {
 			var point = points[i];
-	 		graphBoard.create('point', [point.x, point.y], {style: 6, name: 'P' + i}); 
+	 		graphBoard.create('point', [point.x, point.y], { style: 6, name: 'P' + i, fillcolor: '#3278B4', stroke: '#3278B4', strokecolor: '#3278B4' }); 
 	 	}
 
 	 	// draw functions
@@ -146,7 +150,7 @@
  				}
  			}
  			return undefined;
- 		}], { strokewidth: 2 });
+ 		}], { strokewidth: 2, strokecolor: '#3278B4', strokeopacity: '0.9' });
 
 	}
 

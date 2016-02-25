@@ -1,16 +1,12 @@
 <style type="text/css">
 	#visualization {
-		width: 100%;
-		height: 200px;
+		position: relative;
+		width: 450px; 
+		height: 450px;
 	}
 
 	#equation-output td {
     	padding: 5px 0;
-	}
-
-	svg line {
-		stroke: red;
-		stroke-width: 2px;
 	}
 </style>
 
@@ -35,9 +31,7 @@
 	<div class="margin-bottom-15px" id="equation-output"></div>
 
 	<h3>Graph</h3>
-	<link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
-	<script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
-	<div id="visualization" class="jxgbox margin-bottom-15px" style="width:600px; height:600px;"></div>
+	<div id="visualization" class="margin-bottom-15px"></div>
 </div>
 
 <script type="text/x-mathjax-config">
@@ -48,3 +42,6 @@
 </script>
 
 <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
+<script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
