@@ -35,7 +35,9 @@
 	<div class="margin-bottom-15px" id="equation-output"></div>
 
 	<h3>Graph</h3>
-	<svg id="visualization" class="margin-bottom-15px"></svg>
+	<link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
+	<script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
+	<div id="visualization" class="jxgbox margin-bottom-15px" style="width:600px; height:600px;"></div>
 </div>
 
 <script type="text/x-mathjax-config">

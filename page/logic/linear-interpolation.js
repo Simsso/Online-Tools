@@ -50,3 +50,15 @@ function getMinMax(points) {
 		maxY: maxY 
 	}
 }
+
+
+function linearInterpolation(points) {
+	var functions = [];
+	for (var i = 1; i < points.length; i++) {
+		var xn = points[i].x, xm = points[i-1].x, yn = points[i].y, ym = points[i-1].y;
+
+		// add coefficients
+		functions.push({ a: ym/(xm-xn)-yn/(xm-xn), b: xm*yn/(xm-xn)-xn*ym/(xm-xn), range: { xmin: xm, xmax: xn }});
+	}
+	return functions;
+}

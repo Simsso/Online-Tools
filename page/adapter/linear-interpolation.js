@@ -9,7 +9,9 @@
 		};
 
 	// HTML elements
-	var btnShowExample = $('#show-example'), textareaUserInput = $('#user-input'), btnInterpolate = $('#interpolate'), svgVisualization = $('#visualization'), divEquationOutput = $('#equation-output'), divOutput = $('#output'), divPointOutput = $('#point-output'), divErrorMsg = $('#error-msg');
+	var btnShowExample = $('#show-example'), textareaUserInput = $('#user-input'), btnInterpolate = $('#interpolate'), divEquationOutput = $('#equation-output'), divOutput = $('#output'), divPointOutput = $('#point-output'), divErrorMsg = $('#error-msg'), graphBoard;
+
+	var functions = [];
 
 	// interpolation vars
 	var points, minX, maxX, minY, maxY;
@@ -90,10 +92,12 @@
 		minY = minMax.minY;
 		maxY = minMax.maxY;
 
+		functions = linearInterpolation(points);
+
 		// output
 		showPoints();
 		showEquations();
-		drawPoints();
+		visualize();
 		divOutput.removeClass('hide');
 	}).trigger('change');
 
@@ -110,15 +114,13 @@
 	}
 
 	function showEquations() {
+		// draw equation
+		MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('equation-output')]);
 		var html = '$$f(x) = \\begin{cases}';
-		for (var i = 1; i < points.length; i++) {
-			var xn = points[i].x, xm = points[i-1].x, yn = points[i].y, ym = points[i-1].y;
-			
-			// exact output
-			//html += ym + ' + (' + yn + ' - ' + ym + ') * (x - ' + xm + ') / (' + xn + ' - ' + xm + '), & \\text{if } x \\in [' + xm + ',' + xn + ']' + ((i !== points.length - 1) ? ', \\\\' : '.\\end{cases}$$');
-
+		for (var i = 0; i < functions.length; i++) {
+			var f = functions[i];
 			// approximate output
-			html += round(ym/(xm-xn)-yn/(xm-xn)) + 'x + ' + round(xm*yn/(xm-xn)-xn*ym/(xm-xn)) + ', & \\text{if } x \\in [' + xm + ',' + xn + ']' + ((i !== points.length - 1) ? ', \\\\' : '.\\end{cases}$$');
+			html += round(f.a) + 'x + ' + round(f.b) + ', & \\text{if } x \\in [' + f.range.xmin + ',' + f.range.xmax + ']' + ((i !== functions.length - 1) ? ', \\\\' : '.\\end{cases}$$');
 		}
 		divEquationOutput.html(html);
 
@@ -126,16 +128,26 @@
 		MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('equation-output')]);
 	}
 
-	function drawPoints() {
-		var svgHtml = '';
-		for (var i = 1; i < points.length; i++) {
-			var x1 = map(points[i-1].x, minX, maxX, 5, 95),
-				x2 = map(points[i].x, minX, maxX, 5, 95),
-				y1 = map(points[i-1].y, minX, maxY, 95, 5),
-				y2 = map(points[i].y, minX, maxY, 95, 5);
-			svgHtml += '<line x1="' + x1 + '%" x2="' + x2 + '%" y1="' + y1 + '%" y2="' + y2 + '%" />';
-		}
-		svgVisualization.html(svgHtml);
+	function visualize() {
+		// initialize graph board
+		graphBoard = JXG.JSXGraph.initBoard('visualization', { boundingbox:[ minX * 1.1 - 1, maxY * 1.1 + 1, maxX * 1.1 + 1, minY * 1.1 - 1], axis: true });
+
+		// draw points
+		for (var i = 0; i < points.length; i++) {
+			var point = points[i];
+	 		graphBoard.create('point', [point.x, point.y], {style: 6, name: 'P' + i}); 
+	 	}
+
+	 	// draw functions
+ 		graphBoard.create('functiongraph', [function(x) {
+ 			for (var i = 0; i < functions.length; i++) {
+ 				if (functions[i].range.xmin <= x && functions[i].range.xmax >= x) {
+ 					return functions[i].a * x + functions[i].b;
+ 				}
+ 			}
+ 			return undefined;
+ 		}], { strokewidth: 2 });
+
 	}
 
 	function showError(code) {
