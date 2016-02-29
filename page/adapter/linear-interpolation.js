@@ -13,6 +13,8 @@
 
 	var functions = [];
 
+	var keepAspectRatio = false;
+
 	// interpolation vars
 	var points, minX, maxX, minY, maxY;
 
@@ -101,6 +103,11 @@
 		divOutput.removeClass('hide');
 	}).trigger('change');
 
+	$('#keepAspectRatioInput').on('click', function() {
+		keepAspectRatio = $(this).is(':checked');
+		visualize();
+	});
+
 	function showPoints() {
 		var html = '';
 		for (var i = 0; i < points.length; i++) {
@@ -130,11 +137,37 @@
 
 	function visualize() {
 		// initialize graph board
-		JXG.Options.axis.ticks.strokeColor = "transparent"; // hide grid
-		// max padding
-		var maxPaddingX = Math.max(Math.abs(minX), Math.abs(maxX)) * 0.25;
-		var maxPaddingY = Math.max(Math.abs(minY), Math.abs(maxY)) * 0.25;
-		graphBoard = JXG.JSXGraph.initBoard('visualization', { boundingbox:[ minX - maxPaddingX, maxY + maxPaddingY, maxX + maxPaddingX, minY - maxPaddingY], axis: true, showCopyright: false, grid: false, showNavigation: false });
+		JXG.Options.axis.ticks.strokeColor = "#D0D0D0"; // hide grid
+		var graphMinX = minX, graphMaxX = maxX, graphMinY = minY, graphMaxY = maxY;
+		var maxPaddingX, maxPaddingY;
+
+		var deltaX = Math.abs(graphMaxX - graphMinX), deltaY = Math.abs(Math.abs(graphMaxY - graphMinY));
+		var maxDelta = Math.max(deltaX, deltaY), minDelta = Math.min(deltaX, deltaY);
+
+		if (keepAspectRatio) {
+			// length units to add at the axis which has the lower delta value
+			var offset = (maxDelta / 2 - minDelta / 2);
+
+			if (deltaX === maxDelta) { // y-axis has the lower delta value
+				graphMinY -= offset;
+				graphMaxY += offset;
+			}
+			else { // x-axis has the lower delta value
+				graphMinX -= offset;
+				graphMaxX += offset;
+			}
+
+			// same padding for both axes
+			maxPaddingX = maxDelta * .2;
+			maxPaddingY = maxPaddingX;
+		}
+		else {
+			// padding
+			maxPaddingX = deltaX * .2;
+			maxPaddingY = deltaY * .2;
+		}
+
+		graphBoard = JXG.JSXGraph.initBoard('visualization', { boundingbox:[ graphMinX - maxPaddingX, graphMaxY + maxPaddingY, graphMaxX + maxPaddingX, graphMinY - maxPaddingY], axis: true, showCopyright: false });
 
 		// draw points
 		for (var i = 0; i < points.length; i++) {
