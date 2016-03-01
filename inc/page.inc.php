@@ -73,7 +73,7 @@
             for ($i = 0; $i < count($meta_data->see_also); $i++) {
               $see_also_page_meta_data = get_meta_data($meta_data->see_also[$i]);
               if ($i !== 0) echo ' &middot; ';
-              echo '<a href="/?p=' . $see_also_page_meta_data->name . '" target="_blank">' . $see_also_page_meta_data->title . '</a>';
+              echo '<a href="/?p=' . $see_also_page_meta_data->name . '">' . $see_also_page_meta_data->title . '</a>';
             }
 
             echo '</div>';

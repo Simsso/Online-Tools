@@ -37,6 +37,7 @@
 
 	btnInterpolate.on('click', function() {
 		hideError();
+		inputX.val('');
 
 		var userInput = textareaUserInput.val().trim();
 
