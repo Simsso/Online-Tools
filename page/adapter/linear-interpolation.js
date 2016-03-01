@@ -9,9 +9,10 @@
 		};
 
 	// HTML elements
-	var btnShowExample = $('#show-example'), textareaUserInput = $('#user-input'), btnInterpolate = $('#interpolate'), divEquationOutput = $('#equation-output'), divOutput = $('#output'), divPointOutput = $('#point-output'), divErrorMsg = $('#error-msg'), graphBoard;
+	var btnShowExample = $('#show-example'), textareaUserInput = $('#user-input'), btnInterpolate = $('#interpolate'), divEquationOutput = $('#equation-output'), divOutput = $('#output'), divPointOutput = $('#point-output'), divErrorMsg = $('#error-msg'), graphBoard, inputX = $('#input-x'), outputY = $('#y-value-output');
 
 	var functions = [];
+	var f = function(x) { return undefined; };
 
 	var keepAspectRatio = false;
 
@@ -96,6 +97,9 @@
 
 		functions = linearInterpolation(points);
 
+		lastX = undefined;
+		outputY.html('');
+
 		// output
 		showPoints();
 		showEquations();
@@ -106,6 +110,33 @@
 	$('#keepAspectRatioInput').on('click', function() {
 		keepAspectRatio = $(this).is(':checked');
 		visualize();
+	});
+
+	var lastX = undefined;
+	inputX.on('change keyup', function() {
+		if (!inputX.val()) {
+			outputY.html('');
+			return;
+		}
+		
+		try {
+			var x = parseFloat(inputX.val());
+
+			if (lastX === x) return; // avoid unnecessary redrawing
+
+
+			var fofx = f(x);
+			if (typeof fofx === 'undefined') fofx = '\\text{undefined}'; // show undefined string when out of bounds
+			else fofx = round(fofx); // round to four digits
+
+			outputY.html('$$f(' + x + ')=' + fofx + '$$');
+			lastX = x;
+
+			MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('y-value-output')]);
+		}
+		catch(e) {
+			outputY.html('');
+		}
 	});
 
 	function showPoints() {
@@ -176,14 +207,15 @@
 	 	}
 
 	 	// draw functions
- 		graphBoard.create('functiongraph', [function(x) {
+	 	f = function(x) {
  			for (var i = 0; i < functions.length; i++) {
  				if (functions[i].range.xmin <= x && functions[i].range.xmax >= x) {
  					return functions[i].a * x + functions[i].b;
  				}
  			}
  			return undefined;
- 		}], { strokewidth: 2, strokecolor: '#3278B4', strokeopacity: '0.9' });
+ 		};
+ 		graphBoard.create('functiongraph', [f], { strokewidth: 2, strokecolor: '#3278B4', strokeopacity: '0.9' });
 
 	}
 

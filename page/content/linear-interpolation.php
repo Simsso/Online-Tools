@@ -42,6 +42,14 @@
 	
 	<h3>Equation</h3>
 	<div class="margin-bottom-15px" id="equation-output"></div>
+	
+	<div class="clearfix form-group">
+		<div class="col-xs-6 col-sm-4 input-group pull-left">
+			<div class="input-group-addon">x-value</div>
+			<input type="number" id="input-x" class="form-control" />
+		</div>
+	</div>
+	<div class="margin-bottom-15px" id="y-value-output"></div>
 
 	<h3>Graph</h3>
 	<div id="visualization" class="margin-bottom-15px"></div>
