@@ -1,12 +1,4 @@
 function processPoints(points) {
-	// TODO: remove duplicate points
-	// TODO: check if two points with the same x value have a different y value
-
-	if (points.length < 2) {
-		showToLessPointsError();
-		return;
-	}
-
 	// sort array by x values
 	points.sort(function(a, b) {
 		if (a.x < b.x) return -1;
@@ -14,7 +6,25 @@ function processPoints(points) {
 		return 1;
 	});
 
-	// TODO: check if points share the same y value (problem drawing this)
+	for (var i = 0; i < points.length; i++) {
+		if (i < points.length - 1 && points[i].x === points[i + 1].x) {
+			// two points have the same x-value
+
+			// check if the y-value is the same
+			if (points[i].y === points[i + 1].y) {
+				// remove the latter
+				points.splice(i, 1);
+				i--;
+			}
+			else {
+				throw Error('SameXDifferentY')
+			}
+		}
+	}
+	
+	if (points.length < 2) {
+		throw Error('NotEnoughPoints');
+	}	
 
 	return points;
 }
@@ -41,11 +51,7 @@ function getMinMax(points) {
 	}
 }
 
-function quadraticInterpolation(data, x) {
-	// check if user values are out of range
-	if (x < data[0].x || x > data[data.length-1].x)
-		return undefined;
-		
+function quadraticInterpolation(data) {
 	// initialize matrix
 	var numberOfUnknowns = 3*(data.length-1);
 	var numberOfFunctions = data.length-1;
@@ -88,21 +94,10 @@ function quadraticInterpolation(data, x) {
 			a: coefficients[i],
 			b: coefficients[i+1],
 			c: coefficients[i+2],
+			range: { xmin: data[i/3].x, xmax: data[i/3+1].x }
 		})
 	}
 	return functions;
-
-	console.log(coefficients);
-
-	var i = 0;
-	while (data[i].x <= x) {
-		if (data[i].x == x)
-		return data[i].y;
-		i++;
-	}
-	i--;
-
-	return coefficients[i*3]*Math.pow(x,2)+coefficients[i*3+1]*x+coefficients[i*3+2];
 }
 
 function solveMatrix(mat) {
