@@ -29,25 +29,12 @@ body {
 	max-width: 900px;
 }
 
-.max-width-250px {
-	max-width: 250px;
-}
-
-.max-width-400px {
-	max-width: 400px;
-}
-
-.margin-left-5px {
-	margin-left: 5px;
-}
-
-.margin-bottom-15px {
-  margin-bottom: 15px;
-}
-
-.padding-15px {
-	padding: 15px;
-}
+.max-width-250px { max-width: 250px; }
+.max-width-400px { max-width: 400px; }
+.margin-left-5px { margin-left: 5px; }
+.margin-bottom-5px { margin-bottom: 5px; }
+.margin-bottom-15px { margin-bottom: 15px; }
+.padding-15px { padding: 15px; }
 
 input.invalid, textarea.invalid, select.invalid {
 	border-color: #F00;

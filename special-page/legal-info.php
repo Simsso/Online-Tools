@@ -1,5 +1,7 @@
 <h1>Legal info</h1>
 
+<h3><a href="http://www.simsso.de/?type=impressum" target="_blank">Imprint (German)</a></h3>
+
 <h3>Terms and conditions for website usage</h3>
 <p>Welcome to my website. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions of use, which together with my privacy policy govern Timo Denk's relationship with you in relation to this website. If you disagree with any part of these terms and conditions, please do not use my website.</p>
 <p>The term 'Timo Denk' or 'me' or 'I' refers to the owner of the website. The term 'you' refers to the user or viewer of our website.</p>
