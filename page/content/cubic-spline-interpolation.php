@@ -47,7 +47,7 @@
 	<div class="clearfix form-group">
 		<div class="col-xs-6 col-sm-4 input-group pull-left">
 			<div class="input-group-addon">x-value</div>
-			<input type="number" id="input-x" class="form-control" />
+			<input type="text" id="input-x" class="form-control" />
 		</div>
 	</div>
 	<div class="margin-bottom-15px" id="y-value-output"></div>
