@@ -42,6 +42,8 @@
 	
 	<h3>Equation</h3>
 	<div class="margin-bottom-15px" id="equation-output"></div>
+
+	<p class="bg-info padding-15px">To get the additional information which is required to perform a quadratic interpolation the algorithm considers the first sub-function to be linear.</p>
 	
 	<div class="clearfix form-group">
 		<div class="col-xs-6 col-sm-4 input-group pull-left">

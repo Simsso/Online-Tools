@@ -43,6 +43,8 @@
 	
 	<h3>Equation</h3>
 	<div class="margin-bottom-15px" id="equation-output"></div>
+
+	<p class="bg-info padding-15px">The algorithm calculates a "natural" spline: The boundary splines turn into a straight line (the second derivative is equal to zero in the end points).</p>
 	
 	<div class="clearfix form-group">
 		<div class="col-xs-6 col-sm-4 input-group pull-left">
