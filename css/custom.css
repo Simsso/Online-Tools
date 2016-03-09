@@ -111,6 +111,10 @@ div.color-preview {
   width: 100%;
 }
 
+.cookie-footer table td:last-child {
+    text-align: right;
+}
+
 img.nav-logo {
     height: 30px;
     margin-top: -5px;
