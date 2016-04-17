@@ -127,3 +127,38 @@ textarea {
 .break-word {
   word-wrap: break-word;
 }
+
+
+/* navigation GitHub link */
+
+nav .github-link {
+  position: absolute; 
+  right: 0;
+  height: 50px;
+}
+
+nav .github-link polygon {
+  fill: rgba(255, 255, 255, 0.2);
+}
+nav .github-link svg:hover polygon {
+  fill: rgba(255, 255, 255, 0.3);
+}
+nav .github-link svg:active polygon {
+  fill: rgba(255, 255, 255, 0.5);
+}
+
+nav .github-link path {
+  fill: #FFF;
+}
+
+@media (max-width: 767px) {
+  nav .github-link {
+    display: none;
+  }
+}
+
+
+/* override Bootstrap styles */
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+  background-color: transparent;
+}
