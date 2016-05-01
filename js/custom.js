@@ -45,5 +45,14 @@ var Cookie = {
 function map(x, inMin, inMax, outMin, outMax) { return (x-inMin) * (outMax-outMin) / (inMax-inMin) + outMin; } // maps a value
 
 function round(x) {
-  return Math.round(x * 10000) / 10000;
+  return x.toExponential(4);
+}
+
+function roundMathJax(x) {
+  var str = round(x).replace('e+0', '').replace('e+', 'e');
+  if (str.replace('e', '').length !== str.length) {
+    // exponent existing
+    str = str.replace('e', ' \\cdot 10^{') + '}';
+  }
+  return str;
 }

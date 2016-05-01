@@ -128,7 +128,7 @@
 
 			var fofx = f(x);
 			if (typeof fofx === 'undefined') fofx = '\\text{undefined}'; // show undefined string when out of bounds
-			else fofx = round(fofx); // round to four digits
+			else fofx = roundMathJax(fofx); // round to four digits
 
 			outputY.html('$$f(' + x + ')=' + fofx + '$$');
 			lastX = x;
@@ -159,11 +159,11 @@
  		for (var i = 0; i < coefficients.length; i++) {
  			var c = coefficients[i];
  			if (i !== 0) html += '+';
- 			html += round(c);
+ 			html += roundMathJax(c);
 
  			// different styling for last to segments
- 			if (i == coefficients.length - 2) html += 'x';
- 			if (i < coefficients.length - 2) html += 'x^' + (coefficients.length - i - 1);
+ 			if (i == coefficients.length - 2) html += '\\cdot x';
+ 			if (i < coefficients.length - 2) html += '\\cdot x^' + (coefficients.length - i - 1);
  		}
 		html += '$$';
 		divEquationOutput.html(html);

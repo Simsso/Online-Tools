@@ -128,7 +128,7 @@
 
 			var fofx = f(x);
 			if (typeof fofx === 'undefined') fofx = '\\text{undefined}'; // show undefined string when out of bounds
-			else fofx = round(fofx); // round to four digits
+			else fofx = roundMathJax(fofx); // round to four digits
 
 			outputY.html('$$f(' + x + ')=' + fofx + '$$');
 			lastX = x;
@@ -159,7 +159,7 @@
 		for (var i = 0; i < functions.length; i++) {
 			var f = functions[i];
 			// approximate output
-			html += round(f.a) + 'x^3 + ' + round(f.b) + 'x^2 + ' + round(f.c) + 'x + ' + round(f.d) + ', & \\text{if } x \\in [' + f.range.xmin + ',' + f.range.xmax + ']' + ((i !== functions.length - 1) ? ', \\\\' : '.\\end{cases}$$');
+			html += roundMathJax(f.a) + '\\cdot x^3 + ' + roundMathJax(f.b) + '\\cdot x^2 + ' + roundMathJax(f.c) + '\\cdot x + ' + roundMathJax(f.d) + ', & \\text{if } x \\in [' + f.range.xmin + ',' + f.range.xmax + ']' + ((i !== functions.length - 1) ? ', \\\\' : '.\\end{cases}$$');
 		}
 		divEquationOutput.html(html);
 
