@@ -67,7 +67,9 @@
     $tool_page_requested = true;
 
   } else { // requested page not available
-    echo 'Error 404';
+    header('HTTP/1.0 404 not found');
+    include('404.html');
+    exit();
   }
 
 

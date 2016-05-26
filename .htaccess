@@ -3,3 +3,5 @@ RewriteEngine on
 RewriteBase /
 
 RewriteRule ^((^[^.]*$))$ index.php?p=$1&%{QUERY_STRING} [NC,L]
+
+ErrorDocument 404 /404.html
