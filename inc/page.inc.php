@@ -51,9 +51,9 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li<?php if ($p == 'home') echo ' class="active"'; ?>><a href="/">Home</a></li>
-            <li<?php if ($p == 'about') echo ' class="active"'; ?>><a href="/?p=about">About</a></li>
-            <li<?php if ($p == 'contact') echo ' class="active"'; ?>><a href="/?p=contact">Contact</a></li>
-            <li<?php if ($p == 'legal-info') echo ' class="active"'; ?>><a href="/?p=legal-info">Legal info</a></li>
+            <li<?php if ($p == 'about') echo ' class="active"'; ?>><a href="/about">About</a></li>
+            <li<?php if ($p == 'contact') echo ' class="active"'; ?>><a href="/contact">Contact</a></li>
+            <li<?php if ($p == 'legal-info') echo ' class="active"'; ?>><a href="/legal-info">Legal info</a></li>
           </ul>
         </div>
       </div>
@@ -79,7 +79,7 @@
             for ($i = 0; $i < count($meta_data->see_also); $i++) {
               $see_also_page_meta_data = get_meta_data($meta_data->see_also[$i]);
               if ($i !== 0) echo ' &middot; ';
-              echo '<a href="/?p=' . $see_also_page_meta_data->name . '">' . $see_also_page_meta_data->title . '</a>';
+              echo '<a href="/' . $see_also_page_meta_data->name . '">' . $see_also_page_meta_data->title . '</a>';
             }
 
             echo '</div>';

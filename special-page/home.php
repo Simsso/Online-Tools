@@ -11,7 +11,7 @@
 				$meta_data = get_meta_data($name);
 				echo '
 					<div class="tool-info">
-						<a href="/?p=' . $name . '">
+						<a href="/' . $name . '">
 							<div class="tool-name">
 								' . (isset($meta_data->title) ? $meta_data->title : $name) . '
 							</div>
