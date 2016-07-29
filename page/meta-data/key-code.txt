@@ -1,0 +1,6 @@
+Key code
+This tool show the value of a key or keys pressed by the user and the implementation depended key code.
+key;value;pressed;keyCode
+The KeyboardEvent.key read-only property returns the value of a key or keys pressed by the user.
+https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key
+char-code
