@@ -9,5 +9,8 @@
 
 		var key = getKey(event);
 		keyOutput.html(key);
+
+		event.preventDefault();
+		return false;
 	});
 })();
