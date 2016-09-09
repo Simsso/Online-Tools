@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://tools.timodenk.com/</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://tools.timodenk.com/about</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://tools.timodenk.com/contact</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://tools.timodenk.com/legal-info</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://tools.timodenk.com/binary-to-decimal-conversion</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://tools.timodenk.com/browser-geolocation</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://tools.timodenk.com/char-code</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://tools.timodenk.com/cubic-spline-interpolation</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://tools.timodenk.com/decimal-to-binary-conversion</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://tools.timodenk.com/gaussian-elimination</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://tools.timodenk.com/hash-function</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://tools.timodenk.com/hex-to-rgb-conversion</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://tools.timodenk.com/ip-address</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://tools.timodenk.com/key-code</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://tools.timodenk.com/linear-interpolation</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://tools.timodenk.com/morse-code-to-text</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://tools.timodenk.com/normal-time-to-unix</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://tools.timodenk.com/polynomial-interpolation</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://tools.timodenk.com/quadratic-interpolation</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://tools.timodenk.com/request-headers</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://tools.timodenk.com/rgb-to-hex-conversion</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://tools.timodenk.com/search-and-replace</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://tools.timodenk.com/text-to-morse-code</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://tools.timodenk.com/unix-to-normal-time</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://tools.timodenk.com/website-page-source</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://tools.timodenk.com/word-count</loc>
+  <changefreq>monthly</changefreq>
+</url>
+</urlset>
