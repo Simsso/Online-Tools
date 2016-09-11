@@ -59,7 +59,8 @@
 					return;
 				}*/
 
-				var x = parseFloat(val[0]), y = parseFloat(val[1]);
+				var x = parseFloat(val[0].replace(String.fromCharCode(8722), '-')), 
+					y = parseFloat(val[1].replace(String.fromCharCode(8722), '-'));
 
 				// check if parsing worked
 				if (isNaN(x) || isNaN(y)) {
