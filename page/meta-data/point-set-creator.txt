@@ -1,0 +1,3 @@
+Point set creator
+This tool allows to manually create a set of points by clicking on a canvas (e.g. for testing of clustering algorithms).
+point;set;data;creation
