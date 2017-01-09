@@ -1,0 +1,3 @@
+Typing speed
+This tools allows to determine how fast one can type a character sequence of choice.
+typing;speed;keyboard
