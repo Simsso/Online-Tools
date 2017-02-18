@@ -66,6 +66,7 @@ function morseCodeToText(morse) {
 
 	var newLineRegExp = new RegExp('\n', 'g');
 	morse = morse.replace(newLineRegExp, ' \n ');
+	morse = morse.replace(new RegExp(String.fromCharCode(8212), 'g'), '--');
 
 	var words = morse.split(' / ');
 	for (var i = 0; i < words.length; i++) {

@@ -145,7 +145,7 @@
 		var html = '';
 		for (var i = 0; i < points.length; i++) {
 			if (i !== 0) html += '; ';
-			html += 'P_' + i + '(' + points[i].x + '|' + points[i].y + ')';
+			html += 'P_{' + i + '}(' + points[i].x + '|' + points[i].y + ')';
 		}
 		divPointOutput.html('$$' + html + '$$');
 
