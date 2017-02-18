@@ -164,7 +164,7 @@
 
  			// different styling for last to segments
  			if (i == coefficients.length - 2) html += '\\cdot x';
- 			if (i < coefficients.length - 2) html += '\\cdot x^' + (coefficients.length - i - 1);
+ 			if (i < coefficients.length - 2) html += '\\cdot x^{' + (coefficients.length - i - 1) + '}';
  		}
 		html += '$$';
 		divEquationOutput.html(html);
