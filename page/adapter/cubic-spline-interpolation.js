@@ -1,6 +1,6 @@
 (function() {
 	// const
-	var EXAMPLE_HTML = "-1.5 -1.2\n-.2 0\n1 0.5\n5 1\n10 1.2",
+	var EXAMPLE_HTML = "-1.5 -1.2\n-.2 0\n1 0.5\n5 1\n10 1.2\n15 2\n20 1",
 		ERROR_MSG = {
 			'ParseError': 'The input could not be parsed.',
 			'NotEnoughPoints': 'Not enough points given.',
