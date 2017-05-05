@@ -1,7 +1,7 @@
 <?php
 
   function get_meta_data($page_name) {
-    $meta_data;
+    $meta_data = new stdClass();
     $meta_data->name = $page_name;
     $meta_data->title = '';
     $meta_data->description = '';

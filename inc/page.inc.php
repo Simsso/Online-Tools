@@ -172,14 +172,14 @@
     ?>
 
     <!-- visitors online -->
-    <script src="https://cdn.socket.io/socket.io-1.3.7.js"></script>
-    <script src="http://const.timodenk.com/visitors-online/client.js"></script>
+    <!--<script src="https://cdn.socket.io/socket.io-1.3.7.js"></script>
+    <script src="//const.timodenk.com/visitors-online/client.js"></script>
     <script>
       // number of visitors has changed
       window.visitorsOnlineChanged = function(count) {
         console.log(count);
       };
-    </script>
+    </script>-->
 
     <!-- analytics -->
     <script>

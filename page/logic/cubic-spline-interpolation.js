@@ -26,6 +26,11 @@ function processPoints(points) {
 		throw Error('NotEnoughPoints');
 	}	
 
+	for (var i = points.length - 1; i >= 0; i--) {
+		points[i].x = parseFloat(points[i].x);
+		points[i].y = parseFloat(points[i].y);
+	}
+
 	return points;
 }
 
@@ -66,18 +71,19 @@ function cubicSplineInterpolation(p) {
 	}
 
 	// splines through p equations
-	for (var functionNr = 0; functionNr < p.length-1; functionNr++, row += 2) {
+	for (var functionNr = 0; functionNr < p.length-1; functionNr++, row++) {
 		var p0 = p[functionNr], p1 = p[functionNr+1];
 		m[row][functionNr*4+0] = Math.pow(p0.x, 3);
 		m[row][functionNr*4+1] = Math.pow(p0.x, 2); 
-		m[row][functionNr*4+2] = Math.pow(p0.x, 1); 
+		m[row][functionNr*4+2] = p0.x;
 		m[row][functionNr*4+3] = 1; 
 		m[row][solutionIndex] = p0.y;
-		m[row+1][(functionNr)*4+0] = Math.pow(p1.x, 3);
-		m[row+1][(functionNr)*4+1] = Math.pow(p1.x, 2); 
-		m[row+1][(functionNr)*4+2] = Math.pow(p1.x, 1); 
-		m[row+1][(functionNr)*4+3] = 1; 
-		m[row+1][solutionIndex] = p1.y;
+
+		m[++row][functionNr*4+0] = Math.pow(p1.x, 3);
+		m[row][functionNr*4+1] = Math.pow(p1.x, 2); 
+		m[row][functionNr*4+2] = p1.x;
+		m[row][functionNr*4+3] = 1; 
+		m[row][solutionIndex] = p1.y;
 	}
 
 	// first derivative
@@ -106,15 +112,11 @@ function cubicSplineInterpolation(p) {
 	//m[row++][0] = 1;
 	//m[row++][solutionIndex-4+0] = 1;*/
 
-	// Not-a-knot spline (needs to be adapted - currently second derivative, should be third)
-	//m[row][0+0] = 6*p[1].x;
-	//m[row][0+1] = 2;
-	//m[row][0+4] = -6*p[1].x;
-	//m[row++][0+5] = -2;
-	//m[row][solutionIndex-8+0] = 6*p[p.length - 1].x;
-	//m[row][solutionIndex-8+1] = 2;
-	//m[row][solutionIndex-8+4] = -6*p[p.length - 1].x;
-	//m[row++][solutionIndex-8+5] = -2;
+	// Not-a-knot spline
+	//m[row][0+0] = 1;
+	//m[row++][0+4] = -1;
+	//m[row][solutionIndex-8+0] = 1;
+	//m[row][solutionIndex-4+0] = -1;
 
 	// natural spline
 	m[row][0+0] = 6*p[0].x;
@@ -123,9 +125,11 @@ function cubicSplineInterpolation(p) {
 	m[row][solutionIndex-4+1] = 2;
 
 
-
-
-	var coefficients = solveMatrix(m);
+	var reducedRowEchelonForm = rref(m);
+	var coefficients = [];
+	for (var i = 0; i < reducedRowEchelonForm.length; i++) {
+		coefficients.push(reducedRowEchelonForm[i][reducedRowEchelonForm[i].length - 1]);
+	}
 
 	var functions = [];
 	for (var i = 0; i < coefficients.length; i += 4) {
@@ -168,4 +172,45 @@ function solveMatrix(mat) {
 	}
 
 	return solution;
+}
+
+
+// taken from https://rosettacode.org/wiki/Reduced_row_echelon_form
+function rref(mat) {
+    var lead = 0;
+    for (var r = 0; r < mat.length; r++) {
+        if (mat[0].length <= lead) {
+            return;
+        }
+        var i = r;
+        while (mat[i][lead] == 0) {
+            i++;
+            if (mat.length == i) {
+                i = r;
+                lead++;
+                if (mat[0].length == lead) {
+                    return;
+                }
+            }
+        }
+ 
+        var tmp = mat[i];
+        mat[i] = mat[r];
+        mat[r] = tmp;
+ 
+        var val = mat[r][lead];
+        for (var j = 0; j < mat[0].length; j++) {
+            mat[r][j] /= val;
+        }
+ 
+        for (var i = 0; i < mat.length; i++) {
+            if (i == r) continue;
+            val = mat[i][lead];
+            for (var j = 0; j < mat[0].length; j++) {
+                mat[i][j] -= val * mat[r][j];
+            }
+        }
+        lead++;
+    }
+    return mat;
 }
