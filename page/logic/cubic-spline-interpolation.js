@@ -56,7 +56,10 @@ function getMinMax(points) {
 	}
 }
 
-function cubicSplineInterpolation(p) {
+// cubic spline interpolation
+// @param p The points. An array of objects with x and y coordinate.
+// @param type The interpolation boundary condition ("quadratic", "notaknot", "natural"). "natural" is the default value.
+function cubicSplineInterpolation(p, boundary) {
 	var row = 0;
 	var solutionIndex = (p.length - 1) * 4;
 
@@ -107,22 +110,29 @@ function cubicSplineInterpolation(p) {
 	}
 
 	// boundary conditions
+	switch (boundary) {
+		case "quadratic":
+			// first and last spline quadratic
+			m[row++][0] = 1;
+			m[row++][solutionIndex-4+0] = 1;
+			break;
 
-	// first and last spline quadratic
-	//m[row++][0] = 1;
-	//m[row++][solutionIndex-4+0] = 1;*/
+		case "notaknot":
+			// Not-a-knot spline
+			m[row][0+0] = 1;
+			m[row++][0+4] = -1;
+			m[row][solutionIndex-8+0] = 1;
+			m[row][solutionIndex-4+0] = -1;
+			break;
 
-	// Not-a-knot spline
-	//m[row][0+0] = 1;
-	//m[row++][0+4] = -1;
-	//m[row][solutionIndex-8+0] = 1;
-	//m[row][solutionIndex-4+0] = -1;
-
-	// natural spline
-	m[row][0+0] = 6*p[0].x;
-	m[row++][0+1] = 2;
-	m[row][solutionIndex-4+0] = 6*p[p.length-1].x;
-	m[row][solutionIndex-4+1] = 2;
+		default:
+			// natural spline
+			m[row][0+0] = 6*p[0].x;
+			m[row++][0+1] = 2;
+			m[row][solutionIndex-4+0] = 6*p[p.length-1].x;
+			m[row][solutionIndex-4+1] = 2;
+			break;
+	}
 
 
 	var reducedRowEchelonForm = rref(m);

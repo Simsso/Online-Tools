@@ -31,8 +31,15 @@
 </div>
 
 <div class="form-group">
-	<button class="btn btn-primary" id="interpolate" disabled="disabled">Interpolate</button>
-	<button class="btn btn-default" id="show-example">Show example</button>
+	<select id="boundary-input" class="btn form-control btn-default" style="width: auto;">
+		<option value="natural" selected="">Natural</option>
+		<option value="quadratic">Quadratic</option>
+		<option value="notaknot">Not-a-knot</option>
+	</select>
+	<div class="btn-group">
+		<button class="btn btn-primary" id="interpolate" disabled="disabled">Interpolate</button>
+		<button class="btn btn-default" id="show-example">Show example</button>
+	</div>
 </div>
 
 <p class="bg-warning padding-15px hide" id="error-msg"></p>
@@ -44,7 +51,7 @@
 	<h3>Equation</h3>
 	<div class="margin-bottom-15px" id="equation-output"></div>
 
-	<p class="bg-info padding-15px">The algorithm calculates a "natural" spline: The boundary splines turn into a straight line (the second derivative is equal to zero in the end points).</p>
+	<p class="bg-info padding-15px">By default, the algorithm calculates a "natural" spline: The boundary splines turn into a straight line (the second derivative is equal to zero in the end points).</p>
 	
 	<div class="clearfix form-group">
 		<div class="col-xs-6 col-sm-4 input-group pull-left">

@@ -9,7 +9,7 @@
 		};
 
 	// HTML elements
-	var btnShowExample = $('#show-example'), textareaUserInput = $('#user-input'), btnInterpolate = $('#interpolate'), divEquationOutput = $('#equation-output'), divOutput = $('#output'), divPointOutput = $('#point-output'), divErrorMsg = $('#error-msg'), graphBoard, inputX = $('#input-x'), outputY = $('#y-value-output');
+	var btnShowExample = $('#show-example'), textareaUserInput = $('#user-input'), btnInterpolate = $('#interpolate'), divEquationOutput = $('#equation-output'), divOutput = $('#output'), divPointOutput = $('#point-output'), divErrorMsg = $('#error-msg'), graphBoard, inputX = $('#input-x'), outputY = $('#y-value-output'), boundarySelect = $('#boundary-input');
 
 	var functions = [];
 	var f = function(x) { return undefined; };
@@ -35,7 +35,42 @@
 		}
 	});
 
-	btnInterpolate.on('click', function() {
+	$('#keepAspectRatioInput').on('click', function() {
+		keepAspectRatio = $(this).is(':checked');
+		visualize();
+	});
+
+	var lastX = undefined;
+	inputX.on('change keyup', function() {
+		if (!inputX.val()) {
+			outputY.html('');
+			return;
+		}
+		
+		try {
+			var x = parseFloat(inputX.val());
+
+			if (lastX === x) return; // avoid unnecessary redrawing
+
+
+			var fofx = f(x);
+			if (typeof fofx === 'undefined') fofx = '\\text{undefined}'; // show undefined string when out of bounds
+			else fofx = roundMathJax(fofx); // round to four digits
+
+			outputY.html('$$f(' + x + ')=' + fofx + '$$');
+			lastX = x;
+
+			MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('y-value-output')]);
+		}
+		catch(e) {
+			outputY.html('');
+		}
+	});
+
+	btnInterpolate.on('click', goInterpolate);
+	boundarySelect.on('change', goInterpolate);
+
+	function goInterpolate() {
 		hideError();
 		inputX.val('');
 
@@ -97,7 +132,7 @@
 		minY = minMax.minY;
 		maxY = minMax.maxY;
 
-		functions = cubicSplineInterpolation(points);
+		functions = cubicSplineInterpolation(points, boundarySelect.val());
 
 		lastX = undefined;
 		outputY.html('');
@@ -107,39 +142,7 @@
 		showEquations();
 		visualize();
 		divOutput.removeClass('hide');
-	}).trigger('change');
-
-	$('#keepAspectRatioInput').on('click', function() {
-		keepAspectRatio = $(this).is(':checked');
-		visualize();
-	});
-
-	var lastX = undefined;
-	inputX.on('change keyup', function() {
-		if (!inputX.val()) {
-			outputY.html('');
-			return;
-		}
-		
-		try {
-			var x = parseFloat(inputX.val());
-
-			if (lastX === x) return; // avoid unnecessary redrawing
-
-
-			var fofx = f(x);
-			if (typeof fofx === 'undefined') fofx = '\\text{undefined}'; // show undefined string when out of bounds
-			else fofx = roundMathJax(fofx); // round to four digits
-
-			outputY.html('$$f(' + x + ')=' + fofx + '$$');
-			lastX = x;
-
-			MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('y-value-output')]);
-		}
-		catch(e) {
-			outputY.html('');
-		}
-	});
+	}
 
 	function showPoints() {
 		var html = '';
