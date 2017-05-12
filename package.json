@@ -20,6 +20,7 @@
   },
   "homepage": "https://tools.timodenk.com/",
   "dependencies": {
+    "jsxgraph": "^0.99.5",
     "mathjs": "^3.13.0"
   }
 }

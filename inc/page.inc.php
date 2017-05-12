@@ -53,7 +53,7 @@
             <li<?php if ($p == 'home') echo ' class="active"'; ?>><a href="/">Home</a></li>
             <li<?php if ($p == 'about') echo ' class="active"'; ?>><a href="/about">About</a></li>
             <li<?php if ($p == 'contact') echo ' class="active"'; ?>><a href="/contact">Contact</a></li>
-            <li<?php if ($p == 'legal-info') echo ' class="active"'; ?>><a href="/legal-info">Legal info</a></li>
+            <li<?php if ($p == 'legal-info') echo ' class="active"'; ?>><a href="/legal-info">Legal</a></li>
           </ul>
         </div>
       </div>

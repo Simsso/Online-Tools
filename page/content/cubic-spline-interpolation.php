@@ -9,8 +9,8 @@
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 <!-- jsxgraph for rendering the graph -->
-<link rel="stylesheet" type="text/css" href="//jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
-<script type="text/javascript" src="//jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
+<link rel="stylesheet" type="text/css" href="node_modules/jsxgraph/distrib/jsxgraph.css" />
+<script type="text/javascript" src="node_modules/jsxgraph/distrib/jsxgraphcore.js"></script>
 
 <!-- math.js for higher precision calculations -->
 <script src="node_modules/mathjs/dist/math.min.js"></script>
