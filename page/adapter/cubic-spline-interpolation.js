@@ -33,7 +33,7 @@
 		else {
 			btnInterpolate.attr('disabled', 'disabled');
 		}
-	});
+	}).trigger('change');
 
 	$('#keepAspectRatioInput').on('click', function() {
 		keepAspectRatio = $(this).is(':checked');

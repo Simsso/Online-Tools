@@ -69,68 +69,68 @@ function cubicSplineInterpolation(p, boundary) {
 		// columns (rows + 1)
 		m.push([]);
 		for (var j = 0; j <= (p.length - 1) * 4; j++) {
-			m[i].push(0); // fill with zeros
+			m[i].push(math.bignumber(0)); // fill with zeros
 		}
 	}
 
 	// splines through p equations
 	for (var functionNr = 0; functionNr < p.length-1; functionNr++, row++) {
 		var p0 = p[functionNr], p1 = p[functionNr+1];
-		m[row][functionNr*4+0] = Math.pow(p0.x, 3);
-		m[row][functionNr*4+1] = Math.pow(p0.x, 2); 
-		m[row][functionNr*4+2] = p0.x;
-		m[row][functionNr*4+3] = 1; 
-		m[row][solutionIndex] = p0.y;
+		m[row][functionNr*4+0] = math.pow(math.bignumber(p0.x), 3);
+		m[row][functionNr*4+1] = math.pow(math.bignumber(p0.x), 2); 
+		m[row][functionNr*4+2] = math.bignumber(p0.x);
+		m[row][functionNr*4+3] = math.bignumber(1); 
+		m[row][solutionIndex] = math.bignumber(p0.y);
 
-		m[++row][functionNr*4+0] = Math.pow(p1.x, 3);
-		m[row][functionNr*4+1] = Math.pow(p1.x, 2); 
-		m[row][functionNr*4+2] = p1.x;
-		m[row][functionNr*4+3] = 1; 
-		m[row][solutionIndex] = p1.y;
+		m[++row][functionNr*4+0] = math.pow(math.bignumber(p1.x), 3);
+		m[row][functionNr*4+1] = math.pow(math.bignumber(p1.x), 2); 
+		m[row][functionNr*4+2] = math.bignumber(p1.x);
+		m[row][functionNr*4+3] = math.bignumber(1); 
+		m[row][solutionIndex] = math.bignumber(p1.y);
 	}
 
 	// first derivative
 	for (var functionNr = 0; functionNr < p.length - 2; functionNr++, row++) {
 		var p1 = p[functionNr+1];
-		m[row][functionNr*4+0] = 3*Math.pow(p1.x, 2);
-		m[row][functionNr*4+1] = 2*p1.x;
-		m[row][functionNr*4+2] = 1;
-		m[row][functionNr*4+4] = -3*Math.pow(p1.x, 2);
-		m[row][functionNr*4+5] = -2*p1.x;
-		m[row][functionNr*4+6] = -1;
+		m[row][functionNr*4+0] = math.multiply(3, math.pow(math.bignumber(p1.x), 2));
+		m[row][functionNr*4+1] = math.multiply(2, math.bignumber(p1.x));
+		m[row][functionNr*4+2] = math.bignumber(1);
+		m[row][functionNr*4+4] = math.multiply(-3, math.pow(math.bignumber(p1.x), 2));
+		m[row][functionNr*4+5] = math.multiply(-2, math.bignumber(p1.x));
+		m[row][functionNr*4+6] = math.bignumber(-1);
 	}
 
 	// second derivative
 	for (var functionNr = 0; functionNr < p.length - 2; functionNr++, row++) {
 		var p1 = p[functionNr+1];
-		m[row][functionNr*4+0] = 6*p1.x;
-		m[row][functionNr*4+1] = 2;
-		m[row][functionNr*4+4] = -6*p1.x;
-		m[row][functionNr*4+5] = -2;
+		m[row][functionNr*4+0] = math.multiply(6, math.bignumber(p1.x));
+		m[row][functionNr*4+1] = math.bignumber(2);
+		m[row][functionNr*4+4] = math.multiply(-6, math.bignumber(p1.x));
+		m[row][functionNr*4+5] = math.bignumber(-2);
 	}
 
 	// boundary conditions
 	switch (boundary) {
 		case "quadratic":
 			// first and last spline quadratic
-			m[row++][0] = 1;
-			m[row++][solutionIndex-4+0] = 1;
+			m[row++][0] = math.bignumber(1);
+			m[row++][solutionIndex-4+0] = math.bignumber(1);
 			break;
 
 		case "notaknot":
 			// Not-a-knot spline
-			m[row][0+0] = 1;
-			m[row++][0+4] = -1;
-			m[row][solutionIndex-8+0] = 1;
-			m[row][solutionIndex-4+0] = -1;
+			m[row][0+0] = math.bignumber(1);
+			m[row++][0+4] = math.bignumber(-1);
+			m[row][solutionIndex-8+0] = math.bignumber(1);
+			m[row][solutionIndex-4+0] = math.bignumber(-1);
 			break;
 
 		default:
 			// natural spline
-			m[row][0+0] = 6*p[0].x;
-			m[row++][0+1] = 2;
-			m[row][solutionIndex-4+0] = 6*p[p.length-1].x;
-			m[row][solutionIndex-4+1] = 2;
+			m[row][0+0] = math.multiply(6, p[0].x);
+			m[row++][0+1] = math.bignumber(2);
+			m[row][solutionIndex-4+0] = math.multiply(6, math.bignumber(p[p.length-1].x));
+			m[row][solutionIndex-4+1] = math.bignumber(2);
 			break;
 	}
 
@@ -144,11 +144,11 @@ function cubicSplineInterpolation(p, boundary) {
 	var functions = [];
 	for (var i = 0; i < coefficients.length; i += 4) {
 		functions.push({
-			a: coefficients[i],
-			b: coefficients[i+1],
-			c: coefficients[i+2],
-			d: coefficients[i+3],
-			range: { xmin: p[i/4].x, xmax: p[i/4+1].x }
+			a: parseFloat(coefficients[i]),
+			b: parseFloat(coefficients[i+1]),
+			c: parseFloat(coefficients[i+2]),
+			d: parseFloat(coefficients[i+3]),
+			range: { xmin: parseFloat(p[i/4].x), xmax: parseFloat(p[i/4+1].x) }
 		})
 	}
 	return functions;
@@ -186,6 +186,7 @@ function solveMatrix(mat) {
 
 
 // taken from https://rosettacode.org/wiki/Reduced_row_echelon_form
+// modified to work with math.js (high float precision)
 function rref(mat) {
     var lead = 0;
     for (var r = 0; r < mat.length; r++) {
@@ -210,14 +211,14 @@ function rref(mat) {
  
         var val = mat[r][lead];
         for (var j = 0; j < mat[0].length; j++) {
-            mat[r][j] /= val;
+            mat[r][j] = math.divide(mat[r][j], val);
         }
  
         for (var i = 0; i < mat.length; i++) {
             if (i == r) continue;
-            val = mat[i][lead];
+            val = math.bignumber(mat[i][lead]);
             for (var j = 0; j < mat[0].length; j++) {
-                mat[i][j] -= val * mat[r][j];
+                mat[i][j] = math.subtract(math.bignumber(mat[i][j]), math.multiply((val), math.bignumber(mat[r][j])));
             }
         }
         lead++;
