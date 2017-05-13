@@ -40,6 +40,7 @@
 		<option value="natural" selected="">Natural</option>
 		<option value="quadratic">Quadratic</option>
 		<option value="notaknot">Not-a-knot</option>
+		<option value="periodic">Periodic</option>
 	</select>
 	<div class="btn-group">
 		<button class="btn btn-primary" id="interpolate" disabled="disabled">Interpolate</button>

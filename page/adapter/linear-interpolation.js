@@ -160,7 +160,7 @@
 		for (var i = 0; i < functions.length; i++) {
 			var f = functions[i];
 			// approximate output
-			html += roundMathJax(f.a) + '\\cdot x + ' + roundMathJax(f.b) + ', & \\text{if } x \\in [' + f.range.xmin + ',' + f.range.xmax + ']' + ((i !== functions.length - 1) ? ', \\\\' : '.\\end{cases}$$');
+			html += roundMathJax(f.a) + '\\cdot x + ' + roundMathJax(f.b) + ', & \\text{if } x \\in ' + ((i == 0) ? "[" : "(") + f.range.xmin + ',' + f.range.xmax + ']' + ((i !== functions.length - 1) ? ', \\\\' : '.\\end{cases}$$');
 		}
 		divEquationOutput.html(html);
 

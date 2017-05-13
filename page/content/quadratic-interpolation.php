@@ -10,6 +10,9 @@
 <link rel="stylesheet" type="text/css" href="node_modules/jsxgraph/distrib/jsxgraph.css" />
 <script type="text/javascript" src="node_modules/jsxgraph/distrib/jsxgraphcore.js"></script>
 
+<!-- math.js for higher precision calculations -->
+<script src="node_modules/mathjs/dist/math.min.js"></script>
+
 
 <style type="text/css">
 	#visualization {

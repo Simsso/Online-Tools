@@ -56,9 +56,10 @@ function getMinMax(points) {
 	}
 }
 
-// cubic spline interpolation
+// Cubic spline interpolation
+// The function uses the library math.js to ensure high precision results.
 // @param p The points. An array of objects with x and y coordinate.
-// @param type The interpolation boundary condition ("quadratic", "notaknot", "natural"). "natural" is the default value.
+// @param type The interpolation boundary condition ("quadratic", "notaknot", "periodic", "natural"). "natural" is the default value.
 function cubicSplineInterpolation(p, boundary) {
 	var row = 0;
 	var solutionIndex = (p.length - 1) * 4;
@@ -111,22 +112,35 @@ function cubicSplineInterpolation(p, boundary) {
 
 	// boundary conditions
 	switch (boundary) {
-		case "quadratic":
-			// first and last spline quadratic
+		case "quadratic": // first and last spline quadratic
 			m[row++][0] = math.bignumber(1);
 			m[row++][solutionIndex-4+0] = math.bignumber(1);
 			break;
 
-		case "notaknot":
-			// Not-a-knot spline
+		case "notaknot": // Not-a-knot spline
 			m[row][0+0] = math.bignumber(1);
 			m[row++][0+4] = math.bignumber(-1);
 			m[row][solutionIndex-8+0] = math.bignumber(1);
 			m[row][solutionIndex-4+0] = math.bignumber(-1);
 			break;
 
-		default:
-			// natural spline
+		case "periodic": // periodic function
+			// first derivative of first and last point equal
+			m[row][0] = math.multiply(3, math.pow(math.bignumber(p[0].x), 2));
+			m[row][1] = math.multiply(2, math.bignumber(p[0].x));
+			m[row][2] = math.bignumber(1);
+			m[row][solutionIndex-4+0] = math.multiply(-3, math.pow(math.bignumber(p[p.length-1].x), 2));
+			m[row][solutionIndex-4+1] = math.multiply(-2, math.bignumber(p[p.length-1].x));
+			m[row++][solutionIndex-4+2] = math.bignumber(-1);
+
+			// second derivative of first and last point equal
+			m[row][0] = math.multiply(6, math.bignumber(p[0].x));
+			m[row][1] = math.bignumber(2);
+			m[row][solutionIndex-4+0] = math.multiply(-6, math.bignumber(p[p.length-1].x));
+			m[row][solutionIndex-4+1] = math.bignumber(-2);
+			break;
+
+		default: // natural spline
 			m[row][0+0] = math.multiply(6, p[0].x);
 			m[row++][0+1] = math.bignumber(2);
 			m[row][solutionIndex-4+0] = math.multiply(6, math.bignumber(p[p.length-1].x));
@@ -154,39 +168,9 @@ function cubicSplineInterpolation(p, boundary) {
 	return functions;
 }
 
-function solveMatrix(mat) {
-	var len = mat.length;
-	for (var i = 0; i < len; i++) { // column
-		for (var j = i+1; j < len; j++) {// row
-			if (mat[i][i] == 0) { // check if cell is zero
-				var k = i;
-				// search for an element where this cell is not zero
-				while (mat[k][i] == 0) k++;
-				// swap rows
-				var tmp = mat[k].slice();
-				mat[k] = mat[i].slice();
-				mat[i] = tmp.slice();
-			}
-			var fac = -mat[j][i]/mat[i][i];
-			for(var k = i; k < len+1; k++) // elements in a row
-			mat[j][k] += fac *mat[i][k];
-		}
-	}
-
-	var solution = [];
-	for (var i = len-1; i >= 0; i--) { // column
-		solution.unshift(mat[i][len]/mat[i][i]);
-		for (var k = i-1; k >= 0; k--) {
-			mat[k][len] -= mat[k][i] * solution[0];
-		}
-	}
-
-	return solution;
-}
-
-
-// taken from https://rosettacode.org/wiki/Reduced_row_echelon_form
-// modified to work with math.js (high float precision)
+// Reduced row echelon form
+// Taken from https://rosettacode.org/wiki/Reduced_row_echelon_form
+// Modified to work with math.js (high float precision).
 function rref(mat) {
     var lead = 0;
     for (var r = 0; r < mat.length; r++) {

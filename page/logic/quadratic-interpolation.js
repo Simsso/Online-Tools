@@ -56,76 +56,93 @@ function quadraticInterpolation(data) {
 	var numberOfUnknowns = 3*(data.length-1);
 	var numberOfFunctions = data.length-1;
 	var numberOfDerivatives = data.length-2;
-	var matrix = new Array(numberOfUnknowns);
-	for (var i = 0; i < matrix.length; i++) {
-		matrix[i] = new Array(numberOfUnknowns+1);
-		for (var j = 0; j < matrix[i].length; j++) {
-			matrix[i][j] = 0;
+	var m = new Array(numberOfUnknowns);
+	for (var i = 0; i < m.length; i++) {
+		m[i] = new Array(numberOfUnknowns+1);
+		for (var j = 0; j < m[i].length; j++) {
+			m[i][j] = 0;
 		}
 	}
 
 	// through points equations
 	for (var i = 0, j = 0; j < data.length-1; i += 2, j++) {
-		matrix[i][j*3] = Math.pow(data[j].x, 2);
-		matrix[i][j*3+1] = data[j].x;
-		matrix[i][j*3+2] = 1;
-		matrix[i][numberOfUnknowns] = data[j].y;
-		matrix[i+1][j*3] = Math.pow(data[j+1].x, 2);
-		matrix[i+1][j*3+1] = data[j+1].x;
-		matrix[i+1][j*3+2] = 1;
-		matrix[i+1][numberOfUnknowns] = data[j+1].y;
+		m[i][j*3] = Math.pow(data[j].x, 2);
+		m[i][j*3+1] = data[j].x;
+		m[i][j*3+2] = 1;
+		m[i][numberOfUnknowns] = data[j].y;
+		m[i+1][j*3] = Math.pow(data[j+1].x, 2);
+		m[i+1][j*3+1] = data[j+1].x;
+		m[i+1][j*3+2] = 1;
+		m[i+1][numberOfUnknowns] = data[j+1].y;
 	}
 
 	// derivative equations
 	for (var i = (data.length-1)*2, j = 0; i < numberOfUnknowns-1; i++, j++) {
-		matrix[i][(j*3)] = 2*data[j+1].x;
-		matrix[i][(j*3)+1] = 1;
-		matrix[i][(j*3)+3] = -2*data[j+1].x;
-		matrix[i][(j*3)+4] = -1;
+		m[i][(j*3)] = 2*data[j+1].x;
+		m[i][(j*3)+1] = 1;
+		m[i][(j*3)+3] = -2*data[j+1].x;
+		m[i][(j*3)+4] = -1;
 	}
 
 	// additional information / boundary condition (required)
-	matrix[numberOfUnknowns-1][0] = 1; // make first function linear
-	var coefficients = solveMatrix(matrix);
+	m[numberOfUnknowns-1][0] = 1; // make first function linear
+
+	var reducedRowEchelonForm = rref(m);
+	var coefficients = [];
+	for (var i = 0; i < reducedRowEchelonForm.length; i++) {
+		coefficients.push(reducedRowEchelonForm[i][reducedRowEchelonForm[i].length - 1]);
+	}
 
 	var functions = [];
 	for (var i = 0; i < coefficients.length; i += 3) {
 		functions.push({
-			a: coefficients[i],
-			b: coefficients[i+1],
-			c: coefficients[i+2],
-			range: { xmin: data[i/3].x, xmax: data[i/3+1].x }
+			a: parseFloat(coefficients[i]),
+			b: parseFloat(coefficients[i+1]),
+			c: parseFloat(coefficients[i+2]),
+			range: { xmin: parseFloat(data[i/3].x), xmax: parseFloat(data[i/3+1].x) }
 		})
 	}
 	return functions;
 }
 
-function solveMatrix(mat) {
-	var len = mat.length;
-	for (var i = 0; i < len; i++) { // column
-		for (var j = i+1; j < len; j++) {// row
-			if (mat[i][i] == 0) { // check if cell is zero
-				var k = i;
-				// search for an element where this cell is not zero
-				while (mat[k][i] == 0) k++;
-				// swap rows
-				var tmp = mat[k].slice();
-				mat[k] = mat[i].slice();
-				mat[i] = tmp.slice();
-			}
-			var fac = -mat[j][i]/mat[i][i];
-			for(var k = i; k < len+1; k++) // elements in a row
-			mat[j][k] += fac *mat[i][k];
-		}
-	}
-
-	var solution = [];
-	for (var i = len-1; i >= 0; i--) { // column
-		solution.unshift(mat[i][len]/mat[i][i]);
-		for (var k = i-1; k >= 0; k--) {
-			mat[k][len] -= mat[k][i] * solution[0];
-		}
-	}
-
-	return solution;
+// Reduced row echelon form
+// Taken from https://rosettacode.org/wiki/Reduced_row_echelon_form
+// Modified to work with math.js (high float precision).
+function rref(mat) {
+    var lead = 0;
+    for (var r = 0; r < mat.length; r++) {
+        if (mat[0].length <= lead) {
+            return;
+        }
+        var i = r;
+        while (mat[i][lead] == 0) {
+            i++;
+            if (mat.length == i) {
+                i = r;
+                lead++;
+                if (mat[0].length == lead) {
+                    return;
+                }
+            }
+        }
+ 
+        var tmp = mat[i];
+        mat[i] = mat[r];
+        mat[r] = tmp;
+ 
+        var val = mat[r][lead];
+        for (var j = 0; j < mat[0].length; j++) {
+            mat[r][j] = math.divide(mat[r][j], val);
+        }
+ 
+        for (var i = 0; i < mat.length; i++) {
+            if (i == r) continue;
+            val = math.bignumber(mat[i][lead]);
+            for (var j = 0; j < mat[0].length; j++) {
+                mat[i][j] = math.subtract(math.bignumber(mat[i][j]), math.multiply((val), math.bignumber(mat[r][j])));
+            }
+        }
+        lead++;
+    }
+    return mat;
 }
