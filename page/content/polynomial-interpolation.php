@@ -1,11 +1,11 @@
 <!-- load scripts before content -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
-    jax: ["input/TeX","output/HTML-CSS"],
+    jax: ["input/TeX","output/SVG"],
     displayAlign: "left"
   });
 </script>
-<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_SVG"></script>
 
 <link rel="stylesheet" type="text/css" href="node_modules/jsxgraph/distrib/jsxgraph.css" />
 <script type="text/javascript" src="node_modules/jsxgraph/distrib/jsxgraphcore.js"></script>
