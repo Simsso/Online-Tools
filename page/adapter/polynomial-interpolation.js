@@ -9,7 +9,7 @@
 		};
 
 	// HTML elements
-	var btnShowExample = $('#show-example'), textareaUserInput = $('#user-input'), btnInterpolate = $('#interpolate'), divEquationOutput = $('#equation-output'), divOutput = $('#output'), divPointOutput = $('#point-output'), divErrorMsg = $('#error-msg'), graphBoard, inputX = $('#input-x'), outputY = $('#y-value-output');
+	var btnShowExample = $('#show-example'), textareaUserInput = $('#user-input'), btnInterpolate = $('#interpolate'), divEquationOutput = $('#equation-output'), divOutput = $('#output'), divPointOutput = $('#point-output'), divErrorMsg = $('#error-msg'), graphBoard, inputX = $('#input-x'), outputY = $('#y-value-output'), outputLatex = $('#latex-output');
 
 	var coefficients = [];
 	var f = function(x) { return undefined; };
@@ -105,6 +105,7 @@
 		// output
 		showPoints();
 		showEquations();
+		showLatexOutput();
 		visualize();
 		divOutput.removeClass('hide');
 	}).trigger('change');
@@ -171,6 +172,25 @@
 
 		// draw equation
 		MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('equation-output')]);
+	}
+
+	function showLatexOutput() {
+		let plotString = "\\addplot[][domain=" + minX + ":" + maxX + "]{";
+
+		for (let i = 0; i < coefficients.length; i++) {
+			let c = coefficients[i], e = coefficients.length - i -1; // coeffient and exponent
+			plotString += "+" + c + "*x^" + e;
+		}
+		plotString += "};\n";
+
+		let pointsString = "\\addplot [only marks] table {\n";
+		for (let i = 0; i < points.length; i++) {
+			pointsString += points[i].x + " " + points[i].y + "\n";
+		}
+		pointsString += "};\n"
+
+		let html = "\\documentclass[11pt]{article}\n\n% graphics\n\\usepackage{tikz}\n\\usepackage{pgfplots}\n\\pgfplotsset{compat=1.12}\n\\usepgfplotslibrary{fillbetween}\n\n\n\\begin{document}\n	\\begin{tikzpicture}\n\n		\\pgfplotsset{\n			scale only axis,\n		}\n\n		\\begin{axis}[\n			xlabel=$x$,\n			ylabel=$y$,\n			samples=100,\n			]\n			" + pointsString + "			" + plotString + "		\\end{axis}\n\n	\\end{tikzpicture}\n\n\\end{document}";
+		outputLatex.html(html);
 	}
 
 	function visualize() {

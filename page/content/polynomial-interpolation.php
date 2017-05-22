@@ -24,6 +24,11 @@
 	#equation-output td {
     	padding: 5px 0;
 	}
+
+	#latex-output {
+		width: 100%; 
+		min-height: 450px;
+	}
 </style>
 
 
@@ -55,7 +60,15 @@
 	</div>
 	<div class="margin-bottom-15px" id="y-value-output"></div>
 
-	<h3>Graph</h3>
-	<div id="visualization" class="margin-bottom-15px"></div>
-	<label><input id="keepAspectRatioInput" type="checkbox" />&nbsp;keep aspect ratio</label>
+	<div class="row">
+		<div class="col-md-6">
+			<h3>Graph</h3>
+			<div id="visualization" class="margin-bottom-15px"></div>
+			<label><input id="keepAspectRatioInput" type="checkbox" />&nbsp;keep aspect ratio</label>
+		</div>
+		<div class="col-md-5 col-md-offset-1">
+			<h3>LaTeX</h3>
+			<textarea id="latex-output"></textarea>
+		</div>
+	</div>
 </div>
