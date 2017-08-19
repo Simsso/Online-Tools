@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="description" content="<?php echo ((strlen($meta_data->description) > 0) ? $meta_data->description : $DEFAULT_PAGE_DESCRIPTION); ?>">
+    <meta name="description" content="<?php echo ((isset($meta_data) && strlen($meta_data->description) > 0) ? $meta_data->description : $DEFAULT_PAGE_DESCRIPTION); ?>">
     <meta name="author" content="Timo Denk">
     <meta name="keywords" content="<?php 
-      $meta_keywords = array_merge($meta_data->keywords, $DEFAULT_PAGE_KEYWORDS);
+      $meta_keywords = array_merge((isset($meta_data) ? $meta_data->keywords : array()), $DEFAULT_PAGE_KEYWORDS);
       $first_iteration = true;
       foreach ($meta_keywords as $key => $value) {
         if (!$first_iteration) {
@@ -20,7 +20,7 @@
        }
      ?>">
     <link rel="icon" href="/img/icon.ico">
-    <title><?php echo ((strlen($meta_data->title) > 0) ? $meta_data->title . ' - ' : '') . $DEFAULT_PAGE_TITLE; ?></title>
+    <title><?php echo ((isset($meta_data) && strlen($meta_data->title) > 0) ? $meta_data->title . ' - ' : '') . $DEFAULT_PAGE_TITLE; ?></title>
 
     <link href="/css/bootstrap.min.css" rel="stylesheet">
 

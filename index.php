@@ -45,7 +45,7 @@
 
   // set $p to the code of the requested page
   $p = 'home';
-  if (isset($_GET['p']) && strlen($_GET['p'])) { $p = $_GET['p']; }
+  if (isset($_GET['p']) && strlen($_GET['p'])) { $p = ltrim($_GET['p'], '/'); }
 
   // special pages don't have the content, logic, adapter system which tool pages have
   $special_pages = array('home', 'about', 'contact', 'legal-info');

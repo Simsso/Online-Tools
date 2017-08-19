@@ -62,7 +62,7 @@
 	<h3>Equation</h3>
 	<div class="margin-bottom-15px" id="equation-output"></div>
 
-	<p class="bg-info padding-15px">By default, the algorithm calculates a "natural" spline: The boundary splines turn into a straight line (the second derivative is equal to zero in the end points).</p>
+	<p class="bg-info padding-15px">By default, the algorithm calculates a "natural" spline. Details about the mathematical background of this tool and boundary conditions can be found <a target="_blank" href="https://timodenk.com/blog/cubic-spline-interpolation">here</a>.</p>
 	
 	<div class="clearfix form-group">
 		<div class="col-xs-6 col-sm-4 input-group pull-left">

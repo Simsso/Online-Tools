@@ -1,6 +1,6 @@
 Cubic spline interpolation
 This tools performs and visualizes a cubic spline interpolation for a given set of points.
 math;interpolation;cubic;spline;function;points;x;y
-In the mathematical field of numerical analysis, interpolation is a method of constructing new data points within the range of a discrete set of known data points.
-https://en.wikipedia.org/wiki/Interpolation
+Cubic spline interpolation is a mathematical method commonly used to construct new points within the boundaries of a set of known points. These new points are function values of an interpolation function (referred to as spline), which itself consists of multiple cubic piecewise polynomials.
+https://timodenk.com/blog/cubic-spline-interpolation/
 linear-interpolation;quadratic-interpolation;polynomial-interpolation
