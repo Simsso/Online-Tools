@@ -1,7 +1,12 @@
 <style type="text/css">
 	#primary-progress-bar {
 		height: 5px;
-		margin-top: 2px;
+		float: none;
+		margin-bottom: 2px;
+	}
+
+	audio.audio-preload {
+		display: none;
 	}
 </style>
 
@@ -11,20 +16,25 @@
 	</div>
 	<div class="col-xs-12 text-center">
 		<h2 id="sequence-preview">&nbsp;</h2>
-		<h4 id="sequence-length">&nbsp;</h4>
 	</div>
 	<div class="col-xs-12 col-sm-4 col-sm-offset-4">
 		<div class="form-group">
-			<input id="primary-input" type="text" class="form-control text-center" disabled="disabled">
 			<div id="primary-progress-bar" class="progress-bar"></div>
+			<input id="primary-input" type="number" class="form-control text-center" disabled="disabled">
 		</div>
+		<h4 id="sequence-length" class="text-center">&nbsp;</h4>
 	</div>
 	<div class="col-xs-12 text-center margin-bottom-15px">
 		<button id="primary-btn" type="button" class="btn btn-primary btn-lg" disabled="disabled">Start</button>
 		<button id="repeat-btn" type="button" class="btn btn-default btn-lg" disabled="disabled">Repeat</button>
 	</div>
-	<div class="col-xs-12">
+	<div class="col-xs-12 col-sm-6 col-md-4">
 		<h4>Settings</h4>
+		<div class="checkbox">
+			<label>
+				<input id="audio-enabled" type="checkbox" checked="checked"> Sound enabled
+			</label>
+		</div>
 		<div class="form-group">
 			<label for="speed-millis">Speed (milliseconds per digit)</label>
 			<div class="input-group">
@@ -41,3 +51,34 @@
 		</div>
 	</div>
 </div>
+
+<audio controls preload="auto" class="audio-preload">
+	<source src="audio/numbers/0.mp3" type="audio/mpeg">
+</audio>
+<audio controls preload="auto" class="audio-preload">
+	<source src="audio/numbers/1.mp3" type="audio/mpeg">
+</audio>
+<audio controls preload="auto" class="audio-preload">
+	<source src="audio/numbers/2.mp3" type="audio/mpeg">
+</audio>
+<audio controls preload="auto" class="audio-preload">
+	<source src="audio/numbers/3.mp3" type="audio/mpeg">
+</audio>
+<audio controls preload="auto" class="audio-preload">
+	<source src="audio/numbers/4.mp3" type="audio/mpeg">
+</audio>
+<audio controls preload="auto" class="audio-preload">
+	<source src="audio/numbers/5.mp3" type="audio/mpeg">
+</audio>
+<audio controls preload="auto" class="audio-preload">
+	<source src="audio/numbers/6.mp3" type="audio/mpeg">
+</audio>
+<audio controls preload="auto" class="audio-preload">
+	<source src="audio/numbers/7.mp3" type="audio/mpeg">
+</audio>
+<audio controls preload="auto" class="audio-preload">
+	<source src="audio/numbers/8.mp3" type="audio/mpeg">
+</audio>
+<audio controls preload="auto" class="audio-preload">
+	<source src="audio/numbers/9.mp3" type="audio/mpeg">
+</audio>
