@@ -1,5 +1,5 @@
 Quadratic interpolation
-This tools performs and visualizes a quadratic interpolation for a given set of points.
+Performs and visualizes a quadratic interpolation for a given set of points.
 math;interpolation;quadratic;function;points;x;y
 In the mathematical field of numerical analysis, interpolation is a method of constructing new data points within the range of a discrete set of known data points.
 https://en.wikipedia.org/wiki/Interpolation

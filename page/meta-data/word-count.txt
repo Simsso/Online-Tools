@@ -1,3 +1,3 @@
 Word count
-This tools shows you amongst other things how many words and characters a given text contains.
+Shows amongst other things how many words and characters a given text contains.
 word;count;text;words;number;characters;chars;unique;sentences;paragraphs

@@ -1,5 +1,5 @@
 IEEE 754 floating point
-This tool visualizes and converts between a floating point number and the IEEE 754 floating point format.
+Visualizes and converts between a floating point number and the IEEE 754 floating point format.
 ieee 754;floating point;standard;float;double
 IEEE Standard for Binary Floating-Point Arithmetic: "This standard is a product of the Floating-Point Working Group of the Microprocessor Standards Subcommittee of the Standards Committee of the IEEE Computer Society. This work was sponsored by the Technical Committee on Microprocessors and Minicomputers. Draft 8.0 of this standard was published to solicit public comments. Implementation techniques can be found in An Implementation Guide to a Proposed Standard for Floating-Point Arithmetic by J.T. Coonen, which was based on a still earlier draft of the proposal. This standard defines a family of commercially feasible ways for new systems to perform binary floating-point arithmetic."
 http://ieeexplore.ieee.org/document/30711/

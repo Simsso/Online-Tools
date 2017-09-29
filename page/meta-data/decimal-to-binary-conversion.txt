@@ -1,5 +1,5 @@
 Decimal to binary conversion
-This tool converts a decimal number into binary.
+Converts a decimal number into binary format.
 binary;bin;decimal;dec;conversion;number;system;value;to
 
 
