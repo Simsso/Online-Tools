@@ -1,0 +1,5 @@
+Digit span test
+Test, how man digits you can remember in your short-term memory.
+digit span test;memory;psychology
+A digit-span task is used to measure working memory's number storage capacity. Participants see or hear a sequence of numerical digits and are tasked to recall the sequence correctly, with increasingly longer sequences being tested in each trial.
+https://en.wikipedia.org/wiki/Memory_span#Digit-span
