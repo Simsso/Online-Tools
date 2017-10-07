@@ -1,0 +1,5 @@
+Poker odds pre-flop heads-up
+Shows the precise odds for any pre-flop heads-up situation in Texas Hold'em poker.
+poker;texas hold'em;heads-up;pre-flop;odds;probabilities
+A Texas Hold'em poker deck contains 52 different cards, in a heads-up game two players are playing against each other. Both of them get two cards dealt pre-flop face down. There are 1326 different possible pairs of cards that players can get -- the best one being two Aces.
+https://timodenk.com/blog/poker-odds-heads-up-pre-flop/

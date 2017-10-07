@@ -51,34 +51,3 @@
 		</div>
 	</div>
 </div>
-
-<audio controls preload="auto" class="audio-preload">
-	<source src="audio/numbers/0.mp3" type="audio/mpeg">
-</audio>
-<audio controls preload="auto" class="audio-preload">
-	<source src="audio/numbers/1.mp3" type="audio/mpeg">
-</audio>
-<audio controls preload="auto" class="audio-preload">
-	<source src="audio/numbers/2.mp3" type="audio/mpeg">
-</audio>
-<audio controls preload="auto" class="audio-preload">
-	<source src="audio/numbers/3.mp3" type="audio/mpeg">
-</audio>
-<audio controls preload="auto" class="audio-preload">
-	<source src="audio/numbers/4.mp3" type="audio/mpeg">
-</audio>
-<audio controls preload="auto" class="audio-preload">
-	<source src="audio/numbers/5.mp3" type="audio/mpeg">
-</audio>
-<audio controls preload="auto" class="audio-preload">
-	<source src="audio/numbers/6.mp3" type="audio/mpeg">
-</audio>
-<audio controls preload="auto" class="audio-preload">
-	<source src="audio/numbers/7.mp3" type="audio/mpeg">
-</audio>
-<audio controls preload="auto" class="audio-preload">
-	<source src="audio/numbers/8.mp3" type="audio/mpeg">
-</audio>
-<audio controls preload="auto" class="audio-preload">
-	<source src="audio/numbers/9.mp3" type="audio/mpeg">
-</audio>

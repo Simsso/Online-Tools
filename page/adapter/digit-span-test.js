@@ -107,7 +107,7 @@
 	}
 
 	function checkUserInput(input) {
-		if (input === test.getSequence()[symbolIndex]) {
+		if (input == test.getSequence()[symbolIndex]) {
 			symbolIndex++;
 
 			// update progress bar
@@ -145,7 +145,7 @@
 
 	userInput.on('keydown', function(event) {
 		if (test === null) return;
-		checkUserInput(String.fromCharCode(event.keyCode));
+		checkUserInput(event.key);
 		clearInput();
 	});
 
@@ -174,7 +174,6 @@
 
 	infoDiv.html("Hit start to run the digit span test.");
 	setDisabled(primaryButton, false);
-	primaryButton.focus();
 
 
 	// helper functions
