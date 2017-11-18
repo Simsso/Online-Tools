@@ -23,10 +23,12 @@
 		$('.download-btn').each(function() {
 			if (equation.length === 0) {
 				$(this).attr('disabled', 'disabled');
+				$(this).attr('href', '#');
 			}
 			else {
 				$(this).removeAttr('disabled')
 			}
+
 			var format = $(this).data('format');
 			$(this).attr('href', getURL(equation, format));
 		});
@@ -36,7 +38,7 @@
 		if (equation.length === 0) {
 			return '';
 		}
-		return 'https://timodenk.com/api/tex2img/' + encodeURI(equation) + '?format=' + format;
+		return 'https://timodenk.com/api/tex2img/' + encodeURIComponent(equation) + '?format=' + format;
 	}
 
 	function showSample() {

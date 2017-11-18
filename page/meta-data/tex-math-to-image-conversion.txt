@@ -1,3 +1,3 @@
-TeX Math to Image Conversion
+TeX math to image conversion
 Converts TeX Math (e.g. "f(x)=x^2") to SVG, JPEG, BMP, and PNG images.
 tex;math;mathjax;svg;jpeg;bmp;png;image;conversion
