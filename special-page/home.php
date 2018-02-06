@@ -15,7 +15,7 @@
 					<div class="tool-info">
 						<a href="/' . $name . '">
 							<div class="tool-name">
-								' . (isset($meta_data->title) ? $meta_data->title : $name) . '
+								' . ((isset($meta_data->title) && strlen($meta_data->title) > 0) ? $meta_data->title : $name) . '
 							</div>
 							<div class="tool-description">
 								' . (isset($meta_data->description) ? $meta_data->description : '') . '

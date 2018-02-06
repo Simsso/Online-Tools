@@ -1,0 +1,3 @@
+Markdown table to HTML
+Converts a Markdown table into the corresponding HTML code.
+markdown;html;table;conversion
