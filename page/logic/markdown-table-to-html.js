@@ -1,5 +1,9 @@
 const alignments = ['left', 'center', 'right'];
 
+/**
+ * Converts a markdown table string into HTML.
+ * @param {string} md Markdown table as a string.
+ */
 function mdTableToHTML(md) {
 	var lines = getLines(md);
     var isHeader = true;
@@ -21,16 +25,33 @@ function mdTableToHTML(md) {
     }
 }
 
+/**
+ * Converts a document into an array of string, where each element corresponds to one row.
+ * @param {string} doc Document
+ * @returns {string[]} The lines of the document.
+ */
 function getLines(doc) {
 	return doc.replace(/\r\n/g,"\n").split("\n")
 }
 
+/**
+ * Checks whether a line contains the table syntax that separates table header from body.
+ * Example for a separation line: "| --- |:---:| ---:|"
+ * @param {string} line A line of a markdown document.
+ * @returns {boolean} True if the line is a separation line.
+ */
 function isHeaderSeparation(line) {
 	let match = line.match(/(\|\s*(:)?\s*-{3,}\s*(:)?\s*)+\|/g);
 	if (!Array.isArray(match)) return false;
 	return match.length > 0;
 }
 
+/**
+ * Reads the column alignment information from a separation line.
+ * E.g. "| --- |:---:| ---:|" is ['left', 'center', 'right']
+ * @param {string} headerLine A line for which isHeaderSeparation returns true.
+ * @returns {string[]} The alignment of each column, entries are in ['left', 'center', 'right']. 
+ */
 function getAlignment(headerLine) {
 	let parts = splitLine(headerLine);
 
@@ -44,15 +65,30 @@ function getAlignment(headerLine) {
 	})
 }
 
+/**
+ * Converts an alignment into the corresponding style tag.
+ * Empty string for alignment: left (default).
+ * @param {string} alignment Alignment, i.e. either of ['left', 'center', 'right'].
+ * @returns {string} The style attribute with text-alignment.
+ */
 function getStyleAttribute(alignment) {
 	if (alignment === alignments[0]) return '';
 	return ' style="text-align: ' + alignment + ';"';
 }
 
+/**
+ * Splits a Markdown table line into its trimmed column values.
+ * @param {string} line Markdown table line.
+ * @returns {string[]} The trimmed column values.
+ */
 function splitLine(line) {
-	return line.split('|').map(x => x.trim()).filter(x => x.length > 0)
+	return line.split('|').map(x => x.trim()).filter((x, i, a) => { return x.length > 0 || [0, a.length].indexOf(i) === -1})
 }
 
+/**
+ * HTML table creation helper class.
+ * Constructs the table and returns the HTML code.
+ */
 function HTMLTable() {
     this.ths = [];
     this.tds = [];
