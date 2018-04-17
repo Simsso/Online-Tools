@@ -1,0 +1,22 @@
+version: "2"
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: ./conf/nginx/Dockerfile
+    ports:
+      - "80:80"
+    links:
+      - fpm
+    volumes_from:
+      - src
+  fpm:
+    image: php:fpm
+    volumes_from:
+      - src
+  src:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - /var/www/html
