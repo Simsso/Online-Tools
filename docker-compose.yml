@@ -2,8 +2,8 @@ version: "2"
 services:
   nginx:
     build:
-      context: .
-      dockerfile: ./conf/nginx/Dockerfile
+      context: ./conf/nginx
+      dockerfile: Dockerfile
     ports:
       - "80:80"
     links:
@@ -11,7 +11,9 @@ services:
     volumes_from:
       - src
   fpm:
-    image: php:fpm
+    build:
+      context: ./conf/fpm
+      dockerfile: Dockerfile
     volumes_from:
       - src
   src:
