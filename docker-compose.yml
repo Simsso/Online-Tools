@@ -1,4 +1,4 @@
-version: "2"
+version: "3"
 services:
   nginx:
     build:
@@ -8,17 +8,13 @@ services:
       - "80:80"
     links:
       - fpm
-    volumes_from:
-      - src
+    volumes:
+      - source:/var/www/html
   fpm:
     build:
-      context: ./conf/fpm
-      dockerfile: Dockerfile
-    volumes_from:
-      - src
-  src:
-    build:
       context: .
-      dockerfile: ./Dockerfile
+      dockerfile: Dockerfile
     volumes:
-      - /var/www/html
+      - source:/var/www/html
+volumes:
+  source: {}

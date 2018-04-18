@@ -1,3 +1,3 @@
-FROM busybox
+FROM php:fpm
 
-COPY ./src /var/www/html
+#COPY ./src /var/www/html
