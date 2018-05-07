@@ -9,12 +9,10 @@ services:
     links:
       - fpm
     volumes:
-      - source:/var/www/html
+      - ./src:/var/www/html
   fpm:
     build:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - source:/var/www/html
-volumes:
-  source: {}
+      - ./src:/var/www/html
