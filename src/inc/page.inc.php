@@ -104,7 +104,7 @@
               
               echo '
                 <div class="margin-bottom-15px">
-                  <a href="https://github.com/Simsso/Online-Tools/blob/master/page/logic/' . $p . '.' . $value . '" target="_blank">
+                  <a href="https://github.com/Simsso/Online-Tools/blob/master/src/page/logic/' . $p . '.' . $value . '" target="_blank">
                     ' . $key . ' source code (' . $p . '.' . $value . ')
                   </a>
                 </div>';

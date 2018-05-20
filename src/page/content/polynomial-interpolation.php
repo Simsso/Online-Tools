@@ -7,11 +7,11 @@
 </script>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_SVG"></script>
 
-<link rel="stylesheet" type="text/css" href="node_modules/jsxgraph/distrib/jsxgraph.css" />
-<script type="text/javascript" src="node_modules/jsxgraph/distrib/jsxgraphcore.js"></script>
+<link rel="stylesheet" type="text/css" href="css/jsxgraph.css" />
+<script type="text/javascript" src="js/jsxgraphcore.js"></script>
 
 <!-- math.js for higher precision calculations -->
-<script src="node_modules/mathjs/dist/math.min.js"></script>
+<script src="js/math.min.js"></script>
 
 
 <style type="text/css">
@@ -24,7 +24,13 @@
 	#equation-output td {
     	padding: 5px 0;
 	}
+
+	#latex-output {
+		width: 100%; 
+		min-height: 450px;
+	}
 </style>
+
 
 <p class="bg-info padding-15px">Syntax for entering a set of points: <code>Spaces</code> separate x- and y-values of a point and a <code>Newline</code> distinguishes the next point. Hit the button <i>Show example</i> to see a demo.</p>
 
@@ -46,8 +52,6 @@
 	<h3>Equation</h3>
 	<div class="margin-bottom-15px" id="equation-output"></div>
 
-	<p class="bg-info padding-15px">To get the additional information which is required to perform a quadratic interpolation the algorithm considers the first sub-function to be linear.</p>
-	
 	<div class="clearfix form-group">
 		<div class="col-xs-6 col-sm-4 input-group pull-left">
 			<div class="input-group-addon">x-value</div>
@@ -56,7 +60,15 @@
 	</div>
 	<div class="margin-bottom-15px" id="y-value-output"></div>
 
-	<h3>Graph</h3>
-	<div id="visualization" class="margin-bottom-15px"></div>
-	<label><input id="keepAspectRatioInput" type="checkbox" />&nbsp;keep aspect ratio</label>
+	<div class="row">
+		<div class="col-md-6">
+			<h3>Graph</h3>
+			<div id="visualization" class="margin-bottom-15px"></div>
+			<label><input id="keepAspectRatioInput" type="checkbox" />&nbsp;keep aspect ratio</label>
+		</div>
+		<div class="col-md-5 col-md-offset-1">
+			<h3>LaTeX</h3>
+			<textarea id="latex-output"></textarea>
+		</div>
+	</div>
 </div>
