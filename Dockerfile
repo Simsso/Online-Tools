@@ -1,1 +1,1 @@
-FROM php:fpm
+FROM php:fpm-alpine
