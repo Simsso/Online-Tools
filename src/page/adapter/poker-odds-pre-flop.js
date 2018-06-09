@@ -1,4 +1,20 @@
 (function() {
+	function showErrorMessage() {
+		$('#error-msg').show();
+	}
+	function hideErrorMessage() {
+		$('#error-msg').hide();
+	}
+	
+	function showInvalidMessage() {
+		$('#invalid-msg').show();
+	}
+	
+	function hideInvalidMessage() {
+		$('#invalid-msg').hide();
+	}
+
+
 	// Poker Starting Hand Picker element
 	// @param element jQuery DOM element (div)
 	function StartingHandPicker(element) {
@@ -80,8 +96,14 @@
 
 	function changedEvent() {
 		hideNumberOutput();
-		if (h1Picker.startingHand.isDefined() && h2Picker.startingHand.isDefined()) {
-			getOdds(h1Picker.startingHand, h2Picker.startingHand, function(err, data) {
+		hideErrorMessage();
+		hideInvalidMessage();
+		let h1 = h1Picker.startingHand, h2 = h2Picker.startingHand;
+		if (h1.isDefined() && h2.isDefined()) {
+			if (!StartingHand.validSituation(h1, h2)) {
+				return showInvalidMessage();
+			}
+			getOdds(h1, h2, function(err, data) {
 				if (err) {
 					return showErrorMessage();
 				}
@@ -97,10 +119,6 @@
 				$('#out-loss').html(loss);
 			});
 		}
-	}
-
-	function showErrorMessage() {
-		hideNumberOutput();
 	}
 
 	function hideNumberOutput() {

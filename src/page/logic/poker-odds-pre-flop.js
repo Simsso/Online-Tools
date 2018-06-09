@@ -38,6 +38,10 @@ Card.prototype.initRandomly = function() {
 	this.suit = Card.possibleRankValues[Math.floor(Card.possibleRankValues.length * Math.random())];
 };
 
+Card.prototype.equals = function(c) {
+	return this.suit == c.suit && this.rank == c.rank;
+}
+
 
 function StartingHand() {
 	this.cards = [
@@ -61,7 +65,22 @@ StartingHand.prototype.initRandomly = function() {
 	}
 };
 
+StartingHand.prototype.disjoint = function(sh) {
+	return (
+		!this.cards[0].equals(sh.cards[0]) &&
+		!this.cards[1].equals(sh.cards[0]) &&
+		!this.cards[0].equals(sh.cards[1]) &&
+		!this.cards[1].equals(sh.cards[1])
+	);
+};
 
+StartingHand.prototype.isValid = function() {
+	return !this.cards[0].equals(this.cards[1]);
+};
+
+StartingHand.validSituation = function(h1, h2) {
+	return h1.isValid() && h2.isValid() && h1.disjoint(h2);
+};
 
 function getOdds(startingHand1, startingHand2, callback) {
 	let query = 
