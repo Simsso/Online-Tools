@@ -1,0 +1,5 @@
+Daily cost calculator
+Computes the daily cost of one-time expenses.
+costs;calculator
+
+
