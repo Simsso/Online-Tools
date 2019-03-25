@@ -45,6 +45,8 @@
 	trebleEnabledCheckbox.on('change', function() { trebleEnabled = $(this).is(':checked'); showInitialMsg(); showRandomNote(); });
 
     function showRandomNote() {
+        const prevClef = clef, prevNotePos = notePos;
+
         if (bassEnabled && trebleEnabled) {
             clef = (Math.random() < 0.5) ? 'bass' : 'treble';
         }
@@ -56,7 +58,16 @@
             clef = bassEnabled ? 'bass' : 'treble';
         }
         
-        notePos = Math.floor(Math.random() * (maxNotePos + 1 - minNotePos)) + minNotePos;
+        if (prevClef === clef) {
+            // prevent the same note from being shown twice in a row
+            notePos = Math.floor(Math.random() * (maxNotePos - minNotePos)) + minNotePos;
+            if (notePos >= prevNotePos) {
+                notePos += 1;
+            }
+        }
+        else {
+            notePos = Math.floor(Math.random() * (maxNotePos + 1 - minNotePos)) + minNotePos;
+        }
 
         genericNote.attr('data-note-pos', notePos);
         genericNote.attr('data-clef', clef);
