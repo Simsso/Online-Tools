@@ -44,6 +44,8 @@ svg#note-generic[data-note-pos="18"] g#note-generic-note { transform: translate(
 
 </style>
 
+<p class="bg-info padding-15px">Look at the note on the left and enter its name in the input field. Confirm with <code>enter</code>.<br>Possible values are <code>c</code>, <code>d</code>, <code>e</code>, <code>f</code>, <code>g</code>, <code>a</code>, and <code>b</code>.</p>
+
 <div class="row">
     <div class="col-sm-5 vcenter">
         <div>
@@ -78,7 +80,26 @@ svg#note-generic[data-note-pos="18"] g#note-generic-note { transform: translate(
     </div>
     <div class="col-sm-5 vcenter">
         <div>
-            <input id="note-user-input" type="text" class="form-control">
+            <p id="input-info-box" class="bg-info padding-15px">Enter the name of the note</p>
+
+            <div class="input-group margin-bottom-10px">
+				<div class="input-group-addon">Note name: </div>
+                <input id="note-user-input" type="text" class="form-control" autofocus>
+			</div>
+            <p>
+                <input type="button" id="next-input" class="btn btn-default" value="Next note">
+                <input type="button" id="show-solution" class="btn btn-default" value="Show solution">
+            </p>
+            <div class="checkbox">
+                <label>
+                    <input id="treble-clef-enabled" type="checkbox" checked="checked"> Treble clef
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input id="bass-clef-enabled" type="checkbox" checked="checked"> Bass clef
+                </label>
+            </div>
         </div>
     </div>
 </div>
