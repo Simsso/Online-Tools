@@ -162,3 +162,9 @@ nav .github-link path {
 .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
   background-color: transparent;
 }
+
+.vcenter {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
