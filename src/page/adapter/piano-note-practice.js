@@ -41,8 +41,8 @@
         showRandomNote();
     });
     showSolutionButton.on('click', showSolution);
-	bassEnabledCheckbox.on('change', function() { bassEnabled = $(this).is(':checked'); showRandomNote(); });
-	trebleEnabledCheckbox.on('change', function() { trebleEnabled = $(this).is(':checked'); showRandomNote(); });
+	bassEnabledCheckbox.on('change', function() { bassEnabled = $(this).is(':checked'); showInitialMsg(); showRandomNote(); });
+	trebleEnabledCheckbox.on('change', function() { trebleEnabled = $(this).is(':checked'); showInitialMsg(); showRandomNote(); });
 
     function showRandomNote() {
         if (bassEnabled && trebleEnabled) {
@@ -81,19 +81,19 @@
     }
 
     function showCorrectMsg() { setInputInfoBox('bg-success', 'Correct!') }
-    function showWrongMsg() { setInputInfoBox('bg-error', 'The entered note name is wrong.'); }
+    function showWrongMsg() { setInputInfoBox('bg-danger', 'The entered note name is wrong.'); }
     function showInitialMsg() { setInputInfoBox('bg-info', 'Enter the name of the note.'); }
-    function showSelectClef() { setInputInfoBox('bg-warn', 'Select either bass, treble, or both, to continue.')}
+    function showSelectClef() { setInputInfoBox('bg-warning', 'Select either bass, treble, or both, to continue.')}
     function showSolution() {
         if (['bass', 'treble'].indexOf(clef) === -1) return; // blank clef
 
         const correct = configToNote(clef === 'bass', notePos);
-        setInputInfoBox('bg-warn', `The correct solution is <b>${correct}</b>.`);
+        setInputInfoBox('bg-warning', `The correct solution is <b>${correct}</b>.`);
         noteUserInput.focus();
     }
 
     function setInputInfoBox(bgClass, text) {
-        inputInfoBox.removeClass('bg-info bg-warn bg-error bg-success').addClass(bgClass).html(text);
+        inputInfoBox.removeClass('bg-info bg-warning bg-danger bg-success').addClass(bgClass).html(text);
     }
 
     // start up
