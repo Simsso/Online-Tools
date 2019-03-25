@@ -70,7 +70,9 @@
 
         const correct = configToNote(clef === 'bass', notePos);
 
-        if (val.toLowerCase().trim() === correct) {
+        let valParsed = val.toLowerCase().trim();
+        valParsed = valParsed.replace('h', 'b');  // some European countries use 'h' instead of 'b'
+        if (valParsed === correct) {
             showCorrectMsg();
             noteUserInput.val('');
             showRandomNote();
