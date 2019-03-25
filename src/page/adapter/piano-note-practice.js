@@ -1,6 +1,7 @@
 (() => {
     // notes
     const notes = ['c', 'd', 'e', 'f', 'g', 'a', 'b']
+    const minNotePos = 3, maxNotePos = 16;
 
     function configToNote(bass, notePos) {
         // bass is true or false
@@ -35,26 +36,35 @@
             validateInput();
         }
     });
-    nextNoteButton.on('click', showRandomNote);
+    nextNoteButton.on('click', () => {
+        showInitialMsg();
+        showRandomNote();
+    });
     showSolutionButton.on('click', showSolution);
 	bassEnabledCheckbox.on('change', function() { bassEnabled = $(this).is(':checked'); showRandomNote(); });
 	trebleEnabledCheckbox.on('change', function() { trebleEnabled = $(this).is(':checked'); showRandomNote(); });
 
     function showRandomNote() {
-        if (bassEnabled && trebleEnabled || !bassEnabled && !trebleEnabled) {
+        if (bassEnabled && trebleEnabled) {
             clef = (Math.random() < 0.5) ? 'bass' : 'treble';
+        }
+        else if (!bassEnabled && !trebleEnabled) {
+            clef = 'blank';
+            showSelectClef();
         }
         else {
             clef = bassEnabled ? 'bass' : 'treble';
         }
         
-        notePos = Math.floor(Math.random() * 19);
+        notePos = Math.floor(Math.random() * (maxNotePos + 1 - minNotePos)) + minNotePos;
 
         genericNote.attr('data-note-pos', notePos);
         genericNote.attr('data-clef', clef);
     }
 
     function validateInput() {
+        if (['bass', 'treble'].indexOf(clef) === -1) return; // blank clef
+
         const val = noteUserInput.val();
         if (val.length === 0) return;
 
@@ -70,15 +80,13 @@
         }
     }
 
-    function showCorrectMsg() {
-        setInputInfoBox('bg-success', 'Correct!')
-    }
-
-    function showWrongMsg() {
-        setInputInfoBox('bg-error', 'The entered note name is wrong.');
-    }
-
+    function showCorrectMsg() { setInputInfoBox('bg-success', 'Correct!') }
+    function showWrongMsg() { setInputInfoBox('bg-error', 'The entered note name is wrong.'); }
+    function showInitialMsg() { setInputInfoBox('bg-info', 'Enter the name of the note.'); }
+    function showSelectClef() { setInputInfoBox('bg-warn', 'Select either bass, treble, or both, to continue.')}
     function showSolution() {
+        if (['bass', 'treble'].indexOf(clef) === -1) return; // blank clef
+
         const correct = configToNote(clef === 'bass', notePos);
         setInputInfoBox('bg-warn', `The correct solution is <b>${correct}</b>.`);
         noteUserInput.focus();
@@ -89,5 +97,6 @@
     }
 
     // start up
+    showInitialMsg();
     showRandomNote();
 })();

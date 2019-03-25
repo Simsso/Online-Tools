@@ -9,6 +9,15 @@ svg#note-generic g#note-generic-note-bottom-placeholder { display: none; }
 svg#note-generic g#note-generic-bass { display: none; }
 svg#note-generic[data-clef="bass"] g#note-generic-bass { display: block; }
 svg#note-generic[data-clef="bass"] g#note-generic-treble { display: none; }
+svg#note-generic[data-clef="blank"] g#note-generic-treble, 
+    svg#note-generic[data-clef="blank"] g#note-generic-bass, 
+    svg#note-generic[data-clef="blank"] path#note-generic-line-helper-top-1, 
+    svg#note-generic[data-clef="blank"] path#note-generic-line-helper-top-2, 
+    svg#note-generic[data-clef="blank"] path#note-generic-line-helper-bottom-1, 
+    svg#note-generic[data-clef="blank"] path#note-generic-line-helper-bottom-2, 
+    svg#note-generic[data-clef="blank"] g#note-generic-note { 
+        display: none !important; 
+    }
 
 path#note-generic-line-helper-top-1, path#note-generic-line-helper-top-2, path#note-generic-line-helper-bottom-1, path#note-generic-line-helper-bottom-2 { display: none; }
 
@@ -41,7 +50,6 @@ svg#note-generic[data-note-pos="15"] g#note-generic-note { transform: translate(
 svg#note-generic[data-note-pos="16"] g#note-generic-note { transform: translate(542px, 960px); }
 svg#note-generic[data-note-pos="17"] g#note-generic-note { transform: translate(542px, 1020px); }
 svg#note-generic[data-note-pos="18"] g#note-generic-note { transform: translate(542px, 1080px); }
-
 </style>
 
 <p class="bg-info padding-15px">Look at the note on the left and enter its name in the input field. Confirm with <code>enter</code>.<br>Possible values are <code>c</code>, <code>d</code>, <code>e</code>, <code>f</code>, <code>g</code>, <code>a</code>, and <code>b</code>.</p>
@@ -49,7 +57,7 @@ svg#note-generic[data-note-pos="18"] g#note-generic-note { transform: translate(
 <div class="row">
     <div class="col-sm-5 vcenter">
         <div>
-            <svg id="note-generic" data-note-pos="0" data-clef="bass" viewBox="0 0 792 1524" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <svg id="note-generic" data-note-pos="0" data-clef="blank" viewBox="0 0 792 1524" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <g id="note-generic-lines" transform="translate(0.000006, 438.467300)" stroke="#131516" stroke-width="8.43207264">
                     <path d="M0.2160405,481.78396 L791.78395,481.78396" id="path11"></path>
                     <path d="M0.2160405,721.78396 L791.78395,721.78396" id="path13"></path>
@@ -80,7 +88,7 @@ svg#note-generic[data-note-pos="18"] g#note-generic-note { transform: translate(
     </div>
     <div class="col-sm-5 vcenter">
         <div>
-            <p id="input-info-box" class="bg-info padding-15px">Enter the name of the note</p>
+            <p id="input-info-box" class="padding-15px"></p>
 
             <div class="input-group margin-bottom-10px">
 				<div class="input-group-addon">Note name: </div>
