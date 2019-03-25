@@ -1,6 +1,7 @@
 <style type="text/css">
 svg#note-generic {
-    height: 400px;
+    max-height: 400px;
+    width: 100%;
     float: right;
 }
 
@@ -55,7 +56,7 @@ svg#note-generic[data-note-pos="18"] g#note-generic-note { transform: translate(
 <p class="bg-info padding-15px">Look at the note on the left and enter its name in the input field. Confirm with <code>enter</code>.<br>Possible values are <code>c</code>, <code>d</code>, <code>e</code>, <code>f</code>, <code>g</code>, <code>a</code>, and <code>b</code>.</p>
 
 <div class="row">
-    <div class="col-sm-5 vcenter">
+    <div class="col-xs-4 col-md-3 vcenter">
         <div>
             <svg id="note-generic" data-note-pos="0" data-clef="blank" viewBox="0 0 792 1524" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <g id="note-generic-lines" transform="translate(0.000006, 438.467300)" stroke="#131516" stroke-width="8.43207264">
@@ -86,7 +87,7 @@ svg#note-generic[data-note-pos="18"] g#note-generic-note { transform: translate(
             </svg>
         </div>
     </div>
-    <div class="col-sm-5 vcenter">
+    <div class="col-xs-7 col-sm-6 col-md-5 vcenter">
         <div>
             <p id="input-info-box" class="padding-15px"></p>
 
