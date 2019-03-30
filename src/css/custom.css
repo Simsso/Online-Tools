@@ -33,6 +33,7 @@ body {
 .max-width-400px { max-width: 400px; }
 .margin-left-5px { margin-left: 5px; }
 .margin-bottom-5px { margin-bottom: 5px; }
+.margin-bottom-10px { margin-bottom: 10px; }
 .margin-bottom-15px { margin-bottom: 15px; }
 .padding-15px { padding: 15px; }
 
@@ -161,4 +162,10 @@ nav .github-link path {
 /* override Bootstrap styles */
 .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
   background-color: transparent;
+}
+
+.vcenter {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
 }

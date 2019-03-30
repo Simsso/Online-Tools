@@ -1,0 +1,5 @@
+Piano note practice
+Shows piano notes and asks the user to name them
+piano;notes;music;practice;test
+In music, a note is the pitch and duration of a sound, and also its representation in musical notation (♪, ♩). A note can also represent a pitch class. Notes are the building blocks of much written music.
+https://en.wikipedia.org/wiki/Musical_note
