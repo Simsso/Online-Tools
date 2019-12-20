@@ -25,4 +25,6 @@
 <p id="output-daily"></p>
 
 <h3>Examples</h3>
-<button class="btn btn-default" id="show-example-mac">MacBook Pro</button>
+<button class="btn btn-default" id="show-example-mac">MacBook Pro</button> 
+<button class="btn btn-default" id="show-example-shoes">Male leather shoes</button> 
+<button class="btn btn-default" id="show-example-house">Single-family house</button>

@@ -31,8 +31,8 @@
             annualCosts += val * factor;
         })
 
-        const years = usageYearsDom.val();
-        const totalCost = annualCosts * years + inputs[0].dom.val();
+        const years = parseInt(usageYearsDom.val(), 10);
+        const totalCost = annualCosts * years + parseInt(inputs[0].dom.val(), 10);
         const dailyCost = totalCost / years / 356;
 
         showVal(dailyCost);
@@ -51,9 +51,19 @@
     const examples = [
         {
             dom: $('#show-example-mac'),
-            inputVals: [2799],
+            inputVals: [2799, 0, 0],
             usageYears: 4
-        }
+        },
+        {
+            dom: $('#show-example-shoes'),
+            inputVals: [140, 0, 0],
+            usageYears: 2
+        },
+        {
+            dom: $('#show-example-house'),
+            inputVals: [800000, 0, 500],
+            usageYears: 50
+        },
     ]
 
     examples.forEach(({dom, inputVals, usageYears}) => {
