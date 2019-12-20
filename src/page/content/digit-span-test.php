@@ -49,5 +49,13 @@
 				<div class="input-group-addon">symbols</div>
 			</div>
 		</div>
+		<div class="form-group">
+			<label for="test-mode">Test mode</label>
+			<select name="test-mode" id="test-mode" class="form-control">
+				<option value="default" selected>Forward (default)</option>
+				<option value="reversed">Reversed</option>
+				<option value="ordered">Ordered</option>
+			</select>
+		</div>
 	</div>
 </div>
