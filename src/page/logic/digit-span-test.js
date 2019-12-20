@@ -16,7 +16,20 @@ function DigitSpanTest(options) {
 }
 
 DigitSpanTest.prototype.getSequence = function() {
-	return this.sequence;
+	return [...this.sequence];
+};
+
+DigitSpanTest.prototype.getTargetSequence = function(mode) {
+    switch (mode) {
+        case DigitSpanTest.modes.DEFAULT:
+            return this.getSequence();
+        case DigitSpanTest.modes.REVERSED:
+            return this.getSequence().reverse();
+        case DigitSpanTest.modes.ORDERED:
+            return this.getSequence().sort();
+        default:
+            throw new Error(`Invalid mode '${mode}'.`);
+    }
 };
 
 DigitSpanTest.prototype.next = function() {
@@ -32,7 +45,13 @@ DigitSpanTest.prototype.generateSequence = function() {
 		sequence.push(this.symbols[index])
 	}
 	return sequence;
-}
+};
+
+DigitSpanTest.modes = {
+    DEFAULT: 0,
+    REVERSED: 1,
+    ORDERED: 2
+};
 
 
 // sound class from https://stackoverflow.com/questions/11330917/how-to-play-a-mp3-using-javascript
@@ -46,7 +65,7 @@ function Sound(source, volume, loop) {
 
     this.stop = function() {
         document.body.removeChild(this.son);
-    }
+    };
 
     this.start = function() {
         if (this.finish) return false;
@@ -57,16 +76,16 @@ function Sound(source, volume, loop) {
         this.son.setAttribute("autostart", "true");
         this.son.setAttribute("loop", this.loop);
         document.body.appendChild(this.son);
-    }
+    };
 
     this.remove = function() {
         document.body.removeChild(this.son);
         this.finish = true;
-    }
+    };
 
     this.init = function(volume, loop) {
         this.finish = false;
         this.volume = volume;
         this.loop = loop;
-    }
+    };
 }
