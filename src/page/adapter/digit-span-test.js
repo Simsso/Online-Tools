@@ -97,7 +97,8 @@
 	}
 
 	function failed() {
-		infoDiv.html("You have failed at a digit sequence length of " + test.getSequence().length + ". The correct sequence was " + test.getSequence().join(''));
+		infoDiv.html(`You have failed at a digit sequence length of ${test.getSequence().length}. ` +
+			`The shown sequence was "${test.getSequence()}" and you should have entered "${test.getTargetSequence(testMode)}".`);
 		setDisabled(userInput, true);
 		setDisabled(primaryButton, false);
 		setDisabled(repeatButton, false);
@@ -163,7 +164,7 @@
 			throw new Error(`Invalid test mode selected '${newModeInput}`);
 		}
 		testMode = val2mode[newModeInput];
-	});
+	}).trigger('change');
 
 
 	// settings
