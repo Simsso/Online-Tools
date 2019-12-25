@@ -9,7 +9,8 @@
 		progress = $('#primary-progress-bar'),
 		speedInput = $('#speed-millis'),
 		startingLengthInput = $('#starting-length'),
-		audioEnabledCheckbox = $('#audio-enabled');
+		audioEnabledCheckbox = $('#audio-enabled'),
+		testModeSelect = $('#test-mode');
 
 	// digit test object
 	var test = null;
@@ -17,6 +18,7 @@
 	var speed = 1000; // milliseconds between symbols
 	var defaultStartingLength = 4, lastLength = 0;
 	var audioEnabled = true, visualEnabled = true;
+	var testMode = DigitSpanTest.modes.DEFAULT;
 
 	var state = "loaded"; // possible states: ["loaded", "started", "success"]
 
@@ -95,7 +97,8 @@
 	}
 
 	function failed() {
-		infoDiv.html("You have failed at a digit sequence length of " + test.getSequence().length + ". The correct sequence was " + test.getSequence().join(''));
+		infoDiv.html(`You have failed at a digit sequence length of ${test.getSequence().length}. ` +
+			`The shown sequence was "${test.getSequence()}" and you should have entered "${test.getTargetSequence(testMode)}".`);
 		setDisabled(userInput, true);
 		setDisabled(primaryButton, false);
 		setDisabled(repeatButton, false);
@@ -107,7 +110,8 @@
 	}
 
 	function checkUserInput(input) {
-		if (input == test.getSequence()[symbolIndex]) {
+		const targetChar = test.getTargetSequence(testMode)[symbolIndex];
+		if (input == targetChar) {
 			symbolIndex++;
 
 			// update progress bar
@@ -148,6 +152,19 @@
 		checkUserInput(event.key);
 		clearInput();
 	});
+
+	testModeSelect.on('change', function() {
+		var newModeInput = testModeSelect.val();
+		var val2mode = {
+			'default': DigitSpanTest.modes.DEFAULT,
+			'reversed': DigitSpanTest.modes.REVERSED,
+			'ordered': DigitSpanTest.modes.ORDERED
+		};
+		if (!newModeInput in val2mode) {
+			throw new Error(`Invalid test mode selected '${newModeInput}`);
+		}
+		testMode = val2mode[newModeInput];
+	}).trigger('change');
 
 
 	// settings
