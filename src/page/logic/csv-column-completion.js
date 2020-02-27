@@ -1,16 +1,16 @@
-function parseCSV(rawData, strDelimiter) {
+function parseCSV(rawData, delimiter) {
     // Modified versino of the CSV parse function from
     // https://www.bennadel.com/blog/1504-ask-ben-parsing-csv-strings-with-javascript-exec-regular-expression-command.htm
 
     // Check to see if the delimiter is defined. If not,
     // then default to comma.
-    strDelimiter = strDelimiter || ",";
+    delimiter = delimiter || ",";
 
     // Create a regular expression to parse the CSV values.
     const objPattern = new RegExp((
-            "(\\" + strDelimiter + "|\\r?\\n|\\r|^)" + // delimiters
+            "(\\" + delimiter + "|\\r?\\n|\\r|^)" + // delimiters
             "(?:\"([^\"]*(?:\"\"[^\"]*)*)\"|" + // quoted fields
-            "([^\"\\" + strDelimiter + "\\r\\n]*))" // standard fields
+            "([^\"\\" + delimiter + "\\r\\n]*))" // standard fields
         ), "gi");
 
     const parsedData = [[]];
@@ -20,11 +20,11 @@ function parseCSV(rawData, strDelimiter) {
     while (arrMatches = objPattern.exec(rawData)) {
 
         // Get the delimiter that was found.
-        const strMatchedDelimiter = arrMatches[1];
+        const matchedDelimiter = arrMatches[1];
 
         // Check to see if the given delimiter has a length (is not the start of string) and if it matches
         // field delimiter. If id does not, then we know that this delimiter is a row delimiter.
-        if (strMatchedDelimiter.length && strMatchedDelimiter != strDelimiter) {
+        if (matchedDelimiter.length && matchedDelimiter != delimiter) {
             // Since we have reached a new row of data, add an empty row to our data array.
             parsedData.push([]);
         }
@@ -71,4 +71,35 @@ function completeColumns(parsedData) {
 
 function isEmptyCell(cellValue) {
     return !cellValue
+}
+
+
+function exportCSV(parsedData) {
+    let csv = '';
+    
+    for (let rowIdx = 0; rowIdx < parsedData.length; rowIdx++) {
+        csv += rowToCSV(parsedData[rowIdx]) + '\n';
+    }
+
+    return csv;
+}
+
+
+function rowToCSV(row) {
+    const delimiter = ',';
+
+    let csv = '';
+    for (let colIdx = 0; colIdx < row.length; colIdx++) {
+        let cell = (row[colIdx] === null) ? '' : row[colIdx].toString();
+        cell = cell.replace(/"/g, '""');
+
+        if (cell.search(/("|,|\n)/g) >= 0) {
+            cell = '"' + cell + '"';
+        }
+        if (colIdx > 0) {
+            csv += ',';
+        }
+        csv += cell;
+    }
+    return csv
 }
