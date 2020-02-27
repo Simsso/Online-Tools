@@ -33,10 +33,10 @@ function parseCSV(rawData, strDelimiter) {
         // of value we captured (quoted or unquoted).
         if (arrMatches[2]) {
             // We found a quoted value. When we capture this value, unescape any double quotes.
-            let strMatchedValue = arrMatches[2].replace(new RegExp("\"\"", "g"), "\"");
+            var strMatchedValue = arrMatches[2].replace(new RegExp("\"\"", "g"), "\"");
         } else {
             // We found a non-quoted value.
-            let strMatchedValue = arrMatches[3];
+            var strMatchedValue = arrMatches[3];
         }
 
         // Now that we have our value string, let's add it to the data array.
@@ -44,4 +44,31 @@ function parseCSV(rawData, strDelimiter) {
     }
 
     return parsedData;
+}
+
+
+function completeColumns(parsedData) {
+    // Completes empty cells with the closest value found above in the respective column
+    // Modifies the argument in-place
+
+    if (parsedData.length <= 1) {
+        return parsedData;
+    }
+
+    let lastRow = parsedData[0];
+
+    for (let rowIdx = 1; rowIdx < parsedData.length; rowIdx++) {
+        const row = parsedData[rowIdx];
+        for (let colIdx = 0; colIdx < row.length && colIdx < lastRow.length; colIdx++) {
+            if (isEmptyCell(row[colIdx])) {
+                row[colIdx] = lastRow[colIdx]
+            }
+        }
+        lastRow = row;
+    }
+}
+
+
+function isEmptyCell(cellValue) {
+    return !cellValue
 }
