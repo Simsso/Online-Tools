@@ -160,14 +160,18 @@
 		var html = '$$f(x)=';
  		for (var i = 0; i < coefficients.length; i++) {
  			var c = coefficients[i];
- 			if (i !== 0) html += '+';
- 			html += roundMathJax(c);
+			if (Math.abs(c) > 1e-30) {
+				if (i !== 0) html += '+ ';
+				html += roundMathJax(c);
 
- 			// different styling for last to segments
- 			if (i == coefficients.length - 2) html += '\\cdot x';
- 			if (i < coefficients.length - 2) html += '\\cdot x^{' + (coefficients.length - i - 1) + '}';
+				// different styling for last to segments
+				if (i == coefficients.length - 2) html += '\\cdot x';
+				if (i < coefficients.length - 2) html += '\\cdot x^{' + (coefficients.length - i - 1) + '}';
+			}
  		}
 		html += '$$';
+		html = html.replace(/\+ \-/g, "-");
+		html = html.replace(/\=\+/g, "=");
 		divEquationOutput.html(html);
 
 		// draw equation
