@@ -59,15 +59,10 @@ function polynomialInterpolation(p) {
 	for (var row = 0; row < numPoints; row++) {
 		m.push([]);
 
-		// "<="" because of the solution column
-		for (var col = 0; col <= numPoints; col++) {
-			if (col < numPoints) { // coefficients
-				m[row][col] = Math.pow(p[row].x, numPoints - col - 1);
-			}
-			else { // solution
-				m[row][col] = p[row].y;
-			}
+		for (var col = 0; col < numPoints; col++) {
+  			m[row][col] = Math.pow(p[row].x, numPoints - col - 1);
 		}
+		m[row][numPoints] = pow[row].y; // solution
 	}
 
 	var reducedRowEchelonForm = rref(m);
