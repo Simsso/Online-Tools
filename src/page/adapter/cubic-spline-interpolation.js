@@ -164,8 +164,15 @@
 		for (var i = 0; i < functions.length; i++) {
 			var f = functions[i];
 			// approximate output
-			html += roundMathJax(f.a) + '\\cdot x^3 + ' + roundMathJax(f.b) + '\\cdot x^2 + ' + roundMathJax(f.c) + '\\cdot x + ' + roundMathJax(f.d) + ', & \\text{if } x \\in ' + ((i == 0) ? "[" : "(") + f.range.xmin + ',' + f.range.xmax + ']' + ((i !== functions.length - 1) ? ', \\\\' : '.\\end{cases}$$');
+			html += roundMathJax(f.a) + '\\cdot x^3 + ' + 
+					roundMathJax(f.b) + '\\cdot x^2 + ' + 
+					roundMathJax(f.c) + '\\cdot x + ' + 
+					roundMathJax(f.d) + 
+					', & \\text{if } x \\in ' + 
+					((i === 0) ? "[" : "(") + f.range.xmin + ',' + f.range.xmax + ']' + 
+					((i !== functions.length - 1) ? ', \\\\' : '.\\end{cases}$$');
 		}
+		html = html.replace(/\+ \-/g, "-");
 		divEquationOutput.html(html);
 
 		// draw equation

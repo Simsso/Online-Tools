@@ -158,16 +158,26 @@
 		// draw equation
 		MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('equation-output')]);
 		var html = '$$f(x)=';
+		var eqRightHand = '';
  		for (var i = 0; i < coefficients.length; i++) {
  			var c = coefficients[i];
- 			if (i !== 0) html += '+';
- 			html += roundMathJax(c);
+			if (Math.abs(c) > 1e-30) {
+				if (i !== 0) {
+					eqRightHand += '+ ';
+				}
+				eqRightHand += roundMathJax(c);
 
- 			// different styling for last to segments
- 			if (i == coefficients.length - 2) html += '\\cdot x';
- 			if (i < coefficients.length - 2) html += '\\cdot x^{' + (coefficients.length - i - 1) + '}';
- 		}
-		html += '$$';
+				// different styling for last to segments
+				if (i == coefficients.length - 2) eqRightHand += '\\cdot x';
+				if (i < coefficients.length - 2) eqRightHand += '\\cdot x^{' + (coefficients.length - i - 1) + '}';
+			}
+		 }
+		if (eqRightHand.length === 0) {
+			eqRightHand = '0';
+		}
+		html += eqRightHand + '$$';
+		html = html.replace(/\+ \-/g, "-");
+		html = html.replace(/\=\+/g, "=");
 		divEquationOutput.html(html);
 
 		// draw equation
