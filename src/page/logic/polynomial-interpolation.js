@@ -62,7 +62,7 @@ function polynomialInterpolation(p) {
 		for (var col = 0; col < numPoints; col++) {
   			m[row][col] = Math.pow(p[row].x, numPoints - col - 1);
 		}
-		m[row][numPoints] = pow[row].y; // solution
+		m[row][numPoints] = p[row].y; // solution
 	}
 
 	var reducedRowEchelonForm = rref(m);
