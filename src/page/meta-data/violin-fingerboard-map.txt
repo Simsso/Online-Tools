@@ -1,0 +1,5 @@
+Violin fingerboard map
+Visualizes the violin fingerboard positions for different keys.
+music;violin;fingerboard;keys;position;strings
+To play the instrument, a musician presses strings down to the fingerboard to change the vibrating length, changing the pitch. This is called stopping the strings.
+https://en.wikipedia.org/wiki/Fingerboard
