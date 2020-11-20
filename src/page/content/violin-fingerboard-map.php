@@ -15,6 +15,20 @@
         }
     }
 
+    .key-row > div {
+        border: 1px solid transparent;
+        cursor: pointer;
+    }
+
+    .key-row > div:hover {
+        background: #f4fbff;
+    }
+
+    .key-row > div.active {
+        background: #d9edf7;
+        border: 1px solid #73c7f1;
+    }
+
     #fbd.key-0s path.key-a, #fbd.key-0s path.key-b, #fbd.key-0s path.key-c, #fbd.key-0s path.key-d, #fbd.key-0s path.key-e, #fbd.key-0s path.key-f, #fbd.key-0s path.key-g,
     #fbd.key-1s path.key-a, #fbd.key-1s path.key-b, #fbd.key-1s path.key-c, #fbd.key-1s path.key-d, #fbd.key-1s path.key-e, #fbd.key-1s path.key-fs, #fbd.key-1s path.key-g,
     #fbd.key-2s path.key-a, #fbd.key-2s path.key-b, #fbd.key-2s path.key-cs, #fbd.key-2s path.key-d, #fbd.key-2s path.key-e, #fbd.key-2s path.key-fs, #fbd.key-2s path.key-g,
@@ -65,6 +79,8 @@
         <div class="col-xs-3"><img class="img-key-svg" src="img/violin-fingerboard-map/6f.svg" alt="6f"></div>
         <div class="col-xs-3"><img class="img-key-svg" src="img/violin-fingerboard-map/7f.svg" alt="7f"></div>
     </div>
+
+    <br>
 
     <div class="row">
         <div class="col-xs-12 col-md-6 col-lg-5">
