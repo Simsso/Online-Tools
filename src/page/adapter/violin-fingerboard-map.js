@@ -1,7 +1,9 @@
 (function() {
     const keyButtons = $('div.key-row > div > img');
+    const fingerboard = $('#fbd');
 
     keyButtons.on('click', function(event) {
-        console.log($(event.target).attr('alt'));
+        const key = $(event.target).attr('alt');
+        fingerboard.attr('class', `key-${key}`)
     });
 })();
