@@ -7,7 +7,7 @@
         ['6s', '6f']
     ];
 
-    keyButtons.on('click', function(event) {
+    keyButtons.on('click touchstart', function(event) {
         const targetDiv = $(this);
         const key = targetDiv.children('img').attr('alt');
         fingerboard.attr('class', `key-${key}`)

@@ -43,7 +43,7 @@
     #fbd.key-6s path.key-as, #fbd.key-6s path.key-b, #fbd.key-6s path.key-cs, #fbd.key-6s path.key-ds, #fbd.key-6s path.key-f, #fbd.key-6s path.key-fs, #fbd.key-6s path.key-gs,
     #fbd.key-7s path.key-as, #fbd.key-7s path.key-c, #fbd.key-7s path.key-cs, #fbd.key-7s path.key-ds, #fbd.key-7s path.key-f, #fbd.key-7s path.key-fs, #fbd.key-7s path.key-gs {
         stroke: rgb(36, 36, 36);
-        stroke-width: 5px;
+        stroke-width: 8px;
     }
 
     #fbd.key-0f path.key-a, #fbd.key-0f path.key-b, #fbd.key-0f path.key-c, #fbd.key-0f path.key-d, #fbd.key-0f path.key-e, #fbd.key-0f path.key-f, #fbd.key-0f path.key-g,
@@ -55,7 +55,7 @@
     #fbd.key-6f path.key-af, #fbd.key-6f path.key-bf, #fbd.key-6f path.key-b, #fbd.key-6f path.key-df, #fbd.key-6f path.key-ef, #fbd.key-6f path.key-f, #fbd.key-6f path.key-gf,
     #fbd.key-7f path.key-af, #fbd.key-7f path.key-bf, #fbd.key-7f path.key-b, #fbd.key-7f path.key-df, #fbd.key-7f path.key-ef, #fbd.key-7f path.key-e, #fbd.key-7f path.key-gf {
         stroke: rgb(36, 36, 36);
-        stroke-width: 5px;
+        stroke-width: 8px;
     }
 </style>
 
