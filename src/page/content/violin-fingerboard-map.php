@@ -60,12 +60,15 @@
 </style>
 
 <p class="bg-info padding-15px">
-	Click on the key of interest to see where the notes lie on the Violin's fingerboard.
-    The first row of keys (<code>G</code> <code>D</code> <code>A</code> <code>E</code>) are the open strings.
-    Finger positions highlighted with dark borders are being used in the selected key.
+	Click on the <a href="https://en.wikipedia.org/wiki/Key_signature#Table" target="_href">key signature</a> of interest to see where its notes lie on the violin's fingerboard.
+    The fingerboard is visualied below.
+    Its first row are the open strings (<code>G</code> <code>D</code> <code>A</code> <code>E</code>).
+    Finger positions highlighted with dark borders are being used in the selected key signature.
 </p>
 
 <div class="container">
+    <h3>Key signatures</h3>
+    
     <div class="row key-row">
         <div class="col-xs-3"><img class="img-key-svg" src="img/violin-fingerboard-map/0s.svg" alt="0s"></div>
         <div class="col-xs-3"><img class="img-key-svg" src="img/violin-fingerboard-map/1s.svg" alt="1s"></div>
@@ -87,7 +90,7 @@
         <div class="col-xs-3"><img class="img-key-svg" src="img/violin-fingerboard-map/7f.svg" alt="7f"></div>
     </div>
 
-    <br>
+    <h3>Fingerboard for the key <span id="key-name"></span></h3>
 
     <div class="row">
         <div class="col-xs-12 col-md-6 col-lg-5">

@@ -1,5 +1,5 @@
 Violin fingerboard map
-Visualizes the violin fingerboard positions for different keys.
+Visualizes the violin fingerboard positions for different key signatures.
 music;violin;fingerboard;keys;position;strings
 Playing the violin entails holding the instrument between the jaw and the collar bone. The strings are sounded either by drawing the bow across them (arco), or by plucking them (pizzicato). The left hand regulates the sounding length of the strings by stopping them against the fingerboard with the fingers, producing different pitches.
 https://en.wikipedia.org/wiki/Violin_technique
