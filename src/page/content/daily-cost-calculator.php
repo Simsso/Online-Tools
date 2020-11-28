@@ -15,8 +15,8 @@
 		<div class="input-group-addon">$ / € / ...</div>
 	</div>
     <div class="col-xs-12 col-sm-6 input-group">
-		<div class="input-group-addon">Montly expenses</div>
-		<input type="number" id="user-input-montly" class="form-control" />
+		<div class="input-group-addon">Monthly expenses</div>
+		<input type="number" id="user-input-monthly" class="form-control" />
 		<div class="input-group-addon">$ / € / ...</div>
 	</div>
 </div>
