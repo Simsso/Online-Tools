@@ -9,7 +9,7 @@
             factor: 1
         },
         {
-            dom: $('#user-input-montly'),
+            dom: $('#user-input-monthly'),
             factor: 12
         }
     ]
