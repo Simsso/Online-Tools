@@ -1,0 +1,4 @@
+Counter
+Helps counting anything
+count;counter;increment;numbers
+
