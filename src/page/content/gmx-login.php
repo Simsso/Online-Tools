@@ -1,5 +1,5 @@
 <div class="container">
-    <form class="form-l form-login" method="post" accept-charset="UTF-8" novalidate="novalidate" action="https://service.gmx.net/de/cgi/login?hal=true" name="loginForm">
+    <form class="form-l form-login" method="post" accept-charset="UTF-8" novalidate="novalidate" action="https://login.gmx.net/login" name="loginForm">
         <div class="row">
             <input class="form-control" type="hidden" name="service" value="freemail">
             <input class="form-control" type="hidden" name="successURL" value="https://navigator.gmx.net/login">
