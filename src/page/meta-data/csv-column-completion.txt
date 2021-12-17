@@ -1,0 +1,5 @@
+CSV column completion
+Fills the empty values in CSV columns with the values from above
+csv;data;text
+
+
