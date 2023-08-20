@@ -1,0 +1,38 @@
+service: tools-timodenk-com
+runtime: php82
+
+env_variables:
+  APP_DEBUG: false
+  LOG_CHANNEL: stderr
+  APP_STORAGE: /tmp
+
+instance_class: F2
+
+automatic_scaling:
+  target_cpu_utilization: 0.65
+  min_instances: 0
+  max_instances: 1
+
+entrypoint: serve src/index.php
+
+runtime_config:
+  document_root: src
+  operating_system: "ubuntu22"
+
+handlers:
+- url: /audio
+  static_dir: src/audio
+- url: /css
+  static_dir: src/css
+- url: /fonts
+  static_dir: src/fonts
+- url: /img
+  static_dir: src/img
+- url: /js
+  static_dir: src/js
+- url: /page
+  static_dir: src/page
+
+# Send all other requests to index.php
+- url: /.*
+  script: auto

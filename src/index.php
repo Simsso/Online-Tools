@@ -45,7 +45,16 @@
 
   // set $p to the code of the requested page
   $p = 'home';
-  if (isset($_GET['p']) && strlen($_GET['p'])) { $p = ltrim($_GET['p'], '/'); }
+  if (isset($_GET['p']) && strlen($_GET['p'])) {
+    // Route used when serving through Apache web server.
+    $p = ltrim($_GET['p'], '/');
+  }
+  if (preg_match('#/([^/]+)$#', $_SERVER['REQUEST_URI'], $matches)) {
+    // Route used when serving via App Engine which sends any request,
+    // no matter the URL to the index.php file.
+    $p = $matches[1];
+  }
+
 
   // special pages don't have the content, logic, adapter system which tool pages have
   $special_pages = array('home', 'about', 'contact', 'legal-info');
